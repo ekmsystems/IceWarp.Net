@@ -1,0 +1,15 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>setaccountfolderpermissions</commandname>
+    <commandparams>
+      <accountemail>test@testing.com</accountemail>
+      <folderid>2</folderid>
+      <permissions>
+        <item>
+          <account>test@testing.com</account>
+          <permissions>Permissions</permissions>
+        </item>
+      </permissions>
+    </commandparams>
+  </query>
+</iq>

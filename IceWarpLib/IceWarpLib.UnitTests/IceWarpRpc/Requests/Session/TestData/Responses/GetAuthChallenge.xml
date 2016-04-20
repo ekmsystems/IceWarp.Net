@@ -1,0 +1,9 @@
+﻿<iq type="result">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <classname>tauthchallenge</classname>
+      <hashid>auth challenge hash id</hashid>
+      <timestamp>1460459327</timestamp>
+    </result>
+  </query>
+</iq>

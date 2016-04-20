@@ -1,0 +1,227 @@
+﻿<iq type="result" sid="201604181336290003">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>u_abqstatus</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>One char only, status of ABQ</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_accountdisabled</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertyenumvalues>
+          <item>
+            <value>0</value>
+            <name>enabled</name>
+
+          </item>
+          <item>
+            <value>1</value>
+            <name>disabled (login)</name>
+
+          </item>
+          <item>
+            <value>2</value>
+            <name>disabled (login</name>
+
+          </item>
+          <item>
+            <value>0</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>3</value>
+            <name>disabled (tarpitting)</name>
+
+          </item>
+          <item>
+            <value>4</value>
+            <name>domain disabled (this value can not be set</name>
+
+          </item>
+          <item>
+            <value>0</value>
+            <name/>
+
+          </item>
+
+        </propertyenumvalues>
+        <propertycomment>Account state</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>2</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_accounttype</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertyenumvalues>
+          <item>
+            <value>0</value>
+            <name>pop3</name>
+
+          </item>
+          <item>
+            <value>1</value>
+            <name>imap &amp; pop3</name>
+
+          </item>
+          <item>
+            <value>2</value>
+            <name>imap</name>
+
+          </item>
+
+        </propertyenumvalues>
+        <propertycomment>Mailbox protocol type</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>2</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_accountvalid</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Enable Expires on</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_accountvalidtill</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Expires on (Number of days from 1899/12/30)</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_accountvalidtill_date</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1899/12/30</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Expires on (Date in yyyy/mm/dd format)</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_activationkey_desktop</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>eJwBggB9//11dkctBX07rY48019dBUFeppzR36OdLs2KNxB/3VpLA0Tt7cXiHgRWlVqINWS3&#13;&#10;HwjSnr/nDC2hRyS2py3PCvOtHwyynv+rQWm4HqsyetQ6LYsTCZdaAfyIOsRYw/95OtXPo935&#13;&#10;noPsieBvKyNWNaLnC+GhK1MXHZLaTZ+HHIE839yfnT6E&#13;&#10;</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Desktop Client activation key</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_activationkey_outconn</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>eJwBgwB8//11dkctBX07rY48019dBUFeppzR36OdLs2KNxB/3VpLA0Tt7cXiHgRWlVqINWS3&#13;&#10;H0UzIzOXrX9SWz4TgTFd84/tFw65HQ33A7rxV+vvbkZ8y0XAOxMt1FsORKWoEpJgyU1XuinN&#13;&#10;3PBHjhc+2nXbhs1GYP+eGtqWbJQD0VUScjr7Yk2ISa08lw==&#13;&#10;</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Outlook Sync activation key</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_activesync</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Policy - ActiveSync</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>u_activesynceditable</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment>Read only variable to check if the user has ActiveSync Editable</propertycomment>
+        <propertygroup>User</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <offset>0</offset>
+      <overallcount>154</overallcount>
+
+    </result>
+
+  </query>
+
+</iq>

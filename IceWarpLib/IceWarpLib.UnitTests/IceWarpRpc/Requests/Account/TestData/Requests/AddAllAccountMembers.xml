@@ -1,0 +1,13 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>addallaccountmembers</commandname>
+    <commandparams>
+      <accountemail>test@testing.com</accountemail>
+      <domainstr>testing.com</domainstr>
+      <filter>
+        <namemask>Alias</namemask>
+        <typemask>1</typemask>
+      </filter>
+    </commandparams>
+  </query>
+</iq>

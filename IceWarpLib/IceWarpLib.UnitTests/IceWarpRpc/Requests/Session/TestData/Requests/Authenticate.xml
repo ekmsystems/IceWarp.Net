@@ -1,0 +1,12 @@
+﻿<iq type="get">
+  <query xmlns="admin:iq:rpc">
+    <commandname>authenticate</commandname>
+    <commandparams>
+      <authtype>0</authtype>
+      <email>email</email>
+      <password>password</password>
+      <digest>digest</digest>
+      <persistentlogin>0</persistentlogin>
+    </commandparams>
+  </query>
+</iq>

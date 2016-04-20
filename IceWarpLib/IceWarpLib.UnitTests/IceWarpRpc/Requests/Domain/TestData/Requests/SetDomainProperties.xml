@@ -1,0 +1,30 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>setdomainproperties</commandname>
+    <commandparams>
+      <domainstr>testing.com</domainstr>
+      <propertyvaluelist>
+        <item>
+          <apiproperty>
+            <propname>d_aliases</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>this-test</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+        <item>
+          <apiproperty>
+            <propname>d_unknownforwardto</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>forward@email.com</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+      </propertyvaluelist>
+    </commandparams>
+  </query>
+</iq>

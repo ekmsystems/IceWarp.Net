@@ -1,0 +1,77 @@
+﻿<iq type="result" sid="201604140855210009">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>d_adminemail</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>test@testing.co.uk</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_directorycache_refreshnow</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_unknownuserstype</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertyenumvalues>
+          <item>
+            <value>0</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>1</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>2</value>
+            <name/>
+
+          </item>
+
+        </propertyenumvalues>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>2</propertyvaluetype>
+
+      </item>
+      <offset>0</offset>
+      <overallcount>3</overallcount>
+
+    </result>
+
+  </query>
+
+</iq>
+

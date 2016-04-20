@@ -1,0 +1,37 @@
+﻿<iq type="result" sid="201604181336290003">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <name>Public Folders</name>
+        <email>public-folders@testing.co.uk</email>
+        <accounttype>7</accounttype>
+        <admintype>0</admintype>
+        <quota>
+          <classname>TAccountQuota</classname>
+          <mailboxsize>0</mailboxsize>
+          <mailboxquota>0</mailboxquota>
+
+        </quota>
+
+      </item>
+      <item>
+        <name>Test</name>
+        <email>test@testing.co.uk</email>
+        <accounttype>0</accounttype>
+        <admintype>1</admintype>
+        <quota>
+          <classname>TAccountQuota</classname>
+          <mailboxsize>934</mailboxsize>
+          <mailboxquota>0</mailboxquota>
+
+        </quota>
+
+      </item>
+      <offset>0</offset>
+      <overallcount>2</overallcount>
+
+    </result>
+
+  </query>
+
+</iq>

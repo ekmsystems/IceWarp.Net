@@ -1,0 +1,8 @@
+﻿<iq type="get">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getauthchallenge</commandname>
+    <commandparams>
+      <authtype>1</authtype>
+    </commandparams>
+  </query>
+</iq>

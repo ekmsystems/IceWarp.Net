@@ -1,0 +1,20 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getaccountproperties</commandname>
+    <commandparams>
+      <accountemail>test@testing.com</accountemail>
+      <accountpropertylist>
+        <item>
+          <propname>u_name</propname>
+        </item>
+        <item>
+          <propname>u_alias</propname>
+        </item>
+        <item>
+          <propname>u_type</propname>
+        </item>
+      </accountpropertylist>
+      <accountpropertyset>0</accountpropertyset>
+    </commandparams>
+  </query>
+</iq>

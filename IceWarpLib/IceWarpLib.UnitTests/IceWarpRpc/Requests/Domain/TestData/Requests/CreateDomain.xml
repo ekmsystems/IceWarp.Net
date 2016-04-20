@@ -1,0 +1,30 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>createdomain</commandname>
+    <commandparams>
+      <domainstr>testing.com</domainstr>
+      <domainproperties>
+        <item>
+          <apiproperty>
+            <propname>d_adminemail</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>test@testing.com</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+        <item>
+          <apiproperty>
+            <propname>d_mailboxsize</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>934</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+      </domainproperties>
+    </commandparams>
+  </query>
+</iq>

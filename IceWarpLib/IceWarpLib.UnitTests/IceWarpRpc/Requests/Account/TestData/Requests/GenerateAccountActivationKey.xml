@@ -1,0 +1,11 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>generateaccountactivationkey</commandname>
+    <commandparams>
+      <accountemail>test@testing.com</accountemail>
+      <keytype>1</keytype>
+      <description>key description</description>
+      <count>10</count>
+    </commandparams>
+  </query>
+</iq>

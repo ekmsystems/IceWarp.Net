@@ -1,0 +1,21 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getdomainapiconsole</commandname>
+    <commandparams>
+      <domainstr>testing.co.uk</domainstr>
+      <filter>
+        <mask>admin</mask>
+        <groups>
+          <classname>tpropertystringlist</classname>
+          <val>
+            <item>Domain</item>
+          </val>
+        </groups>
+        <clear>0</clear>
+      </filter>
+      <offset>0</offset>
+      <count>0</count>
+      <comments>0</comments>
+    </commandparams>
+  </query>
+</iq>

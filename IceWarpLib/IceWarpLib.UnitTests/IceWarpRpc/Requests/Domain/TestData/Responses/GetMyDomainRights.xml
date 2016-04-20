@@ -1,0 +1,18 @@
+﻿<iq type="result" sid="201602051125504026">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>d_adminemail</propname>
+        </apiproperty>
+        <propertyright>2</propertyright>
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_aliases</propname>
+        </apiproperty>
+        <propertyright>2</propertyright>
+      </item>
+    </result>
+  </query>
+</iq>

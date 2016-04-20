@@ -1,0 +1,11 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getaccountapiconsole</commandname>
+    <commandparams>
+      <accountemail>test@testing.co.uk</accountemail>
+      <offset>0</offset>
+      <count>0</count>
+      <comments>1</comments>
+    </commandparams>
+  </query>
+</iq>
