@@ -4,9 +4,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IceWarpObjects.Rpc.Enums;
-using IceWarpRpc;
-using IceWarpRpc.Requests.Session;
+using IceWarpLib.Objects.Rpc.Enums;
+using IceWarpLib.Rpc;
+using IceWarpLib.Rpc.Requests.Session;
 using NUnit.Framework;
 
 namespace IceWarpLib.IntegrationTests
@@ -30,7 +30,7 @@ namespace IceWarpLib.IntegrationTests
         public void Connect()
         {
             var url = ConfigurationManager.AppSettings["IceWarpUrl"]; ;
-            var api = new IceWarpApi();
+            var api = new IceWarpRpcApi();
             var authenticate = new Authenticate
             {
                 AuthType = TAuthType.Plain,

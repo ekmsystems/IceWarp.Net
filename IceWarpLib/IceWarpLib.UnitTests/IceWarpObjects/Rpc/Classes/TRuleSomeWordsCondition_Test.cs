@@ -1,5 +1,6 @@
-﻿using IceWarpObjects.Rpc.Classes;
-using IceWarpObjects.Rpc.Enums;
+﻿using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
 namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes

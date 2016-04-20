@@ -1,8 +1,11 @@
 ﻿using System.IO;
 using System.Xml;
-using IceWarpRpc.Exceptions;
-using IceWarpRpc.Responses;
-using IceWarpRpc.Utilities;
+using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Enums;
+using IceWarpLib.Rpc.Exceptions;
+using IceWarpLib.Rpc.Responses;
+using IceWarpLib.Rpc.Utilities;
 using NUnit.Framework;
 
 namespace IceWarpLib.UnitTests.IceWarpRpc.Requests

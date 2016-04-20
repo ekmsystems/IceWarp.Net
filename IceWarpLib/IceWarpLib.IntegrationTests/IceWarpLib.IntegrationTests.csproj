@@ -54,13 +54,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IceWarpObjects\IceWarpObjects.csproj">
+    <ProjectReference Include="..\IceWarpLib.Objects\IceWarpLib.Objects.csproj">
       <Project>{2ec8bc82-e41c-490e-9887-77529dc9e6bd}</Project>
-      <Name>IceWarpObjects</Name>
+      <Name>IceWarpLib.Objects</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IceWarpRpc\IceWarpRpc.csproj">
+    <ProjectReference Include="..\IceWarpLib.Rpc\IceWarpLib.Rpc.csproj">
       <Project>{87007c89-ecde-4130-aa26-5af14b251379}</Project>
-      <Name>IceWarpRpc</Name>
+      <Name>IceWarpLib.Rpc</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

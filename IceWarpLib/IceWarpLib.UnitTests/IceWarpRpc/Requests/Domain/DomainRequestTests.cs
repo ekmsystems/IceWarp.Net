@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
-using IceWarpObjects.Helpers;
-using IceWarpObjects.Rpc.Classes;
-using IceWarpObjects.Rpc.Enums;
-using IceWarpRpc.Requests.Domain;
-using IceWarpRpc.Utilities;
+using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Enums;
+using IceWarpLib.Rpc.Requests.Domain;
+using IceWarpLib.Rpc.Utilities;
 using NUnit.Framework;
 
 namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Domain

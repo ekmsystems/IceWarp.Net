@@ -1,6 +1,6 @@
 ﻿using System.Xml;
-using IceWarpObjects.Helpers;
-using IceWarpObjects.Rpc.Classes;
+using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes;
 using NUnit.Framework;
 
 namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
