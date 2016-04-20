@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2EC8BC82-E41C-490E-9887-77529DC9E6BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IceWarpObjects</RootNamespace>
+    <AssemblyName>IceWarpObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ClassHelper.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\ReflectiveEnumerator.cs" />
+    <Compile Include="Helpers\SerializationHelper.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rpc\Classes\BaseClass.cs" />
+    <Compile Include="Rpc\Classes\TAccountCard.cs" />
+    <Compile Include="Rpc\Classes\TAccountImage.cs" />
+    <Compile Include="Rpc\Classes\TAccountInfo.cs" />
+    <Compile Include="Rpc\Classes\TAccountListFilter.cs" />
+    <Compile Include="Rpc\Classes\TAccountName.cs" />
+    <Compile Include="Rpc\Classes\TAccountOutlookPolicies.cs" />
+    <Compile Include="Rpc\Classes\TAccountPropertyList.cs" />
+    <Compile Include="Rpc\Classes\TAccountQuota.cs" />
+    <Compile Include="Rpc\Classes\TAccountResponder.cs" />
+    <Compile Include="Rpc\Classes\TAccountResponderMessage.cs" />
+    <Compile Include="Rpc\Classes\TAccountState.cs" />
+    <Compile Include="Rpc\Classes\TActivationKey.cs" />
+    <Compile Include="Rpc\Classes\TAdministrativePermissions.cs" />
+    <Compile Include="Rpc\Classes\TAdministrativePermissionsList.cs" />
+    <Compile Include="Rpc\Classes\TAPIProperty.cs" />
+    <Compile Include="Rpc\Classes\TDomainInfo.cs" />
+    <Compile Include="Rpc\Classes\TDomainListFilter.cs" />
+    <Compile Include="Rpc\Classes\TDomainOutlookPolicies.cs" />
+    <Compile Include="Rpc\Classes\TDomainPropertyList.cs" />
+    <Compile Include="Rpc\Classes\TDomainsAdministrativePermissions.cs" />
+    <Compile Include="Rpc\Classes\TDomainsAdministrativePermissionsSet.cs" />
+    <Compile Include="Rpc\Classes\TDomainSpec.cs" />
+    <Compile Include="Rpc\Classes\TDomainsPermissionsList.cs" />
+    <Compile Include="Rpc\Classes\TDomainsSet.cs" />
+    <Compile Include="Rpc\Classes\TFolderInfo.cs" />
+    <Compile Include="Rpc\Classes\TFolderInfoList.cs" />
+    <Compile Include="Rpc\Classes\TFolderPermissions.cs" />
+    <Compile Include="Rpc\Classes\TFolderPermissionsItem.cs" />
+    <Compile Include="Rpc\Classes\TIMRoster.cs" />
+    <Compile Include="Rpc\Classes\TIMRosterItem.cs" />
+    <Compile Include="Rpc\Classes\TIMRosterList.cs" />
+    <Compile Include="Rpc\Classes\TOutlookPolicies.cs" />
+    <Compile Include="Rpc\Classes\TPropertyEnumValue.cs" />
+    <Compile Include="Rpc\Classes\TPropertyEnumValues.cs" />
+    <Compile Include="Rpc\Classes\TPropertyInfo.cs" />
+    <Compile Include="Rpc\Classes\TPropertyListFilter.cs" />
+    <Compile Include="Rpc\Classes\TPropertyMember.cs" />
+    <Compile Include="Rpc\Classes\TPropertyMembers.cs" />
+    <Compile Include="Rpc\Classes\TPropertyNoValue.cs" />
+    <Compile Include="Rpc\Classes\TPropertyPermission.cs" />
+    <Compile Include="Rpc\Classes\TPropertyRight.cs" />
+    <Compile Include="Rpc\Classes\TPropertyString.cs" />
+    <Compile Include="Rpc\Classes\TPropertyStringList.cs" />
+    <Compile Include="Rpc\Classes\TPropertyVal.cs" />
+    <Compile Include="Rpc\Classes\TPropertyValue.cs" />
+    <Compile Include="Rpc\Classes\TPropertyValueList.cs" />
+    <Compile Include="Rpc\Classes\TRuleAllCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleDNSBLCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleHasAttachmentCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleInfo.cs" />
+    <Compile Include="Rpc\Classes\TRuleIsSizeCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleIsSpamCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleLocalTimeCondition.cs" />
+    <Compile Include="Rpc\Classes\TRulePriorityCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleSenderRecipientCondition.cs" />
+    <Compile Include="Rpc\Classes\TRulesListFilter.cs" />
+    <Compile Include="Rpc\Classes\TRuleSMTPAuthCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleSomeWordsCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleSpamScoreCondition.cs" />
+    <Compile Include="Rpc\Classes\TRuleTrustedSessionCondition.cs" />
+    <Compile Include="Rpc\Enums\AccountType.cs" />
+    <Compile Include="Rpc\Enums\TAccountPropertySet.cs" />
+    <Compile Include="Rpc\Enums\TActivationKeyType.cs" />
+    <Compile Include="Rpc\Enums\TAdminType.cs" />
+    <Compile Include="Rpc\Enums\TAuthType.cs" />
+    <Compile Include="Rpc\Enums\TDomainType.cs" />
+    <Compile Include="Rpc\Enums\TPermission.cs" />
+    <Compile Include="Rpc\Enums\TPropertyValueType.cs" />
+    <Compile Include="Rpc\Enums\TResponder.cs" />
+    <Compile Include="Rpc\Enums\TRuleCompareType.cs" />
+    <Compile Include="Rpc\Enums\TRuleConditionType.cs" />
+    <Compile Include="Rpc\Enums\TRuleMessageActionType.cs" />
+    <Compile Include="Rpc\Enums\TRuleMultipleItemsMatchType.cs" />
+    <Compile Include="Rpc\Enums\TRulePriorityType.cs" />
+    <Compile Include="Rpc\Enums\TRuleRecipientConditionType.cs" />
+    <Compile Include="Rpc\Enums\TRuleRecipientSenderType.cs" />
+    <Compile Include="Rpc\Enums\TRuleRemoteLocalType.cs" />
+    <Compile Include="Rpc\Enums\TRuleSomeWordsFunctionType.cs" />
+    <Compile Include="Rpc\Enums\TUserState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
