@@ -1,0 +1,72 @@
+﻿<iq type="result" sid="201604191108190396">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <name>test@testing.com</name>
+      <id>2</id>
+      <foldertype>X</foldertype>
+      <defaulttype/>
+      <subfolders>
+        <item>
+          <name>Documents</name>
+          <id>1RG9jdW1lbnRz</id>
+          <foldertype>F</foldertype>
+          <defaulttype/>
+          <subfolders/>
+
+        </item>
+        <item>
+          <name>Calendar</name>
+          <id>1Q2FsZW5kYXI=</id>
+          <foldertype>E</foldertype>
+          <defaulttype/>
+          <subfolders/>
+
+        </item>
+        <item>
+          <name>Tasks</name>
+          <id>1VGFza3M=</id>
+          <foldertype>T</foldertype>
+          <defaulttype/>
+          <subfolders/>
+
+        </item>
+        <item>
+          <name>Journal</name>
+          <id>1Sm91cm5hbA==</id>
+          <foldertype>J</foldertype>
+          <defaulttype/>
+          <subfolders/>
+
+        </item>
+        <item>
+          <name>Notes</name>
+          <id>1Tm90ZXM=</id>
+          <foldertype>N</foldertype>
+          <defaulttype/>
+          <subfolders/>
+
+        </item>
+        <item>
+          <name>Contacts</name>
+          <id>1Q29udGFjdHM=</id>
+          <foldertype>C</foldertype>
+          <defaulttype/>
+          <subfolders/>
+
+        </item>
+        <item>
+          <name>Inbox</name>
+          <id>0SU5CT1g=</id>
+          <foldertype>M</foldertype>
+          <defaulttype>I</defaulttype>
+          <subfolders/>
+
+        </item>
+
+      </subfolders>
+
+    </result>
+
+  </query>
+
+</iq>

@@ -1,0 +1,13 @@
+﻿<iq type="result" sid="201604191108190396">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <isinherited>0</isinherited>
+      <item>
+        <account>test@testing.com</account>
+        <permissions>permissions</permissions>
+      </item>
+    </result>
+
+  </query>
+
+</iq>

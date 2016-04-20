@@ -1,0 +1,1487 @@
+﻿<iq type="result" sid="201604140855210009">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>d_abqstatus</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_accountnumber</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_activesync</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_adminemail</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>test@testing.co.uk</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_aliases</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_antispam</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_archive</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_archivesupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_assupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_deletescore</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0.00</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_overridethresholds</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_quarantinescore</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0.00</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_spamassassindelete</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_spamassassinquarantine</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_spamassassinscore</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_as_spamassassinscorevalue</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0.00</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_avscan</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_avsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_backup</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>eJxjYKAA/KdEMwS4FOQXl+QmFpekFlknpuRm5kHIzOKSosSS/CLr4tKC1KKyzGIgMwOhsjw1CaYnqbQ4lXJnDBgQKkktLnEAEZl56XrJ+Xql2QPtpFFAI8AIBAPthlEwCkbBKBgFwwQAANlqJCo=</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_basemailboxpath</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>C:\Program Files\IceWarp\mail\testing.co.uk\</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_calendar</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_challengeresponse</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_client_connector</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_client_desktop</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_connectorsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_deleteexpired</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_description</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_desktopsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_directorycache_refreshnow</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_disablelogin</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_diskquota</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_domainvalue</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_dumpsmtpaccountcache</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_eassupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_expires</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_expireson</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_expireson_date</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1899/12/30</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_folderpath</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_footerfile</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_footerhtmlfile</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_ftp</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_ftpsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_ftp_domainsettings</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_gwsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_headerfile</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_headerfooterflag</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>10</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_headerhtmlfile</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_hostname</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_im</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_imsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_infotoadmin</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_ipaddress</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_limitnotify</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_mailboxsize</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>934</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_meeting</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_meetingsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_mingerpassword</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_notifybeforeexpires</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_notifyexpire</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_numberlimit</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_postmaster</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>postmaster;admin;administrator;supervisor;hostmaster;webmaster;abuse</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_quarantinesupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_rulescontentxml</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;CONTENTFILTER/&gt;&#13;&#10;</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sharedroster</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sip</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sipsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sms</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_smscontent</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_smssupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sms_domainsettings</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>inherited=T&amp;gwid=&amp;expire=&amp;maxsend=0&amp;sent=0&amp;prevsent=0&amp;lastsentdate=2016-04-13%2008%3A48</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>4</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sms_sentlastmonth</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_sms_sentthismonth</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_syncml</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_syncmlsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_toptextfile</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_toptexthtmlfile</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_type</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertyenumvalues>
+          <item>
+            <value>0</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>1</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>2</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>3</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>4</value>
+            <name/>
+
+          </item>
+
+        </propertyenumvalues>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>2</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_unknownforwardto</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>1</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_unknownuserstype</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertyenumvalues>
+          <item>
+            <value>0</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>1</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>2</value>
+            <name/>
+
+          </item>
+
+        </propertyenumvalues>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>2</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_userlimitnotify</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_usermailbox</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_usermb</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_usermsg</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_usernumber</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_verifytype</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertyenumvalues>
+          <item>
+            <value>0</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>1</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>2</value>
+            <name/>
+
+          </item>
+          <item>
+            <value>3</value>
+            <name/>
+
+          </item>
+
+        </propertyenumvalues>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>2</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_volumelimit</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>0</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_webdav</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_webdavsupport</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>1</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+        <propertycomment/>
+        <propertygroup>Domain</propertygroup>
+        <propertyvaluetype>3</propertyvaluetype>
+
+      </item>
+      <offset>0</offset>
+      <overallcount>88</overallcount>
+
+    </result>
+
+  </query>
+
+</iq>
+

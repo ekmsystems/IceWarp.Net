@@ -1,0 +1,40 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>createaccount</commandname>
+    <commandparams>
+      <domainstr>testing.com</domainstr>
+      <accountproperties>
+        <item>
+          <apiproperty>
+            <propname>u_name</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>testing</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+        <item>
+          <apiproperty>
+            <propname>u_alias</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>tester</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+        <item>
+          <apiproperty>
+            <propname>u_type</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>0</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+      </accountproperties>
+    </commandparams>
+  </query>
+</iq>

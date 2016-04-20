@@ -1,0 +1,38 @@
+﻿<iq type="result" sid="201604200816490002">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <domainspermissions>
+        <item>
+          <domainsset>
+            <item>
+              <mask>testing.com</mask>
+              <negate>0</negate>
+            </item>
+          </domainsset>
+          <domainsadministrativepermissions>
+            <accountsrelatedpermissions>
+              <item>
+                <prop>1</prop>
+                <perm>2</perm>
+              </item>
+            </accountsrelatedpermissions>
+            <domainrelatedpermissions>
+              <item>
+                <prop>1</prop>
+                <perm>2</perm>
+              </item>
+            </domainrelatedpermissions>
+          </domainsadministrativepermissions>
+        </item>
+      </domainspermissions>
+      <globalpermissions>
+        <item>
+          <prop>1</prop>
+          <perm>2</perm>
+        </item>
+      </globalpermissions>
+    </result>
+
+  </query>
+
+</iq>

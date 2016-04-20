@@ -1,0 +1,9 @@
+﻿<iq type="result" sid="201602051315284154">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <email>test@testing.co.uk</email>
+      <domain>testing.co.uk</domain>
+      <admintype>2</admintype>
+    </result>
+  </query>
+</iq>

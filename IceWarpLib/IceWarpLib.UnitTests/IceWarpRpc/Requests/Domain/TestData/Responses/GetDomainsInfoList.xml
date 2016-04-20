@@ -1,0 +1,14 @@
+﻿<iq type="result" sid="201604121335430012">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <name>testing.co.uk</name>
+        <desc/>
+        <domaintype>0</domaintype>
+        <accountcount>-5</accountcount>
+      </item>
+      <offset>0</offset>
+      <overallcount>1</overallcount>
+    </result>
+  </query>
+</iq>

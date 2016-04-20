@@ -1,0 +1,5 @@
+﻿<iq type="error">
+  <query>
+    <error uid="iq_root_tag_invalid"/>
+  </query>
+</iq>

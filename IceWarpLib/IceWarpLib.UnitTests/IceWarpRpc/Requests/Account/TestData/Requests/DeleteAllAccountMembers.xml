@@ -1,0 +1,8 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>deleteallaccountmembers</commandname>
+    <commandparams>
+      <accountemail>test@testing.com</accountemail>
+    </commandparams>
+  </query>
+</iq>

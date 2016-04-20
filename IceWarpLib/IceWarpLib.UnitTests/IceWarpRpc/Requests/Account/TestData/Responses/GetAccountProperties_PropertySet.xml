@@ -1,0 +1,75 @@
+﻿<iq type="result" sid="201604181336290003">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>A_Name</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TAccountName</classname>
+          <name>Test</name>
+          <surname/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>A_Quota</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TAccountQuota</classname>
+          <mailboxsize>934</mailboxsize>
+          <mailboxquota>0</mailboxquota>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>A_Image</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>A_AliasList</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyStringList</classname>
+          <val>
+            <item>test</item>
+
+          </val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>A_State</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TAccountState</classname>
+          <state>0</state>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+    </result>
+  </query>
+</iq>

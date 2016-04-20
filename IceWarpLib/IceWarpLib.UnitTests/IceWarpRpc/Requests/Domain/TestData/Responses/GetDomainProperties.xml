@@ -1,0 +1,74 @@
+﻿<iq type="result" sid="201604130847550002">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>d_adminemail</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>test@testing.co.uk</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_aliases</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_postmaster</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>postmaster;admin;administrator;supervisor;hostmaster;webmaster;abuse</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_unknownforwardto</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val/>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>d_unknownuserstype</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+
+    </result>
+
+  </query>
+
+</iq>

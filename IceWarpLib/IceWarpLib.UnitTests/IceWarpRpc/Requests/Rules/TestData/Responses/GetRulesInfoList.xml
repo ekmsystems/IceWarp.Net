@@ -1,0 +1,24 @@
+﻿<iq type="result" sid="201602051125504026">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <ruleid>stringval</ruleid>
+        <title>stringval</title>
+        <active>0</active>
+        <actiontype>0</actiontype>
+        <condition>
+          <classname>truletrustedsessioncondition</classname>
+        </condition>
+      </item>
+      <item>
+        <ruleid>stringval</ruleid>
+        <title>stringval</title>
+        <active>0</active>
+        <actiontype>0</actiontype>
+        <condition>
+          <classname>trulehasattachmentcondition</classname>
+        </condition>
+      </item>
+    </result>
+  </query>
+</iq>

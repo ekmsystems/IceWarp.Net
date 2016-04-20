@@ -1,0 +1,47 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>setaccountproperties</commandname>
+    <commandparams>
+      <accountemail>test@testing.com</accountemail>
+      <propertyvaluelist>
+        <item>
+          <apiproperty>
+            <propname>Responder</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>taccountresponder</classname>
+            <norespond>
+              <classname>tpropertystringlist</classname>
+              <val>
+                <item>no@respond.com</item>
+              </val>
+            </norespond>
+            <respondermessage>
+              <classname>taccountrespondermessage</classname>
+              <from>from@testing.com</from>
+              <subject>Testing</subject>
+              <text>Test Test</text>
+            </respondermessage>
+            <respondertype>0</respondertype>
+            <respondperiod>0</respondperiod>
+            <respondbetweenfrom />
+            <respondbetweento />
+            <respondonlyiftome>0</respondonlyiftome>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+        <item>
+          <apiproperty>
+            <propname>AccountName</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>taccountname</classname>
+            <name>This</name>
+            <surname>Test</surname>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+      </propertyvaluelist>
+    </commandparams>
+  </query>
+</iq>
