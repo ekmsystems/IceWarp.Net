@@ -45,6 +45,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Com\Enums\AccountsStorageMode.cs" />
+    <Compile Include="Com\Enums\AccountType.cs" />
+    <Compile Include="Com\Enums\DomainListDisplay.cs" />
+    <Compile Include="Com\Enums\ExecutableType.cs" />
+    <Compile Include="Com\Enums\InternetConnectionMode.cs" />
+    <Compile Include="Com\Enums\ListServer.cs" />
+    <Compile Include="Com\Enums\Logging.cs" />
+    <Compile Include="Com\Enums\NotificationFilter.cs" />
+    <Compile Include="Com\Enums\Originator.cs" />
+    <Compile Include="Com\Enums\Policies.cs" />
+    <Compile Include="Com\Enums\ServerType.cs" />
+    <Compile Include="Com\Enums\StaticRoute.cs" />
+    <Compile Include="Com\Enums\SupportedSslProtocol.cs" />
+    <Compile Include="Com\Enums\SystemTools.cs" />
+    <Compile Include="Com\Enums\TlsSsl.cs" />
+    <Compile Include="Com\Enums\User.cs" />
+    <Compile Include="Com\Enums\MailingList.cs" />
+    <Compile Include="Com\Enums\Moderation.cs" />
+    <Compile Include="Com\Objects\Account\Account.cs" />
+    <Compile Include="Com\Objects\Account\Catalog.cs" />
+    <Compile Include="Com\Objects\Configuration.cs" />
+    <Compile Include="Com\Objects\Domain.cs" />
+    <Compile Include="Com\Enums\Domain.cs" />
+    <Compile Include="Com\Enums\ServerOsVersion.cs" />
+    <Compile Include="Com\Objects\Account\Executable.cs" />
+    <Compile Include="Com\Objects\System\SystemActiveDirectory.cs" />
+    <Compile Include="Com\Objects\System\SystemAdvanced.cs" />
+    <Compile Include="Com\Objects\System\SystemInternetConnection.cs" />
+    <Compile Include="Com\Objects\System\SystemLogging\General.cs" />
+    <Compile Include="Com\Objects\System\SystemLogging\Services.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\FTPService.cs" />
+    <Compile Include="Com\Objects\GlobalSettings.cs" />
+    <Compile Include="Com\Objects\Account\Group.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\GroupWareService.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\InstantMessagingService.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\LDAPService.cs" />
+    <Compile Include="Com\Objects\Account\ListServer.cs" />
+    <Compile Include="Com\Objects\Policies\LoginPolicy.cs" />
+    <Compile Include="Com\Objects\Account\MailingList.cs" />
+    <Compile Include="Com\Objects\Account\Notification.cs" />
+    <Compile Include="Com\Objects\Policies\PasswordPolicy.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\POP3Service.cs" />
+    <Compile Include="Com\Objects\Account\RemoteAccount.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\SMTPService.cs" />
+    <Compile Include="Com\Objects\Account\StaticRoute.cs" />
+    <Compile Include="Com\Objects\Account\User.cs" />
+    <Compile Include="Com\Objects\System\SystemServices\WebControlService.cs" />
+    <Compile Include="Com\Objects\System\SystemStorage\Accounts.cs" />
+    <Compile Include="Com\Objects\System\SystemStorage\Directories.cs" />
+    <Compile Include="Com\Objects\System\SystemStorage\LoadBalancing.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\RemoteServerWatchdogTool.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\ServerMigrationTool.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\ServerWatchdogTool.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\Statistics.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\SystemBackupTool.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\SystemMonitorTool.cs" />
+    <Compile Include="Com\Objects\System\SystemTools\TcpIpTunnelTool.cs" />
     <Compile Include="Helpers\ClassHelper.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Helpers\ReflectiveEnumerator.cs" />
@@ -136,6 +193,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
