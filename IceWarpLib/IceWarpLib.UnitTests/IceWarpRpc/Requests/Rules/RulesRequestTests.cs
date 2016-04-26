@@ -88,6 +88,62 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Rules
         }
 
         [Test]
+        public void EditRule()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "EditRule.xml"));
+            var request = new EditRule
+            {
+                SessionId = "sid",
+                Who = "test@testing.com",
+                RuleID = 1,
+                RuleSettings = new TRuleSettings
+                {
+                    Title = "Test",
+                    Active = true,
+                    RuleID = 1,
+                    Conditions = new TRuleConditions
+                    {
+                        Items = new List<TRuleCondition>
+                        {
+                            new TRuleSomeWordsCondition
+                            {
+                                ConditionType = TRuleConditionType.CustomHeader,
+                                OperatorAnd = true,
+                                MatchFunction = TRuleSomeWordsFunctionType.Regex,
+                                MatchValue = "X-Priority: 2"
+                            }
+                        }
+                    },
+                    Actions = new TRuleActions
+                    {
+                        Items = new List<TRuleAction>
+                        {
+                            new TRuleMessageActionAction
+                            {
+                                Actiontype = TRuleActionType.MessageAction,
+                                MessageActionType = TRuleMessageActionType.Reject
+                            },
+                            new TRulePriorityAction
+                            {
+                                Actiontype = TRuleActionType.Priority,
+                                Priority = TRulePriorityType.Highest
+                            }
+                        }
+                    }
+                }
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "EditRule.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
         public void GetRule()
         {
             string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetRule.xml"));

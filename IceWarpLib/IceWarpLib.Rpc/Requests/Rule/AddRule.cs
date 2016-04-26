@@ -8,7 +8,7 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Requests.Rule
 {
     /// <summary>
-    /// Creates new rule from RuleSettings
+    /// Creates new rule from RuleSettings. See <see cref="IceWarpCommand{SuccessResponse}"/> for return type.
     /// </summary>
     public class AddRule : IceWarpCommand<SuccessResponse>
     {
