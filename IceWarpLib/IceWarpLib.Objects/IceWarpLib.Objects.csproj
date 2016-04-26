@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\IceWarpLib.Objects.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -155,6 +156,7 @@
     <Compile Include="Rpc\Classes\Property\TPropertyVal.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyValue.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyValueList.cs" />
+    <Compile Include="Rpc\Classes\Rule\TRuleAction.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleAllCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleConditions.cs" />
@@ -180,6 +182,7 @@
     <Compile Include="Rpc\Enums\TPermission.cs" />
     <Compile Include="Rpc\Enums\TPropertyValueType.cs" />
     <Compile Include="Rpc\Enums\TResponder.cs" />
+    <Compile Include="Rpc\Enums\TRuleActionType.cs" />
     <Compile Include="Rpc\Enums\TRuleCompareType.cs" />
     <Compile Include="Rpc\Enums\TRuleConditionType.cs" />
     <Compile Include="Rpc\Enums\TRuleMessageActionType.cs" />
