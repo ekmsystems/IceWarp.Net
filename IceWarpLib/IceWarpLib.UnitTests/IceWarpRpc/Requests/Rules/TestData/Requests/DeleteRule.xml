@@ -1,0 +1,9 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>deleterule</commandname>
+    <commandparams>
+      <who>test@testing.com</who>
+      <ruleid>1</ruleid>
+    </commandparams>
+  </query>
+</iq>

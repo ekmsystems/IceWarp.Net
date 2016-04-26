@@ -282,6 +282,9 @@
     <Content Include="IceWarpRpc\Requests\ErrorResponse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\DeleteRule.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\EditRule.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -292,6 +295,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\GetRulesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\DeleteRule.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\EditRule.xml">

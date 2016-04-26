@@ -88,6 +88,27 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Rules
         }
 
         [Test]
+        public void DeleteRule()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "DeleteRule.xml"));
+            var request = new DeleteRule
+            {
+                SessionId = "sid",
+                Who = "test@testing.com",
+                RuleID = 1
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "DeleteRule.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
         public void EditRule()
         {
             string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "EditRule.xml"));
@@ -205,7 +226,5 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Rules
             Assert.AreEqual(typeof(TRuleTrustedSessionCondition), response.Items.First().Condition.GetType());
             Assert.AreEqual(typeof(TRuleHasAttachmentCondition), response.Items.Last().Condition.GetType());
         }
-
-
     }
 }
