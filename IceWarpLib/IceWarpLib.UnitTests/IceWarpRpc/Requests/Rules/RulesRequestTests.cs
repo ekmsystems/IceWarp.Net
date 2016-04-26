@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -30,6 +31,61 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Rules
 
         [TestFixtureTearDown]
         public void FixtureTearDown() { }
+
+        [Test]
+        public void AddRule()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "AddRule.xml"));
+            var request = new AddRule
+            {
+                SessionId = "sid",
+                Who = "test@testing.com",
+                RuleSettings = new TRuleSettings
+                {
+                    Title = "Test",
+                    Active = true,
+                    RuleID = 1,
+                    Conditions = new TRuleConditions
+                    {
+                        Items = new List<TRuleCondition>
+                        {
+                            new TRuleSomeWordsCondition
+                            {
+                                ConditionType = TRuleConditionType.CustomHeader,
+                                OperatorAnd = true,
+                                MatchFunction = TRuleSomeWordsFunctionType.Regex,
+                                MatchValue = "X-Priority: 2"
+                            }
+                        }
+                    },
+                    Actions = new TRuleActions
+                    {
+                        Items = new List<TRuleAction>
+                        {
+                            new TRuleMessageActionAction
+                            {
+                                Actiontype = TRuleActionType.MessageAction,
+                                MessageActionType = TRuleMessageActionType.Reject
+                            },
+                            new TRulePriorityAction
+                            {
+                                Actiontype = TRuleActionType.Priority,
+                                Priority = TRulePriorityType.Highest
+                            }
+                        }
+                    }
+                }
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "AddRule.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
 
         [Test]
         public void GetRule()
