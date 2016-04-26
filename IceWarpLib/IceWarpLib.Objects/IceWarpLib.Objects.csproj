@@ -201,6 +201,7 @@
     <Compile Include="Rpc\Enums\TRuleConditionType.cs" />
     <Compile Include="Rpc\Enums\TRuleEditHeaderType.cs" />
     <Compile Include="Rpc\Enums\TRuleMessageActionType.cs" />
+    <Compile Include="Rpc\Enums\TRuleMoveType.cs" />
     <Compile Include="Rpc\Enums\TRuleMultipleItemsMatchType.cs" />
     <Compile Include="Rpc\Enums\TRulePriorityType.cs" />
     <Compile Include="Rpc\Enums\TRuleRecipientConditionType.cs" />

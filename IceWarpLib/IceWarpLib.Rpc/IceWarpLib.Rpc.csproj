@@ -90,6 +90,7 @@
     <Compile Include="Requests\Rule\EditRule.cs" />
     <Compile Include="Requests\Rule\GetRule.cs" />
     <Compile Include="Requests\Rule\GetRulesInfoList.cs" />
+    <Compile Include="Requests\Rule\MoveRule.cs" />
     <Compile Include="Requests\Session\Authenticate.cs" />
     <Compile Include="Requests\Session\GetAuthChallenge.cs" />
     <Compile Include="Requests\Session\GetSessionInfo.cs" />
