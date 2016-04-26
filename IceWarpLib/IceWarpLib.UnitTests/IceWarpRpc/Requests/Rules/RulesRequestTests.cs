@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes;
-using IceWarpLib.Objects.Rpc.Enums;
+using IceWarpLib.Objects.Rpc.Classes.Rule;
 using IceWarpLib.Rpc.Requests.Rule;
 using IceWarpLib.Rpc.Utilities;
 using NUnit.Framework;
