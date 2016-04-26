@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Classes.Property;
+using IceWarpLib.Objects.Rpc.Classes.Rule;
 
 namespace IceWarpLib.Objects.Helpers
 {

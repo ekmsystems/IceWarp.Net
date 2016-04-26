@@ -1,5 +1,6 @@
 ﻿using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Classes.Rule;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 

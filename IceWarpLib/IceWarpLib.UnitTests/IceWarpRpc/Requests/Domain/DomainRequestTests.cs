@@ -5,6 +5,8 @@ using System.Linq;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Classes.Domain;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Enums;
 using IceWarpLib.Rpc.Requests.Domain;
 using IceWarpLib.Rpc.Utilities;

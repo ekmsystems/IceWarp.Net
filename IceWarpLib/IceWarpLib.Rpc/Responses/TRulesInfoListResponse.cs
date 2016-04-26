@@ -2,6 +2,7 @@
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes;
+using IceWarpLib.Objects.Rpc.Classes.Rule;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Responses
