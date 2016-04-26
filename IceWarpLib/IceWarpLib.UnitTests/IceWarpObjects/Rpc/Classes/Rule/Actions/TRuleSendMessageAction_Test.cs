@@ -9,7 +9,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Actions
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
     <classname>trulesendmessageaction</classname>
-    <actiontype>0</actiontype>
+    <actiontype>1</actiontype>
     <messagefrom>message from</messagefrom>
     <messageto>message to</messageto>
     <messagesubject>message subject</messagesubject>
@@ -21,7 +21,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Actions
         {
             var testClass = new TRuleSendMessageAction
             {
-                Actiontype = TRuleActionType.None,
+                Actiontype = TRuleActionType.SendMessage,
                 MessageFrom = "message from",
                 MessageTo = "message to",
                 MessageSubject = "message subject",
@@ -37,7 +37,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Actions
         {
             var testClass = new TRuleSendMessageAction(GetXmlNode(_xml));
 
-            Assert.AreEqual(TRuleActionType.None, testClass.Actiontype);
+            Assert.AreEqual(TRuleActionType.SendMessage, testClass.Actiontype);
             Assert.AreEqual("message from", testClass.MessageFrom);
             Assert.AreEqual("message to", testClass.MessageTo);
             Assert.AreEqual("message subject", testClass.MessageSubject);

@@ -1,0 +1,46 @@
+﻿<iq type="result" sid="201604261039410001">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <conditions>
+        <item>
+          <conditiontype>12</conditiontype>
+          <operatorand>1</operatorand>
+          <logicalnot>0</logicalnot>
+          <bracketsleft>0</bracketsleft>
+          <bracketsright>0</bracketsright>
+          <classname>TRuleSomeWordsCondition</classname>
+          <matchfunction>3</matchfunction>
+          <matchvalue>X-Priority: 2</matchvalue>
+          <matchcase>0</matchcase>
+          <matchwholewordsonly>0</matchwholewordsonly>
+          <notmatch>0</notmatch>
+          <multipleitemsmatch>0</multipleitemsmatch>
+          <parsexml>0</parsexml>
+
+        </item>
+
+      </conditions>
+      <actions>
+        <item>
+          <actiontype>25</actiontype>
+          <classname>TRuleMessageActionAction</classname>
+          <messageactiontype>2</messageactiontype>
+
+        </item>
+        <item>
+          <actiontype>7</actiontype>
+          <classname>TRulePriorityAction</classname>
+          <priority>1</priority>
+
+        </item>
+
+      </actions>
+      <title>Priority Test</title>
+      <active>1</active>
+      <ruleid>1</ruleid>
+
+    </result>
+
+  </query>
+
+</iq>

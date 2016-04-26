@@ -6,6 +6,15 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
     /// <summary>
     /// Rule action that sends a message
     /// </summary>
+    /// <code>
+    ///     <custom>
+    ///         <classname>trulesendmessageaction</classname>
+    ///         <messagefrom>stringval</messagefrom>
+    ///         <messageto>stringval</messageto>
+    ///         <messagesubject>stringval</messagesubject>
+    ///         <messagetext>stringval</messagetext>
+    ///     </custom>
+    /// </code>
     public class TRuleSendMessageAction : TRuleAction
     {
         /// <summary>
