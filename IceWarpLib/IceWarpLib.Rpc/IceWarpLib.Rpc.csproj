@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\IceWarpLib.Rpc.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -84,8 +85,12 @@
     <Compile Include="Requests\Domain\GetMyDomainRigths.cs" />
     <Compile Include="Requests\Domain\RenameDomain.cs" />
     <Compile Include="Requests\Domain\SetDomainProperties.cs" />
+    <Compile Include="Requests\Rule\AddRule.cs" />
+    <Compile Include="Requests\Rule\DeleteRule.cs" />
+    <Compile Include="Requests\Rule\EditRule.cs" />
     <Compile Include="Requests\Rule\GetRule.cs" />
     <Compile Include="Requests\Rule\GetRulesInfoList.cs" />
+    <Compile Include="Requests\Rule\MoveRule.cs" />
     <Compile Include="Requests\Session\Authenticate.cs" />
     <Compile Include="Requests\Session\GetAuthChallenge.cs" />
     <Compile Include="Requests\Session\GetSessionInfo.cs" />
@@ -104,6 +109,7 @@
     <Compile Include="Responses\TPropertyInfoListResponse.cs" />
     <Compile Include="Responses\TPropertyRightListResponse.cs" />
     <Compile Include="Responses\TPropertyValueListResponse.cs" />
+    <Compile Include="Responses\TRuleSettingsResponse.cs" />
     <Compile Include="Responses\TRulesInfoListResponse.cs" />
     <Compile Include="Utilities\HttpRequestResult.cs" />
     <Compile Include="Utilities\HttpUtility.cs" />
