@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleActions_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleCopyToFolderAction_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleEditHeaderAction_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleEncryptAction_Test.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleEditHeaderItem_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleEditHeaderList_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSettings_Test.cs" />
     <Compile Include="IceWarpRpc\Requests\Account\AccountRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Domain\DomainRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />

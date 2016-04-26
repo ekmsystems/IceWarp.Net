@@ -105,6 +105,7 @@
     <Compile Include="Responses\TPropertyInfoListResponse.cs" />
     <Compile Include="Responses\TPropertyRightListResponse.cs" />
     <Compile Include="Responses\TPropertyValueListResponse.cs" />
+    <Compile Include="Responses\TRuleSettingsResponse.cs" />
     <Compile Include="Responses\TRulesInfoListResponse.cs" />
     <Compile Include="Utilities\HttpRequestResult.cs" />
     <Compile Include="Utilities\HttpUtility.cs" />

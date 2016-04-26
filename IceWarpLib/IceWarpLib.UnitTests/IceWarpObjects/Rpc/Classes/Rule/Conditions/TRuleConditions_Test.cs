@@ -30,7 +30,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
 </custom>".TrimStart();
 
         [Test]
-        public void TRuleAllConditions()
+        public void TRuleConditions()
         {
             var testClass = new TRuleConditions();
             testClass.Items.Add(new TRuleTrustedSessionCondition());
@@ -45,7 +45,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         }
 
         [Test]
-        public void TRuleAllConditions_BuildXmlElement()
+        public void TRuleConditions_BuildXmlElement()
         {
             var testClass = new TRuleConditions(GetXmlNode(_xml));
 

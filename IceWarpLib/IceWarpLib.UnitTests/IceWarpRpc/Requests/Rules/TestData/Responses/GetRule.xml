@@ -3,12 +3,12 @@
     <result>
       <conditions>
         <item>
+          <classname>trulesomewordscondition</classname>
           <conditiontype>12</conditiontype>
           <operatorand>1</operatorand>
           <logicalnot>0</logicalnot>
           <bracketsleft>0</bracketsleft>
           <bracketsright>0</bracketsright>
-          <classname>TRuleSomeWordsCondition</classname>
           <matchfunction>3</matchfunction>
           <matchvalue>X-Priority: 2</matchvalue>
           <matchcase>0</matchcase>
@@ -16,26 +16,21 @@
           <notmatch>0</notmatch>
           <multipleitemsmatch>0</multipleitemsmatch>
           <parsexml>0</parsexml>
-
         </item>
-
       </conditions>
       <actions>
         <item>
+          <classname>trulemessageactionaction</classname>
           <actiontype>25</actiontype>
-          <classname>TRuleMessageActionAction</classname>
           <messageactiontype>2</messageactiontype>
-
         </item>
         <item>
+          <classname>trulepriorityaction</classname>
           <actiontype>7</actiontype>
-          <classname>TRulePriorityAction</classname>
           <priority>1</priority>
-
         </item>
-
       </actions>
-      <title>Priority Test</title>
+      <title>Test</title>
       <active>1</active>
       <ruleid>1</ruleid>
 

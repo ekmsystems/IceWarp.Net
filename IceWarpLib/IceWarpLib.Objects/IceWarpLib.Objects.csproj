@@ -157,6 +157,7 @@
     <Compile Include="Rpc\Classes\Property\TPropertyValue.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyValueList.cs" />
     <Compile Include="Rpc\Classes\Rule\Actions\TRuleAction.cs" />
+    <Compile Include="Rpc\Classes\Rule\Actions\TRuleActions.cs" />
     <Compile Include="Rpc\Classes\Rule\Actions\TRuleCopyToFolderAction.cs" />
     <Compile Include="Rpc\Classes\Rule\Actions\TRuleEditHeaderAction.cs" />
     <Compile Include="Rpc\Classes\Rule\Actions\TRuleEncryptAction.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleLocalTimeCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRulePriorityCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSenderRecipientCondition.cs" />
+    <Compile Include="Rpc\Classes\Rule\TRuleSettings.cs" />
     <Compile Include="Rpc\Classes\Rule\TRulesListFilter.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSMTPAuthCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition.cs" />
