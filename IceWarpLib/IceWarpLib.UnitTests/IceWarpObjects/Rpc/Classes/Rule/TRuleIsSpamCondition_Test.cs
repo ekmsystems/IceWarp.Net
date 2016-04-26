@@ -1,16 +1,14 @@
-﻿using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
-using IceWarpLib.Objects.Rpc.Classes.Rule;
+﻿using IceWarpLib.Objects.Rpc.Classes.Rule;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
-namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
+namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
 {
-    public class TRuleHasAttachmentCondition_Test : BaseTest
+    public class TRuleIsSpamCondition_Test : BaseTest
     {
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
-    <classname>trulehasattachmentcondition</classname>
+    <classname>truleisspamcondition</classname>
     <conditiontype>0</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
@@ -19,18 +17,18 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
 </custom>".TrimStart();
 
         [Test]
-        public void TRuleHasAttachmentCondition()
+        public void TRuleIsSpamCondition()
         {
-            var testClass = new TRuleHasAttachmentCondition();
+            var testClass = new TRuleIsSpamCondition();
 
             var testXml = ToFormattedXml(testClass);
             Assert.AreEqual(_xml, testXml);
         }
 
         [Test]
-        public void TRuleHasAttachmentCondition_BuildXmlElement()
+        public void TRuleIsSpamCondition_BuildXmlElement()
         {
-            var testClass = new TRuleHasAttachmentCondition(GetXmlNode(_xml));
+            var testClass = new TRuleIsSpamCondition(GetXmlNode(_xml));
 
             Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
         }

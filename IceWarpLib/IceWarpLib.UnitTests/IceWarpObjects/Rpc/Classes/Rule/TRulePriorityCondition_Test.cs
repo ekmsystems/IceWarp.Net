@@ -1,36 +1,35 @@
-﻿using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
-using IceWarpLib.Objects.Rpc.Classes.Rule;
+﻿using IceWarpLib.Objects.Rpc.Classes.Rule;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
-namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
+namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
 {
-    public class TRuleIsSpamCondition_Test : BaseTest
+    public class TRulePriorityCondition_Test : BaseTest
     {
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
-    <classname>truleisspamcondition</classname>
+    <classname>truleprioritycondition</classname>
     <conditiontype>0</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
     <bracketsleft>0</bracketsleft>
     <bracketsright>0</bracketsright>
+    <priority>0</priority>
 </custom>".TrimStart();
 
         [Test]
-        public void TRuleIsSpamCondition()
+        public void TRulePriorityCondition()
         {
-            var testClass = new TRuleIsSpamCondition();
+            var testClass = new TRulePriorityCondition();
 
             var testXml = ToFormattedXml(testClass);
             Assert.AreEqual(_xml, testXml);
         }
 
         [Test]
-        public void TRuleIsSpamCondition_BuildXmlElement()
+        public void TRulePriorityCondition_BuildXmlElement()
         {
-            var testClass = new TRuleIsSpamCondition(GetXmlNode(_xml));
+            var testClass = new TRulePriorityCondition(GetXmlNode(_xml));
 
             Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
         }

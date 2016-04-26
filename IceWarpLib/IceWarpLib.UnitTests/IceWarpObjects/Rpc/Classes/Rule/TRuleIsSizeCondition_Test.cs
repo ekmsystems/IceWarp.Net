@@ -1,37 +1,38 @@
-﻿using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
-using IceWarpLib.Objects.Rpc.Classes.Rule;
+﻿using IceWarpLib.Objects.Rpc.Classes.Rule;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
-namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
+namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
 {
-    public class TRuleSMTPAuthCondition_Test : BaseTest
+    public class TRuleIsSizeCondition_Test : BaseTest
     {
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
-    <classname>trulesmtpauthcondition</classname>
+    <classname>truleissizecondition</classname>
     <conditiontype>0</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
     <bracketsleft>0</bracketsleft>
     <bracketsright>0</bracketsright>
+    <comparetype>0</comparetype>
+    <size>0</size>
 </custom>".TrimStart();
 
         [Test]
-        public void TRuleSMTPAuthCondition()
+        public void TRuleIsSizeCondition()
         {
-            var testClass = new TRuleSMTPAuthCondition();
+            var testClass = new TRuleIsSizeCondition();
 
             var testXml = ToFormattedXml(testClass);
             Assert.AreEqual(_xml, testXml);
         }
 
         [Test]
-        public void TRuleSMTPAuthCondition_BuildXmlElement()
+        public void TRuleIsSizeCondition_BuildXmlElement()
         {
-            var testClass = new TRuleSMTPAuthCondition(GetXmlNode(_xml));
+            var testClass = new TRuleIsSizeCondition(GetXmlNode(_xml));
 
+            Assert.AreEqual(TRuleCompareType.Lower, testClass.CompareType);
             Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
         }
     }
