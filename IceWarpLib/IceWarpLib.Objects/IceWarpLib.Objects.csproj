@@ -157,6 +157,7 @@
     <Compile Include="Rpc\Classes\Property\TPropertyValueList.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleAllCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleCondition.cs" />
+    <Compile Include="Rpc\Classes\Rule\TRuleConditions.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleDNSBLCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleHasAttachmentCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\TRuleInfo.cs" />

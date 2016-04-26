@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\TRuleAllCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\TRuleConditions_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\TRuleDNSBLCondition_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\TRuleHasAttachmentCondition_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\TRuleIsSizeCondition_Test.cs" />
