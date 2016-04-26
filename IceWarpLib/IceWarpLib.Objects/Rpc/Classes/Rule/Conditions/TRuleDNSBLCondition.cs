@@ -1,23 +1,23 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Enums;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// Is Size condition type
+    /// RFC822 condition type Application condition type DNSBL server condition type
     /// </summary>
-    public class TRuleIsSizeCondition : TRuleCondition
+    public class TRuleDNSBLCondition : TRuleCondition
     {
         /// <summary>
-        /// Type of comparation
+        /// Server value
         /// </summary>
-        public TRuleCompareType CompareType { get; set; }
+        public string Server { get; set; }
         /// <summary>
-        /// Size in bytes
+        /// Regex value
         /// </summary>
-        public int Size { get; set; }
-        public TRuleIsSizeCondition()
+        public string Regex { get; set; }
+
+        public TRuleDNSBLCondition()
         {
         }
 
@@ -25,13 +25,13 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
         /// </summary>
         /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
-        public TRuleIsSizeCondition(XmlNode node)
+        public TRuleDNSBLCondition(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                CompareType = (TRuleCompareType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("CompareType"));
-                Size = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Size"));
+                Server = Extensions.GetNodeInnerText(node.GetSingleNode("Server"));
+                Regex = Extensions.GetNodeInnerText(node.GetSingleNode("Regex"));
             }
         }
 
@@ -40,8 +40,8 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "CompareType", CompareType);
-            XmlHelper.AppendTextElement(element, "Size", Size);
+            XmlHelper.AppendTextElement(element, "Server", Server);
+            XmlHelper.AppendTextElement(element, "Regex", Regex);
 
             return element;
         }

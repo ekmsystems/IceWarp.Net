@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
     /// List of rule conditions

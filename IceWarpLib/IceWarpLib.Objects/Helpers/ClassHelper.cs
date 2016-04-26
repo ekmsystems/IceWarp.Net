@@ -4,6 +4,8 @@ using System.Linq;
 using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Classes.Rule;
+using IceWarpLib.Objects.Rpc.Classes.Rule.Actions;
+using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 
 namespace IceWarpLib.Objects.Helpers
 {

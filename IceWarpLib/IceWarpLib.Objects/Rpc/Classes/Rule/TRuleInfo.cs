@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule

@@ -1,23 +1,20 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// RFC822 condition type Application condition type DNSBL server condition type
+    /// Priority condition type
     /// </summary>
-    public class TRuleDNSBLCondition : TRuleCondition
+    public class TRulePriorityCondition : TRuleCondition
     {
         /// <summary>
-        /// Server value
+        /// Represents class property TRulePriorityCondition.Priority
         /// </summary>
-        public string Server { get; set; }
-        /// <summary>
-        /// Regex value
-        /// </summary>
-        public string Regex { get; set; }
+        public TRulePriorityType Priority { get; set; }
 
-        public TRuleDNSBLCondition()
+        public TRulePriorityCondition()
         {
         }
 
@@ -25,13 +22,12 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
         /// </summary>
         /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
-        public TRuleDNSBLCondition(XmlNode node)
+        public TRulePriorityCondition(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                Server = Extensions.GetNodeInnerText(node.GetSingleNode("Server"));
-                Regex = Extensions.GetNodeInnerText(node.GetSingleNode("Regex"));
+                Priority = (TRulePriorityType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Priority"));
             }
         }
 
@@ -40,8 +36,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "Server", Server);
-            XmlHelper.AppendTextElement(element, "Regex", Regex);
+            XmlHelper.AppendTextElement(element, "Priority", Priority);
 
             return element;
         }

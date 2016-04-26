@@ -46,19 +46,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleAllCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleConditions_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleDNSBLCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleHasAttachmentCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleIsSizeCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleIsSpamCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleLocalTimeCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRulePriorityCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSenderRecipientCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSMTPAuthCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSomeWordsCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSpamScoreCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleTrustedSessionCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleSendMessageAction_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleAllCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleConditions_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleDNSBLCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleHasAttachmentCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleIsSizeCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleIsSpamCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleLocalTimeCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRulePriorityCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSenderRecipientCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSMTPAuthCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition_Test.cs" />
     <Compile Include="IceWarpRpc\Requests\Account\AccountRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Domain\DomainRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />

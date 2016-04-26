@@ -2,7 +2,7 @@
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Enums;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     public class TRuleSenderRecipientCondition : TRuleCondition
     {

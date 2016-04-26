@@ -5,6 +5,7 @@ using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Rule;
+using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 using IceWarpLib.Rpc.Requests.Rule;
 using IceWarpLib.Rpc.Utilities;
 using NUnit.Framework;

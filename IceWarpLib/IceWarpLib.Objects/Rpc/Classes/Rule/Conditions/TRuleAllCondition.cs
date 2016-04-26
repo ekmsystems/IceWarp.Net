@@ -1,14 +1,11 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
-    /// <summary>
-    /// Is spam condition type
-    /// </summary>
-    public class TRuleIsSpamCondition : TRuleCondition
+    public class TRuleAllCondition : TRuleCondition
     {
-        public TRuleIsSpamCondition()
+        public TRuleAllCondition()
         {
         }
 
@@ -16,7 +13,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
         /// </summary>
         /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
-        public TRuleIsSpamCondition(XmlNode node)
+        public TRuleAllCondition(XmlNode node)
         {
             if (node != null)
             {

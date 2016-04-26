@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
     /// Local time condition type

@@ -1,35 +1,34 @@
-﻿using IceWarpLib.Objects.Rpc.Classes.Rule;
+﻿using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
-namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
+namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
 {
-    public class TRulePriorityCondition_Test : BaseTest
+    public class TRuleHasAttachmentCondition_Test : BaseTest
     {
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
-    <classname>truleprioritycondition</classname>
+    <classname>trulehasattachmentcondition</classname>
     <conditiontype>0</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
     <bracketsleft>0</bracketsleft>
     <bracketsright>0</bracketsright>
-    <priority>0</priority>
 </custom>".TrimStart();
 
         [Test]
-        public void TRulePriorityCondition()
+        public void TRuleHasAttachmentCondition()
         {
-            var testClass = new TRulePriorityCondition();
+            var testClass = new TRuleHasAttachmentCondition();
 
             var testXml = ToFormattedXml(testClass);
             Assert.AreEqual(_xml, testXml);
         }
 
         [Test]
-        public void TRulePriorityCondition_BuildXmlElement()
+        public void TRuleHasAttachmentCondition_BuildXmlElement()
         {
-            var testClass = new TRulePriorityCondition(GetXmlNode(_xml));
+            var testClass = new TRuleHasAttachmentCondition(GetXmlNode(_xml));
 
             Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
         }

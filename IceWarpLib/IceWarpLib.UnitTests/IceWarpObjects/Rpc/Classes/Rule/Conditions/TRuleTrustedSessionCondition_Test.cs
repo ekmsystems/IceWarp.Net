@@ -1,14 +1,14 @@
-﻿using IceWarpLib.Objects.Rpc.Classes.Rule;
+﻿using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
-namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
+namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
 {
-    public class TRuleIsSpamCondition_Test : BaseTest
+    public class TRuleTrustedSessionCondition_Test : BaseTest
     {
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
-    <classname>truleisspamcondition</classname>
+    <classname>truletrustedsessioncondition</classname>
     <conditiontype>0</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
@@ -17,18 +17,18 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
 </custom>".TrimStart();
 
         [Test]
-        public void TRuleIsSpamCondition()
+        public void TRuleTrustedSessionCondition()
         {
-            var testClass = new TRuleIsSpamCondition();
+            var testClass = new TRuleTrustedSessionCondition();
 
             var testXml = ToFormattedXml(testClass);
             Assert.AreEqual(_xml, testXml);
         }
 
         [Test]
-        public void TRuleIsSpamCondition_BuildXmlElement()
+        public void TRuleTrustedSessionCondition_BuildXmlElement()
         {
-            var testClass = new TRuleIsSpamCondition(GetXmlNode(_xml));
+            var testClass = new TRuleTrustedSessionCondition(GetXmlNode(_xml));
 
             Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
         }

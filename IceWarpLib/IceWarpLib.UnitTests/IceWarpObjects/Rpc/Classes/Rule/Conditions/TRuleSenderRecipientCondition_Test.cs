@@ -1,8 +1,8 @@
-﻿using IceWarpLib.Objects.Rpc.Classes.Rule;
+﻿using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
 
-namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule
+namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
 {
     public class TRuleSenderRecipientCondition_Test : BaseTest
     {

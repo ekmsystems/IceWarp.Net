@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 
-namespace IceWarpLib.Objects.Rpc.Classes.Rule
+namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// Bayes score condition type Antivirus condition type SMTP Auth condition type
+    /// Has attachment condition type
     /// </summary>
-    public class TRuleSMTPAuthCondition : TRuleCondition
+    public class TRuleHasAttachmentCondition : TRuleCondition
     {
-        public TRuleSMTPAuthCondition()
+        public TRuleHasAttachmentCondition()
         {
         }
 
@@ -16,7 +16,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
         /// </summary>
         /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
-        public TRuleSMTPAuthCondition(XmlNode node)
+        public TRuleHasAttachmentCondition(XmlNode node)
         {
             if (node != null)
             {
