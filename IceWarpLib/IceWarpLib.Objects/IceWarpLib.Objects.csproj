@@ -124,6 +124,8 @@
     <Compile Include="Rpc\Classes\Account\TActivationKey.cs" />
     <Compile Include="Rpc\Classes\Account\TAdministrativePermissions.cs" />
     <Compile Include="Rpc\Classes\Account\TAdministrativePermissionsList.cs" />
+    <Compile Include="Rpc\Classes\Device\TMobileDeviceInfo.cs" />
+    <Compile Include="Rpc\Classes\Device\TMobileDeviceListFilter.cs" />
     <Compile Include="Rpc\Classes\Property\TAPIProperty.cs" />
     <Compile Include="Rpc\Classes\Domain\TDomainInfo.cs" />
     <Compile Include="Rpc\Classes\Domain\TDomainListFilter.cs" />
@@ -193,6 +195,10 @@
     <Compile Include="Rpc\Enums\TAdminType.cs" />
     <Compile Include="Rpc\Enums\TAuthType.cs" />
     <Compile Include="Rpc\Enums\TDomainType.cs" />
+    <Compile Include="Rpc\Enums\TMobileDeviceRemoteWipe.cs" />
+    <Compile Include="Rpc\Enums\TMobileDeviceRemoteWipeSet.cs" />
+    <Compile Include="Rpc\Enums\TMobileDeviceStatus.cs" />
+    <Compile Include="Rpc\Enums\TMobileDeviceStatusSet.cs" />
     <Compile Include="Rpc\Enums\TPermission.cs" />
     <Compile Include="Rpc\Enums\TPropertyValueType.cs" />
     <Compile Include="Rpc\Enums\TResponder.cs" />

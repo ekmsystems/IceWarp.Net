@@ -78,6 +78,7 @@
     <Compile Include="Requests\Account\SetAccountFolderPermissions.cs" />
     <Compile Include="Requests\Account\SetAccountPassword.cs" />
     <Compile Include="Requests\Account\SetAccountProperties.cs" />
+    <Compile Include="Requests\Device\GetDevicesInfoList.cs" />
     <Compile Include="Requests\Domain\CreateDomain.cs" />
     <Compile Include="Requests\Domain\GetDomainAPIConsole.cs" />
     <Compile Include="Requests\Domain\GetDomainProperties.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Responses\TDomainsInfoListResponse.cs" />
     <Compile Include="Responses\TFolderInfoResponse.cs" />
     <Compile Include="Responses\TFolderPermissionsResponse.cs" />
+    <Compile Include="Responses\TMobileDevicesInfoListResponse.cs" />
     <Compile Include="Responses\TPropertyInfoListResponse.cs" />
     <Compile Include="Responses\TPropertyRightListResponse.cs" />
     <Compile Include="Responses\TPropertyValueListResponse.cs" />
@@ -118,7 +120,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Requests\Device\" />
     <Folder Include="Requests\Server\" />
     <Folder Include="Requests\Service\" />
     <Folder Include="Requests\Statistics\" />

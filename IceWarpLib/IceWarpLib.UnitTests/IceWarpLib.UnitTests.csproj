@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceInfo_Test.cs" />
+    <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceListFilter_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleActions_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleCopyToFolderAction_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleEditHeaderAction_Test.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleEditHeaderList_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSettings_Test.cs" />
     <Compile Include="IceWarpRpc\Requests\Account\AccountRequestTests.cs" />
+    <Compile Include="IceWarpRpc\Requests\Device\DeviceRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Domain\DomainRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Rules\RulesRequestTests.cs" />
@@ -226,6 +229,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountProperties.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\GetDevicesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\GetDevicesInfoList.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\CreateDomain.xml">

@@ -35,6 +35,14 @@ namespace IceWarpLib.Objects.Helpers
             containingElement.AppendChild(element);
         }
 
+        public static void AppendTextElement(XmlElement containingElement, string qualifiedName, int? value)
+        {
+            var element = CreateElement(containingElement.OwnerDocument, qualifiedName.ToLower());
+            if (value.HasValue)
+                element.AppendChild(containingElement.OwnerDocument.CreateTextNode(value.Value.ToString()));
+            containingElement.AppendChild(element);
+        }
+
         public static void AppendTextElement(XmlElement containingElement, string qualifiedName, double value)
         {
             var element = CreateElement(containingElement.OwnerDocument, qualifiedName.ToLower());
