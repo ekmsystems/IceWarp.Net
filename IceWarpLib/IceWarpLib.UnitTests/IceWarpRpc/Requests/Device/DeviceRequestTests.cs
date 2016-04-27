@@ -32,8 +32,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
 
         [TestFixtureTearDown]
         public void FixtureTearDown() { }
-
-
+        
         [Test]
         public void DeleteDevices()
         {
@@ -155,6 +154,27 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "SetDeviceProperties.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
+        public void SetDeviceWipe()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "SetDeviceWipe.xml"));
+            var request = new SetDeviceWipe
+            {
+                SessionId = "sid",
+                DeviceID = "abcd1234",
+                WipeType = TMobileDeviceRemoteWipeSet.Soft
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "SetDeviceWipe.xml")));
             var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
 
             Assert.AreEqual("result", response.Type);
