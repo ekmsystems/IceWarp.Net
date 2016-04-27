@@ -6,7 +6,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Activation key class
+    /// Activation key class.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TActivationKey">https://www.icewarp.co.uk/api/#TActivationKey</see></para>
     /// </summary>
     public class TActivationKey : TPropertyVal
     {
@@ -26,35 +27,34 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// The key string value
         /// </summary>
         public string Value { get; set; }
-        
+
+        /// <inheritdoc />
         public TActivationKey()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TActivationKey(XmlNode node)
         {
             if (node != null)
             {
-                KeyType = (TActivationKeyType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("KeyType"));
-                Description = Extensions.GetNodeInnerText(node.GetSingleNode("Description"));
-                Count = Extensions.GetNodeInnerText(node.GetSingleNode("Count"));
-                Value = Extensions.GetNodeInnerText(node.GetSingleNode("Value"));
+                KeyType = (TActivationKeyType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => KeyType)));
+                Description = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Description)));
+                Count = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Count)));
+                Value = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Value)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            XmlHelper.AppendTextElement(element, "KeyType", KeyType);
-            XmlHelper.AppendTextElement(element, "Description", Description);
-            XmlHelper.AppendTextElement(element, "Count", Count);
-            XmlHelper.AppendTextElement(element, "Value", Value);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => KeyType), KeyType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Description), Description);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Count), Count);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Value), Value);
 
             return element;
         }

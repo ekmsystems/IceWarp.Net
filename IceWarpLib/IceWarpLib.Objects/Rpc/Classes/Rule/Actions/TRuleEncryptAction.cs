@@ -1,24 +1,22 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
 {
     /// <summary>
-    /// Action that encrypts the message
+    /// Action that encrypts the message.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleEncryptAction">https://www.icewarp.co.uk/api/#TRuleEncryptAction</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <classname>truleencryptaction</classname>
-    ///     </custom>
-    /// </code>
     public class TRuleEncryptAction : TRuleAction
     {
-        public TRuleEncryptAction() { }
-        
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
+        public TRuleEncryptAction()
+        {
+            Actiontype = TRuleActionType.Encrypt;
+        }
+
+        /// <inheritdoc />
         public TRuleEncryptAction(XmlNode node)
         {
             if (node != null)
@@ -27,6 +25,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);

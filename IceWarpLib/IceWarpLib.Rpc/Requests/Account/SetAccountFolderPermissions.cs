@@ -1,15 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Sets the list of permissions for specified folder in existing IceWarp account
+    /// Sets the list of permissions for specified folder in existing IceWarp account.
+    /// <para><see href="https://www.icewarp.co.uk/api/#SetAccountFolderPermissions">https://www.icewarp.co.uk/api/#SetAccountFolderPermissions</see></para>
     /// </summary>
     public class SetAccountFolderPermissions : IceWarpCommand<SuccessResponse>
     {
@@ -26,27 +25,22 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public TFolderPermissions Permissions { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "AccountEmail", AccountEmail);
-            XmlHelper.AppendTextElement(commandParams, "FolderId", FolderId);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => FolderId), FolderId);
             if (Permissions != null)
             {
-                commandParams.AppendChild(Permissions.BuildXmlElement(doc, "Permissions"));
+                commandParams.AppendChild(Permissions.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Permissions)));
             }
 
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="SuccessResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override SuccessResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new SuccessResponse(httpRequestResult);

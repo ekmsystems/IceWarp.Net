@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
@@ -8,7 +7,8 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Gets the list of account api variables, its values, data types and rights, its values, data types and rights. See <see cref="IceWarpCommand{TPropertyInfoList}"/> for return type.
+    /// Gets the list of account api variables, its values, data types and rights, its values, data types and rights.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountAPIConsole">https://www.icewarp.co.uk/api/#GetAccountAPIConsole</see></para>
     /// </summary>
     public class GetAccountAPIConsole : IceWarpCommand<TPropertyInfoListResponse>
     {
@@ -33,24 +33,26 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public bool Comments { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "accountemail", AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
 
             if (Filter != null)
             {
-                commandParams.AppendChild(Filter.BuildXmlElement(doc, "filter"));
+                commandParams.AppendChild(Filter.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Filter)));
             }
 
-            XmlHelper.AppendTextElement(commandParams, "offset", Offset.ToString());
-            XmlHelper.AppendTextElement(commandParams, "count", Count.ToString());
-            XmlHelper.AppendTextElement(commandParams, "comments", Comments.ToBitString());
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Offset), Offset);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Count), Count);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Comments), Comments);
 
             command.AppendChild(commandParams);
         }
 
+        /// <inheritdoc />
         public override TPropertyInfoListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TPropertyInfoListResponse(httpRequestResult);

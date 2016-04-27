@@ -1,21 +1,22 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// Bayes score condition type Antivirus condition type SMTP Auth condition type
+    /// Bayes score condition type Antivirus condition type SMTP Auth condition type.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSMTPAuthCondition">https://www.icewarp.co.uk/api/#TRuleSMTPAuthCondition</see></para>
     /// </summary>
     public class TRuleSMTPAuthCondition : TRuleCondition
     {
+        /// <inheritdoc />
         public TRuleSMTPAuthCondition()
         {
+            ConditionType = TRuleConditionType.SMTPAuth;
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleSMTPAuthCondition(XmlNode node)
         {
             if (node != null)
@@ -24,6 +25,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);

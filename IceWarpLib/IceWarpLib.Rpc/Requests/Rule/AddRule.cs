@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Rule;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Rule
 {
     /// <summary>
-    /// Creates new rule from RuleSettings. See <see cref="IceWarpCommand{SuccessResponse}"/> for return type.
+    /// Creates new rule from RuleSettings.
+    /// <para><see href="https://www.icewarp.co.uk/api/#AddRule">https://www.icewarp.co.uk/api/#AddRule</see></para>
     /// </summary>
     public class AddRule : IceWarpCommand<SuccessResponse>
     {
@@ -21,26 +21,21 @@ namespace IceWarpLib.Rpc.Requests.Rule
         /// </summary>
         public TRuleSettings RuleSettings { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "Who", Who);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Who), Who);
             if (RuleSettings != null)
             {
-                commandParams.AppendChild(RuleSettings.BuildXmlElement(doc, "RuleSettings"));
+                commandParams.AppendChild(RuleSettings.BuildXmlElement(doc, ClassHelper.GetMemberName(() => RuleSettings)));
             }
 
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="SuccessResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override SuccessResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new SuccessResponse(httpRequestResult);

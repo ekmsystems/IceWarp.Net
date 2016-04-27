@@ -1,32 +1,13 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
 {
     /// <summary>
-    /// Action that copies the message into specified folder
+    /// Action that copies the message into specified folder.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleEditHeaderAction">https://www.icewarp.co.uk/api/#TRuleEditHeaderAction</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <classname>truleeditheaderaction</classname>
-    ///         <headers>
-    ///           <item>
-    ///             <editheadertype>enumval</editheadertype>
-    ///             <header>stringval</header>
-    ///             <hasregex>boolval</hasregex>
-    ///             <regex>stringval</regex>
-    ///             <value>stringval</value>
-    ///           </item>
-    ///           <item>
-    ///             <editheadertype>enumval</editheadertype>
-    ///             <header>stringval</header>
-    ///             <hasregex>boolval</hasregex>
-    ///             <regex>stringval</regex>
-    ///             <value>stringval</value>
-    ///           </item>
-    ///         </headers>
-    ///     </custom>
-    /// </code>
     public class TRuleEditHeaderAction : TRuleAction
     {
         /// <summary>
@@ -34,27 +15,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
         /// </summary>
         public TRuleEditHeaderList Headers { get; set; }
 
-        public TRuleEditHeaderAction() { }
-        
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
+        public TRuleEditHeaderAction()
+        {
+            Actiontype = TRuleActionType.Header;
+        }
+
+        /// <inheritdoc />
         public TRuleEditHeaderAction(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                Headers = new TRuleEditHeaderList(node.GetSingleNode("Headers"));
+                Headers = new TRuleEditHeaderList(node.GetSingleNode(ClassHelper.GetMemberName(() => Headers)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            element.AppendChild(Headers.BuildXmlElement(doc, "Headers"));
+            element.AppendChild(Headers.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Headers)));
 
             return element;
         }

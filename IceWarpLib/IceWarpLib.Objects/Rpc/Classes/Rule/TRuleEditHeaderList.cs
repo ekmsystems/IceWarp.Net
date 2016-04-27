@@ -5,26 +5,9 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Rule
 {
     /// <summary>
-    /// List of header modifications
+    /// List of header modifications.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleEditHeaderList">https://www.icewarp.co.uk/api/#TRuleEditHeaderList</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <item>
-    ///             <editheadertype>enumval</editheadertype>
-    ///             <header>stringval</header>
-    ///             <hasregex>enumval</hasregex>
-    ///             <regex>stringval</regex>
-    ///             <value>stringval</value>
-    ///         </item>
-    ///         <item>
-    ///           <editheadertype>enumval</editheadertype>
-    ///           <header>stringval</header>
-    ///           <hasregex>enumval</hasregex>
-    ///           <regex>stringval</regex>
-    ///           <value>stringval</value>
-    ///         </item>
-    ///     </custom>
-    /// </code>
     public class TRuleEditHeaderList : BaseClass
     {
         /// <summary>
@@ -32,21 +15,19 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// </summary>
         public List<TRuleEditHeaderItem> Items { get; set; }
 
+        /// <inheritdoc />
         public TRuleEditHeaderList()
         {
             Items = new List<TRuleEditHeaderItem>();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleEditHeaderList(XmlNode node)
         {
             Items = new List<TRuleEditHeaderItem>();
             if (node != null)
             {
-                var items = node.GetNodes("item");
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 foreach (XmlNode item in items)
                 {
                     Items.Add(new TRuleEditHeaderItem(item));
@@ -54,13 +35,14 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             foreach (var item in Items)
             {
-                element.AppendChild(item.BuildXmlElement(doc, "item"));
+                element.AppendChild(item.BuildXmlElement(doc, XmlHelper.ItemTag));
             }
 
             return element;

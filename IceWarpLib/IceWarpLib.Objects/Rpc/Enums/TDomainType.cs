@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Domain type
+    /// <para><see href="https://www.icewarp.co.uk/api/#TDomainType">https://www.icewarp.co.uk/api/#TDomainType</see></para>
     /// </summary>
     public enum TDomainType
     {

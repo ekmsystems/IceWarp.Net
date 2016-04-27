@@ -6,7 +6,8 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
     /// Rule condition to match specific words in the message. 
-    /// Used in following conditions : From,To,Subject,Date,CC,BCC,ReplyTo,Body,CustomHedaer,AnyHeader,AttachmentName charset,sender,recipient, hostname,senderIP,rDNS,
+    /// <para/>Used in following conditions : From,To,Subject,Date,CC,BCC,ReplyTo,Body,CustomHedaer,AnyHeader,AttachmentName charset,sender,recipient, hostname,senderIP,DNS,.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSomeWordsCondition">https://www.icewarp.co.uk/api/#TRuleSomeWordsCondition</see></para>
     /// </summary>
     public class TRuleSomeWordsCondition : TRuleCondition
     {
@@ -38,42 +39,42 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
         /// Parse XML - Only in body matches condition type
         /// </summary>
         public bool ParseXml { get; set; }
-        
+
+        /// <inheritdoc />
         public TRuleSomeWordsCondition()
         {
+            
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleSomeWordsCondition(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                MatchFunction = (TRuleSomeWordsFunctionType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("MatchFunction"));
-                MatchValue = Extensions.GetNodeInnerText(node.GetSingleNode("MatchValue"));
-                MatchCase = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("MatchCase"));
-                MatchWholeWordsOnly = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("MatchWholeWordsOnly"));
-                NotMatch = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("NotMatch"));
-                MultipleItemsMatch = (TRuleMultipleItemsMatchType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("MultipleItemsMatch"));
-                ParseXml = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("ParseXml"));
+                MatchFunction = (TRuleSomeWordsFunctionType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => MatchFunction)));
+                MatchValue = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => MatchValue)));
+                MatchCase = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => MatchCase)));
+                MatchWholeWordsOnly = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => MatchWholeWordsOnly)));
+                NotMatch = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => NotMatch)));
+                MultipleItemsMatch = (TRuleMultipleItemsMatchType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => MultipleItemsMatch)));
+                ParseXml = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => ParseXml)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "MatchFunction", MatchFunction);
-            XmlHelper.AppendTextElement(element, "MatchValue", MatchValue);
-            XmlHelper.AppendTextElement(element, "MatchCase", MatchCase);
-            XmlHelper.AppendTextElement(element, "MatchWholeWordsOnly", MatchWholeWordsOnly);
-            XmlHelper.AppendTextElement(element, "NotMatch", NotMatch);
-            XmlHelper.AppendTextElement(element, "MultipleItemsMatch", MultipleItemsMatch);
-            XmlHelper.AppendTextElement(element, "ParseXml", ParseXml);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => MatchFunction), MatchFunction);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => MatchValue), MatchValue);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => MatchCase), MatchCase);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => MatchWholeWordsOnly), MatchWholeWordsOnly);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => NotMatch), NotMatch);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => MultipleItemsMatch), MultipleItemsMatch);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ParseXml), ParseXml);
 
             return element;
         }

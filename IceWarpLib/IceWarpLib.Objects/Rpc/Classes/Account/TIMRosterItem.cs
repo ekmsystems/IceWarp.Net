@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Instant messaging roster item
+    /// Instant messaging roster item.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TIMRosterItem">https://www.icewarp.co.uk/api/#TIMRosterItem</see></para>
     /// </summary>
     public class TIMRosterItem : BaseClass
     {
@@ -16,30 +17,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// Item group title
         /// </summary>
         public string GroupTitle { get; set; }
-        
+
+        /// <inheritdoc />
         public TIMRosterItem()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TIMRosterItem(XmlNode node)
         {
             if (node != null)
             {
-                Val = Extensions.GetNodeInnerText(node.GetSingleNode("Val"));
-                GroupTitle = Extensions.GetNodeInnerText(node.GetSingleNode("GroupTitle"));
+                Val = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Val)));
+                GroupTitle = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => GroupTitle)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Val", Val);
-            XmlHelper.AppendTextElement(element, "GroupTitle", GroupTitle);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Val), Val);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => GroupTitle), GroupTitle);
 
             return element;
         }

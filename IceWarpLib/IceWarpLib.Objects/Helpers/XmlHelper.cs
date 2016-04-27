@@ -8,11 +8,24 @@ namespace IceWarpLib.Objects.Helpers
 {
     public static class XmlHelper
     {
-        private const string _xmlns = "admin:iq:rpc";
+        public const string Xmlns = "admin:iq:rpc";
+        public const string IqTag = "iq";
+        public const string TypeAttribute = "type";
+        public const string TypeGetValue = "get";
+        public const string SidAttribute = "sid";
+        public const string QueryTag = "query";
+        public const string CommandNameTag = "commandname";
+        public const string CommandParamsTag = "commandparams";
+        public const string ItemTag = "item";
+        public const string ClassNameTag = "classname";
+
+        public const string ResultXPath = "/iq/query/result";
+        public const string ErrorXPath = "/iq/query/error";
+        public const string ErrorIdAttribute = "uid";
 
         public static XmlElement CreateElement(XmlDocument doc, string qualifiedName)
         {
-            return doc.CreateElement(qualifiedName.ToLower(), _xmlns);
+            return doc.CreateElement(qualifiedName.ToLower(), Xmlns);
         }
 
         public static XmlElement CreateElement(XmlDocument doc, string qualifiedName, string xmlns)
@@ -32,6 +45,14 @@ namespace IceWarpLib.Objects.Helpers
         {
             var element = CreateElement(containingElement.OwnerDocument, qualifiedName.ToLower());
             element.AppendChild(containingElement.OwnerDocument.CreateTextNode(value.ToString()));
+            containingElement.AppendChild(element);
+        }
+
+        public static void AppendTextElement(XmlElement containingElement, string qualifiedName, int? value)
+        {
+            var element = CreateElement(containingElement.OwnerDocument, qualifiedName.ToLower());
+            if (value.HasValue)
+                element.AppendChild(containingElement.OwnerDocument.CreateTextNode(value.Value.ToString()));
             containingElement.AppendChild(element);
         }
 

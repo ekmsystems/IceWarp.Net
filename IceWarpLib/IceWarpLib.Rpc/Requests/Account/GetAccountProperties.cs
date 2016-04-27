@@ -1,16 +1,15 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Objects.Rpc.Enums;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Gets the properties of the existing IceWarp account. See <see cref="IceWarpCommand{TPropertyValueList}"/> for return type.
+    /// Gets the properties of the existing IceWarp account.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountProperties">https://www.icewarp.co.uk/api/#GetAccountProperties</see></para>
     /// </summary>
     public class GetAccountProperties : IceWarpCommand<TPropertyValueListResponse>
     {
@@ -27,27 +26,22 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public TAccountPropertySet? AccountPropertySet { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "accountemail", AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
             if (AccountPropertyList != null)
             {
-                commandParams.AppendChild(AccountPropertyList.BuildXmlElement(doc, "accountpropertylist"));
+                commandParams.AppendChild(AccountPropertyList.BuildXmlElement(doc, ClassHelper.GetMemberName(() => AccountPropertyList)));
             }
-            XmlHelper.AppendTextElement(commandParams, "accountpropertyset", AccountPropertySet.HasValue ? AccountPropertySet.Value.ToString("d") : TAccountPropertySet.None.ToString("d"));
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountPropertySet), AccountPropertySet.HasValue ? AccountPropertySet.Value.ToString("d") : TAccountPropertySet.None.ToString("d"));
 
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TPropertyValueListResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TPropertyValueListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TPropertyValueListResponse(httpRequestResult);

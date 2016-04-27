@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// Spam score condition type
+    /// Spam score condition type.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSpamScoreCondition">https://www.icewarp.co.uk/api/#TRuleSpamScoreCondition</see></para>
     /// </summary>
     public class TRuleSpamScoreCondition : TRuleCondition
     {
@@ -18,31 +19,31 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
         /// </summary>
         public string SpamScore { get; set; }
 
+        /// <inheritdoc />
         public TRuleSpamScoreCondition()
         {
+            ConditionType = TRuleConditionType.SpamScore;
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleSpamScoreCondition(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                CompareType = (TRuleCompareType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("CompareType"));
-                SpamScore = Extensions.GetNodeInnerText(node.GetSingleNode("SpamScore"));
+                CompareType = (TRuleCompareType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => CompareType)));
+                SpamScore = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SpamScore)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "CompareType", CompareType);
-            XmlHelper.AppendTextElement(element, "SpamScore", SpamScore);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => CompareType), CompareType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SpamScore), SpamScore);
 
             return element;
         }

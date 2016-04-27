@@ -8,7 +8,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Rule
 {
     /// <summary>
-    /// Brief information about some rule in IceWarp server
+    /// Brief information about some rule in IceWarp server.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleInfo">https://www.icewarp.co.uk/api/#TRuleInfo</see></para>
     /// </summary>
     public class TRuleInfo : BaseClass
     {
@@ -32,26 +33,24 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// Return the first condition , so the client is able to generate title , when it is empty
         /// </summary>
         public TRuleCondition Condition { get; set; }
-        
+
+        /// <inheritdoc />
         public TRuleInfo() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleInfo(XmlNode node)
         {
             if (node != null)
             {
-                RuleID = Extensions.GetNodeInnerText(node.GetSingleNode("RuleID"));
-                Title = Extensions.GetNodeInnerText(node.GetSingleNode("Title"));
-                Active = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Active"));
-                ActionType = (TRuleMessageActionType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("ActionType"));
+                RuleID = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => RuleID)));
+                Title = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Title)));
+                Active = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Active)));
+                ActionType = (TRuleMessageActionType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => ActionType)));
 
-                var condition = node.GetSingleNode("Condition");
+                var condition = node.GetSingleNode(ClassHelper.GetMemberName(() => Condition));
                 if (condition != null)
                 {
-                    var className = Extensions.GetNodeInnerText(condition.GetSingleNode("classname"));
+                    var className = Extensions.GetNodeInnerText(condition.GetSingleNode(XmlHelper.ClassNameTag));
                     if (!String.IsNullOrEmpty(className))
                     {
                         var classType = ClassHelper.TRuleConditionClasses()
@@ -65,15 +64,16 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "RuleID", RuleID);
-            XmlHelper.AppendTextElement(element, "Title", Title);
-            XmlHelper.AppendTextElement(element, "Active", Active);
-            XmlHelper.AppendTextElement(element, "ActionType", ActionType);
-            element.AppendChild(Condition.BuildXmlElement(doc, "Condition"));
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RuleID), RuleID);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Title), Title);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Active), Active);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ActionType), ActionType);
+            element.AppendChild(Condition.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Condition)));
 
             return element;
         }

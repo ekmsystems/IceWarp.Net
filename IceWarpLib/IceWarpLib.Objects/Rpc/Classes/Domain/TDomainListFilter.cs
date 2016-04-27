@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Domain
 {
     /// <summary>
-    /// Used to filter the list of domains in IceWarp server
+    /// Used to filter the list of domains in IceWarp server.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TDomainListFilter">https://www.icewarp.co.uk/api/#TDomainListFilter</see></para>
     /// </summary>
     public class TDomainListFilter : BaseClass
     {
@@ -22,26 +23,25 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
         /// </summary>
         public string ClassName { get { return this.GetType().Name.ToLower(); } }
 
+        /// <inheritdoc />
         public TDomainListFilter() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TDomainListFilter(XmlNode node)
         {
             if (node != null)
             {
-                NameMask = Extensions.GetNodeInnerText(node.GetSingleNode("NameMask"));
-                TypeMask = (TDomainType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("TypeMask"));
+                NameMask = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => NameMask)));
+                TypeMask = (TDomainType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => TypeMask)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "NameMask", NameMask);
-            XmlHelper.AppendTextElement(element, "TypeMask", TypeMask);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => NameMask), NameMask);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => TypeMask), TypeMask);
             return element;
         }
     }

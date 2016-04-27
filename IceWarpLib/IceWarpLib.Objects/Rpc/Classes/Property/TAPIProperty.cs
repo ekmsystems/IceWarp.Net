@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Represents property of server ,domain ,account ,mobile device or statistic object
+    /// Represents property of server, domain, account, mobile device or statistic object.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAPIProperty">https://www.icewarp.co.uk/api/#TAPIProperty</see></para>
     /// </summary>
     public class TAPIProperty : BaseClass
     {
@@ -13,24 +14,23 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// </summary>
         public string PropName { get; set; }
 
+        /// <inheritdoc />
         public TAPIProperty() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TAPIProperty(XmlNode node)
         {
             if (node != null)
             {
-                PropName = Extensions.GetNodeInnerText(node.GetSingleNode("PropName"));
+                PropName = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => PropName)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "PropName", PropName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => PropName), PropName);
             return element;
         }
     }

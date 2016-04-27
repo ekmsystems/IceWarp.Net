@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Used for defining permissions on certain item
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPermission">https://www.icewarp.co.uk/api/#TPermission</see></para>
     /// </summary>
     public enum TPermission
     {

@@ -1,0 +1,14 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>setalldevicesstatus</commandname>
+    <commandparams>
+      <who>test@testing.com</who>
+      <filter>
+        <namemask>mask</namemask>
+        <status>1</status>
+        <lastsync>5</lastsync>
+      </filter>
+      <statustype>0</statustype>
+    </commandparams>
+  </query>
+</iq>

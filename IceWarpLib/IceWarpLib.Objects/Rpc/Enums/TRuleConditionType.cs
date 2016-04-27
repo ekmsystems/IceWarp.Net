@@ -1,5 +1,9 @@
 ﻿namespace IceWarpLib.Objects.Rpc.Enums
 {
+    /// <summary>
+    /// Conditions
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleConditionType">https://www.icewarp.co.uk/api/#TRuleConditionType</see></para>
+    /// </summary>
     public enum TRuleConditionType
     {
         None = 0,

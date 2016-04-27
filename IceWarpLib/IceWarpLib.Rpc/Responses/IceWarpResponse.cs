@@ -9,7 +9,7 @@ namespace IceWarpLib.Rpc.Responses
     /// <summary>
     /// Base class for an API response.
     /// </summary>
-    public abstract class IceWarpResponse// : IBaseClass
+    public abstract class IceWarpResponse
     {
         /// <summary>
         /// The HTTP request result. See <see cref="HttpRequestResult"/> for more information.
@@ -17,7 +17,7 @@ namespace IceWarpLib.Rpc.Responses
         public HttpRequestResult HttpRequestResult { get; set; }
 
         /// <summary>
-        /// The type of request result i.e. result, error
+        /// The type of request result i.e. result, error.
         /// </summary>
         public string Type { get; set; }
 
@@ -28,12 +28,10 @@ namespace IceWarpLib.Rpc.Responses
 
         private XmlDocument _responseXml = null;
 
-        //protected IceWarpResponse() { }
-
         /// <summary>
         /// Creates an IceWarpResponse from the HTTP request result.
         /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result. See <see cref="HttpRequestResult"/> for more information.</param>
+        /// <param name="httpRequestResult">The HTTP request result. See <see cref="HttpRequestResult"/>. for more information.</param>
         /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
         /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
         protected IceWarpResponse(HttpRequestResult httpRequestResult)
@@ -76,14 +74,14 @@ namespace IceWarpLib.Rpc.Responses
 
             if (Type != "error")
             {
-                ProcessResultNode(documentElement.SelectSingleNode("/iq/query/result"));
+                ProcessResultNode(documentElement.SelectSingleNode(XmlHelper.ResultXPath));
             }
             else
             {
-                var errorNode = documentElement.SelectSingleNode("/iq/query/error");
+                var errorNode = documentElement.SelectSingleNode(XmlHelper.ErrorXPath);
                 if (errorNode != null && errorNode.Attributes != null)
                 {
-                    var uid = errorNode.Attributes["uid"];
+                    var uid = errorNode.Attributes[XmlHelper.ErrorIdAttribute];
                     if (uid != null)
                     {
                         throw new IceWarpErrorException(uid.Value, HttpRequestResult);
@@ -97,12 +95,12 @@ namespace IceWarpLib.Rpc.Responses
         {
             if (documentElement != null)
             {
-                var typeAttr = documentElement.Attributes["type"];
+                var typeAttr = documentElement.Attributes[XmlHelper.TypeAttribute];
                 if (typeAttr != null)
                 {
                     Type = typeAttr.Value;
                 }
-                var sidAttr = documentElement.Attributes["sid"];
+                var sidAttr = documentElement.Attributes[XmlHelper.SidAttribute];
                 if (sidAttr != null)
                 {
                     SessionId = sidAttr.Value;

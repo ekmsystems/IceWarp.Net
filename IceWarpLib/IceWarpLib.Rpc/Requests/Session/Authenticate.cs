@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Enums;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Session
 {
     /// <summary>
-    /// Authenticates user in IceWarp server and creates his session. See <see cref="IceWarpCommand{AuthenticateResponse}"/> for return type.
+    /// Authenticates user in IceWarp server and creates his session.
+    /// <para><see href="https://www.icewarp.co.uk/api/#Authenticate">https://www.icewarp.co.uk/api/#Authenticate</see></para>
     /// </summary>
     public class Authenticate : IceWarpCommand<SuccessResponse>
     {
@@ -31,28 +31,23 @@ namespace IceWarpLib.Rpc.Requests.Session
         /// <summary>
         /// Specifies the session expiration - 1 day or 24 days
         /// </summary>
-        public bool PersistantLogin { get; set; }
+        public bool PersistentLogin { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "authtype", ((int)AuthType).ToString());
-            XmlHelper.AppendTextElement(commandParams, "email", Email);
-            XmlHelper.AppendTextElement(commandParams, "password", Password);
-            XmlHelper.AppendTextElement(commandParams, "digest", Digest);
-            XmlHelper.AppendTextElement(commandParams, "persistentlogin", (PersistantLogin ? 1 : 0).ToString());
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AuthType), AuthType);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Email), Email);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Password), Password);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Digest), Digest);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => PersistentLogin), PersistentLogin);
 
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="SuccessResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override SuccessResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new SuccessResponse(httpRequestResult);

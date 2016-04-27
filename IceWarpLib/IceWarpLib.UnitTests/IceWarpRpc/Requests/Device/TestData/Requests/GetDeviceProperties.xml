@@ -1,0 +1,13 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getdeviceproperties</commandname>
+    <commandparams>
+      <deviceid>355310042481808</deviceid>
+      <devicepropertylist>
+        <item>
+          <propname>Device_Account</propname>
+        </item>
+      </devicepropertylist>
+    </commandparams>
+  </query>
+</iq>

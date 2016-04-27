@@ -1,5 +1,9 @@
 ﻿namespace IceWarpLib.Objects.Rpc.Enums
 {
+    /// <summary>
+    /// Represents enumeration TRuleSomeWordsFunctionType
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSomeWordsFunctionType">https://www.icewarp.co.uk/api/#TRuleSomeWordsFunctionType</see></para>
+    /// </summary>
     public enum TRuleSomeWordsFunctionType
     {
         None = 0,

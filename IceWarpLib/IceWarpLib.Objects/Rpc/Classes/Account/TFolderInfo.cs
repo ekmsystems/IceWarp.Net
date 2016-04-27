@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Basic informations about IceWarp folder object, is used in folder listing
+    /// Basic informations about IceWarp folder object, is used in folder listing.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TFolderInfo">https://www.icewarp.co.uk/api/#TFolderInfo</see></para>
     /// </summary>
     public class TFolderInfo : BaseClass
     {
@@ -28,36 +29,35 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// List of subfolders in current folder
         /// </summary>
         public TFolderInfoList SubFolders { get; set; }
-        
+
+        /// <inheritdoc />
         public TFolderInfo()
         {
             SubFolders = new TFolderInfoList();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TFolderInfo(XmlNode node)
         {
             if (node != null)
             {
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
-                ID = Extensions.GetNodeInnerText(node.GetSingleNode("ID"));
-                FolderType = Extensions.GetNodeInnerText(node.GetSingleNode("FolderType"));
-                DefaultType = Extensions.GetNodeInnerText(node.GetSingleNode("DefaultType"));
-                SubFolders = new TFolderInfoList(node.GetSingleNode("SubFolders"));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
+                ID = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => ID)));
+                FolderType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => FolderType)));
+                DefaultType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DefaultType)));
+                SubFolders = new TFolderInfoList(node.GetSingleNode(ClassHelper.GetMemberName(() => SubFolders)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Name", Name);
-            XmlHelper.AppendTextElement(element, "ID", ID);
-            XmlHelper.AppendTextElement(element, "FolderType", FolderType);
-            XmlHelper.AppendTextElement(element, "DefaultType", DefaultType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Name), Name);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ID), ID);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => FolderType), FolderType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DefaultType), DefaultType);
             element.AppendChild(SubFolders.BuildXmlElement(doc, Name));
             
             return element;

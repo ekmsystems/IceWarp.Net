@@ -1,0 +1,21 @@
+﻿<iq type="result" sid="201602051125504026">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>Device_Account</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>test@testing.com</val>
+
+        </propertyval>
+        <propertyright>0</propertyright>
+
+      </item>
+
+    </result>
+
+  </query>
+</iq>

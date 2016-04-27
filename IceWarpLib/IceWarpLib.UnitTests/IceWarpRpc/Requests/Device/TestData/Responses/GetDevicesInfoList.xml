@@ -1,0 +1,20 @@
+﻿<iq type="result" sid="201602051125504026">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <deviceid>dGVzdEB0ZXN0aW5nLmNvbXxJRA==</deviceid>
+        <id>ID</id>
+        <account>test@testing.com</account>
+        <name>Name</name>
+        <devicetype>Device Type</devicetype>
+        <model>Model</model>
+        <os>Operating System</os>
+        <protocolversion>Protocol Version</protocolversion>
+        <registered>Registered</registered>
+        <lastsync>2016-04-26</lastsync>
+        <remotewipe>1</remotewipe>
+        <status>1</status>
+      </item>
+    </result>
+  </query>
+</iq>

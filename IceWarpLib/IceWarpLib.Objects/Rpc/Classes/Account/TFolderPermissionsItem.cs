@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Folder permission item
+    /// Folder permission item.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TFolderPermissionsItem">https://www.icewarp.co.uk/api/#TFolderPermissionsItem</see></para>
     /// </summary>
     public class TFolderPermissionsItem : BaseClass
     {
@@ -16,30 +17,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// Permissions for Account
         /// </summary>
         public string Permissions { get; set; }
-        
+
+        /// <inheritdoc />
         public TFolderPermissionsItem()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TFolderPermissionsItem(XmlNode node)
         {
             if (node != null)
             {
-                Account = Extensions.GetNodeInnerText(node.GetSingleNode("Account"));
-                Permissions = Extensions.GetNodeInnerText(node.GetSingleNode("Permissions"));
+                Account = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Account)));
+                Permissions = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Permissions)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Account", Account);
-            XmlHelper.AppendTextElement(element, "Permissions", Permissions);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Account), Account);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Permissions), Permissions);
 
             return element;
         }

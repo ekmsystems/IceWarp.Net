@@ -2,6 +2,9 @@
 
 namespace IceWarpLib.Objects.Rpc.Classes
 {
+    /// <summary>
+    /// Base class for an IceWarp API RPC class
+    /// </summary>
     public abstract class BaseClass
     {
         /// <summary>

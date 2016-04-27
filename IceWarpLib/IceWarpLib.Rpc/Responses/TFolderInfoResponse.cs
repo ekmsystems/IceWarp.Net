@@ -1,13 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
-    /// Basic informations about IceWarp folder object, is used in folder listing
+    /// Basic informations about IceWarp folder object, is used in folder listing.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TFolderInfo">https://www.icewarp.co.uk/api/#TFolderInfo</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetAccountFolderList">https://www.icewarp.co.uk/api/#GetAccountFolderList</seealso></para>
     /// </summary>
     public class TFolderInfoResponse : IceWarpResponse
     {
@@ -31,21 +32,23 @@ namespace IceWarpLib.Rpc.Responses
         /// List of subfolders in current folder
         /// </summary>
         public TFolderInfoList SubFolders { get; set; }
-        
+
+        /// <inheritdoc />
         public TFolderInfoResponse(HttpRequestResult httpRequestResult)
             : base(httpRequestResult)
         {
         }
 
+        /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
             if (node != null)
             {
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
-                ID = Extensions.GetNodeInnerText(node.GetSingleNode("ID"));
-                FolderType = Extensions.GetNodeInnerText(node.GetSingleNode("FolderType"));
-                DefaultType = Extensions.GetNodeInnerText(node.GetSingleNode("DefaultType"));
-                SubFolders = new TFolderInfoList(node.GetSingleNode("SubFolders"));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
+                ID = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => ID)));
+                FolderType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => FolderType)));
+                DefaultType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DefaultType)));
+                SubFolders = new TFolderInfoList(node.GetSingleNode(ClassHelper.GetMemberName(() => SubFolders)));
             }
         }
     }

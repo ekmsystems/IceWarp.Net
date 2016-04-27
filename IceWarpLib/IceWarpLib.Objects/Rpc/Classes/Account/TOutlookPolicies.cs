@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Classes.Property;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Represents class TOutlookPolicies
+    /// Represents class TOutlookPolicies.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TOutlookPolicies">https://www.icewarp.co.uk/api/#TOutlookPolicies</see></para>
     /// </summary>
     public class TOutlookPolicies : TPropertyVal
     {
@@ -113,79 +114,78 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// Reset to default indicator
         /// </summary>
         public bool ResetToDefault { get; set; }
-        
+
+        /// <inheritdoc />
         public TOutlookPolicies()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TOutlookPolicies(XmlNode node)
         {
             if (node != null)
             {
-                SyncFolderStructure = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("SyncFolderStructure"));
-                SyncFolderStructureAfter = Extensions.GetNodeInnerText(node.GetSingleNode("SyncFolderStructureAfter"));
-                SyncPriorityFolders = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("SyncPriorityFolders"));
-                SyncPriorityFoldersAfter = Extensions.GetNodeInnerText(node.GetSingleNode("SyncPriorityFoldersAfter"));
-                SyncStandardFolders = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("SyncStandardFolders"));
-                SyncStandardFoldersAfter = Extensions.GetNodeInnerText(node.GetSingleNode("SyncStandardFoldersAfter"));
-                SyncFoldersImmediately = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("SyncFoldersImmediately"));
-                SyncFoldersImmediatelyValue = Extensions.GetNodeInnerText(node.GetSingleNode("SyncFoldersImmediatelyValue"));
-                SyncGAL = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("SyncGAL"));
-                SyncGALValue = Extensions.GetNodeInnerText(node.GetSingleNode("SyncGALValue"));
-                FolderSyncThreshold = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("FolderSyncThreshold"));
-                FolderSyncThresholdMessages = Extensions.GetNodeInnerText(node.GetSingleNode("FolderSyncThresholdMessages"));
-                DownloadThreshold = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("DownloadThreshold"));
-                DownloadThresholdMB = Extensions.GetNodeInnerText(node.GetSingleNode("DownloadThresholdMB"));
-                DownloadFilesFully = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("DownloadFilesFully"));
-                DownloadFilesType = Extensions.GetNodeInnerText(node.GetSingleNode("DownloadFilesType"));
-                AuthenticationMethod = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("AuthenticationMethod"));
-                AuthenticationMethodValue = Extensions.GetNodeInnerText(node.GetSingleNode("AuthenticationMethodValue"));
-                LineSecurity = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("LineSecurity"));
-                LineSecurityValue = Extensions.GetNodeInnerText(node.GetSingleNode("LineSecurityValue"));
-                LoginPort = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("LoginPort"));
-                LoginPortValue = Extensions.GetNodeInnerText(node.GetSingleNode("LoginPortValue"));
-                DisplayABNames = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("DisplayABNames"));
-                DisplayABNamesAs = Extensions.GetNodeInnerText(node.GetSingleNode("DisplayABNamesAs"));
-                SaveAsType = Extensions.GetNodeInnerText(node.GetSingleNode("SaveAsType"));
-                ResetToDefault = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("ResetToDefault"));
+                SyncFolderStructure = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncFolderStructure)));
+                SyncFolderStructureAfter = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncFolderStructureAfter)));
+                SyncPriorityFolders = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncPriorityFolders)));
+                SyncPriorityFoldersAfter = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncPriorityFoldersAfter)));
+                SyncStandardFolders = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncStandardFolders)));
+                SyncStandardFoldersAfter = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncStandardFoldersAfter)));
+                SyncFoldersImmediately = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncFoldersImmediately)));
+                SyncFoldersImmediatelyValue = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncFoldersImmediatelyValue)));
+                SyncGAL = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncGAL)));
+                SyncGALValue = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SyncGALValue)));
+                FolderSyncThreshold = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => FolderSyncThreshold)));
+                FolderSyncThresholdMessages = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => FolderSyncThresholdMessages)));
+                DownloadThreshold = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => DownloadThreshold)));
+                DownloadThresholdMB = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DownloadThresholdMB)));
+                DownloadFilesFully = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => DownloadFilesFully)));
+                DownloadFilesType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DownloadFilesType)));
+                AuthenticationMethod = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => AuthenticationMethod)));
+                AuthenticationMethodValue = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => AuthenticationMethodValue)));
+                LineSecurity = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => LineSecurity)));
+                LineSecurityValue = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => LineSecurityValue)));
+                LoginPort = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => LoginPort)));
+                LoginPortValue = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => LoginPortValue)));
+                DisplayABNames = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => DisplayABNames)));
+                DisplayABNamesAs = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DisplayABNamesAs)));
+                SaveAsType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => SaveAsType)));
+                ResetToDefault = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => ResetToDefault)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            XmlHelper.AppendTextElement(element, "SyncFolderStructure", SyncFolderStructure);
-            XmlHelper.AppendTextElement(element, "SyncFolderStructureAfter", SyncFolderStructureAfter);
-            XmlHelper.AppendTextElement(element, "SyncPriorityFolders", SyncPriorityFolders);
-            XmlHelper.AppendTextElement(element, "SyncPriorityFoldersAfter", SyncPriorityFoldersAfter);
-            XmlHelper.AppendTextElement(element, "SyncStandardFolders", SyncStandardFolders);
-            XmlHelper.AppendTextElement(element, "SyncStandardFoldersAfter", SyncStandardFoldersAfter);
-            XmlHelper.AppendTextElement(element, "SyncFoldersImmediately", SyncFoldersImmediately);
-            XmlHelper.AppendTextElement(element, "SyncFoldersImmediatelyValue", SyncFoldersImmediatelyValue);
-            XmlHelper.AppendTextElement(element, "SyncGAL", SyncGAL);
-            XmlHelper.AppendTextElement(element, "SyncGALValue", SyncGALValue);
-            XmlHelper.AppendTextElement(element, "FolderSyncThreshold", FolderSyncThreshold);
-            XmlHelper.AppendTextElement(element, "FolderSyncThresholdMessages", FolderSyncThresholdMessages);
-            XmlHelper.AppendTextElement(element, "DownloadThreshold", DownloadThreshold);
-            XmlHelper.AppendTextElement(element, "DownloadThresholdMB", DownloadThresholdMB);
-            XmlHelper.AppendTextElement(element, "DownloadFilesFully", DownloadFilesFully);
-            XmlHelper.AppendTextElement(element, "DownloadFilesType", DownloadFilesType);
-            XmlHelper.AppendTextElement(element, "AuthenticationMethod", AuthenticationMethod);
-            XmlHelper.AppendTextElement(element, "AuthenticationMethodValue", AuthenticationMethodValue);
-            XmlHelper.AppendTextElement(element, "LineSecurity", LineSecurity);
-            XmlHelper.AppendTextElement(element, "LineSecurityValue", LineSecurityValue);
-            XmlHelper.AppendTextElement(element, "LoginPort", LoginPort);
-            XmlHelper.AppendTextElement(element, "LoginPortValue", LoginPortValue);
-            XmlHelper.AppendTextElement(element, "DisplayABNames", DisplayABNames);
-            XmlHelper.AppendTextElement(element, "DisplayABNamesAs", DisplayABNamesAs);
-            XmlHelper.AppendTextElement(element, "SaveAsType", SaveAsType);
-            XmlHelper.AppendTextElement(element, "ResetToDefault", ResetToDefault);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncFolderStructure), SyncFolderStructure);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncFolderStructureAfter), SyncFolderStructureAfter);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncPriorityFolders), SyncPriorityFolders);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncPriorityFoldersAfter), SyncPriorityFoldersAfter);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncStandardFolders), SyncStandardFolders);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncStandardFoldersAfter), SyncStandardFoldersAfter);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncFoldersImmediately), SyncFoldersImmediately);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncFoldersImmediatelyValue), SyncFoldersImmediatelyValue);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncGAL), SyncGAL);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SyncGALValue), SyncGALValue);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => FolderSyncThreshold), FolderSyncThreshold);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => FolderSyncThresholdMessages), FolderSyncThresholdMessages);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DownloadThreshold), DownloadThreshold);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DownloadThresholdMB), DownloadThresholdMB);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DownloadFilesFully), DownloadFilesFully);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DownloadFilesType), DownloadFilesType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => AuthenticationMethod), AuthenticationMethod);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => AuthenticationMethodValue), AuthenticationMethodValue);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => LineSecurity), LineSecurity);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => LineSecurityValue), LineSecurityValue);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => LoginPort), LoginPort);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => LoginPortValue), LoginPortValue);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DisplayABNames), DisplayABNames);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DisplayABNamesAs), DisplayABNamesAs);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => SaveAsType), SaveAsType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ResetToDefault), ResetToDefault);
 
             return element;
         }

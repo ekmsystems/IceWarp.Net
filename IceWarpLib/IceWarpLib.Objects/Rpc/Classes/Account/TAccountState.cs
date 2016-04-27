@@ -6,7 +6,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// State of IceWarp account
+    /// State of IceWarp account.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAccountState">https://www.icewarp.co.uk/api/#TAccountState</see></para>
     /// </summary>
     public class TAccountState : TPropertyVal
     {
@@ -14,29 +15,28 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// State value
         /// </summary>
         public TUserState State { get; set; }
-        
+
+        /// <inheritdoc />
         public TAccountState()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TAccountState(XmlNode node)
         {
             if (node != null)
             {
-                State = (TUserState)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("State"));
+                State = (TUserState)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => State)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            XmlHelper.AppendTextElement(element, "State", State);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => State), State);
 
             return element;
         }

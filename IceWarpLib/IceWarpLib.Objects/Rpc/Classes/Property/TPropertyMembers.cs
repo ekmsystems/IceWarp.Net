@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Represents the account member list ( mailing list, group )
+    /// Represents the account member list ( mailing list, group ).
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyMembers">https://www.icewarp.co.uk/api/#TPropertyMembers</see></para>
     /// </summary>
     public class TPropertyMembers : TPropertyVal
     {
@@ -13,25 +14,23 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// List Of TPropertyMember. See <see cref="TPropertyMember"/> for more information.
         /// </summary>
         public List<TPropertyMember> Val { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyMembers()
         {
             Val = new List<TPropertyMember>();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TPropertyMembers(XmlNode node)
         {
             Val = new List<TPropertyMember>();
             if (node != null)
             {
-                var val = node.GetSingleNode("Val");
+                var val = node.GetSingleNode(ClassHelper.GetMemberName(() => Val));
                 if (val != null)
                 {
-                    var items = val.GetNodes("item");
+                    var items = val.GetNodes(XmlHelper.ItemTag);
                     if (items != null)
                     {
                         foreach (XmlNode item in items)
@@ -43,15 +42,16 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            var valElement = XmlHelper.CreateElement(doc, "Val");
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            var valElement = XmlHelper.CreateElement(doc, ClassHelper.GetMemberName(() => Val));
             foreach (var item in Val)
             {
-                valElement.AppendChild(item.BuildXmlElement(doc, "item"));
+                valElement.AppendChild(item.BuildXmlElement(doc, XmlHelper.ItemTag));
             }
             element.AppendChild(valElement);
 

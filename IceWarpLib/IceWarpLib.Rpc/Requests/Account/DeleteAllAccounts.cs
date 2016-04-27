@@ -1,15 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Deletes all accounts that matches current filter in specified IceWarp domain. See <see cref="IceWarpCommand{SuccessResponse}"/> for return type.
+    /// Deletes all accounts that matches current filter in specified IceWarp domain.
+    /// <para><see href="https://www.icewarp.co.uk/api/#DeleteAllAccounts">https://www.icewarp.co.uk/api/#DeleteAllAccounts</see></para>
     /// </summary>
     public class DeleteAllAccounts : IceWarpCommand<SuccessResponse>
     {
@@ -23,26 +22,21 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public TAccountListFilter Filter { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "domainstr", DomainStr);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => DomainStr), DomainStr);
             if (Filter != null)
             {
-                commandParams.AppendChild(Filter.BuildXmlElement(doc, "filter"));
+                commandParams.AppendChild(Filter.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Filter)));
             }
 
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="SuccessResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override SuccessResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new SuccessResponse(httpRequestResult);

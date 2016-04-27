@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Used to filter the list of properties in server / domain / account API console
+    /// Used to filter the list of properties in server / domain / account API console.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyListFilter">https://www.icewarp.co.uk/api/#TPropertyListFilter</see></para>
     /// </summary>
     public class TPropertyListFilter : BaseClass
     {
@@ -20,33 +21,32 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// Specifies if the cached property list should be cleared or not
         /// </summary>
         public bool Clear { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyListFilter(){ }
-        
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+
+        /// <inheritdoc />
         public TPropertyListFilter(XmlNode node)
         {
             if (node != null)
             {
-                Mask = Extensions.GetNodeInnerText(node.GetSingleNode("Mask"));
-                Groups = new TPropertyStringList(node.GetSingleNode("Groups"));
-                Clear = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Clear"));
+                Mask = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Mask)));
+                Groups = new TPropertyStringList(node.GetSingleNode(ClassHelper.GetMemberName(() => Groups)));
+                Clear = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Clear)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Mask", Mask);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Mask), Mask);
             if (Groups != null)
             {
-                element.AppendChild(Groups.BuildXmlElement(doc, "Groups"));
+                element.AppendChild(Groups.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Groups)));
             }
-            XmlHelper.AppendTextElement(element, "Clear", Clear);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Clear), Clear);
 
             return element;
         }

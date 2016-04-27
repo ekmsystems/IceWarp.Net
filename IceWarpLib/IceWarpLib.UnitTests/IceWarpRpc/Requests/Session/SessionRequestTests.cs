@@ -40,7 +40,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Session
                 Digest = "digest",
                 Email = "email",
                 Password = "password",
-                PersistantLogin = false
+                PersistentLogin = false
             };
             var xml = request.ToXml().InnerXmlFormatted();
             Assert.AreEqual(expected, xml);

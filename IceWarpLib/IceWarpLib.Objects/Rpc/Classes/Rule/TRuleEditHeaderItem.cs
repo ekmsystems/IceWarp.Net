@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Rule
 {
     /// <summary>
-    /// Item that represents header modification
+    /// Item that represents header modification.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleEditHeaderItem">https://www.icewarp.co.uk/api/#TRuleEditHeaderItem</see></para>
     /// </summary>
     public class TRuleEditHeaderItem : BaseClass
     {
@@ -30,33 +31,32 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// </summary>
         public string Value { get; set; }
 
+        /// <inheritdoc />
         public TRuleEditHeaderItem() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleEditHeaderItem(XmlNode node)
         {
             if (node != null)
             {
-                EditHeaderType = (TRuleEditHeaderType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("EditHeaderType"));
-                Header = Extensions.GetNodeInnerText(node.GetSingleNode("Header"));
-                HasRegex = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("HasRegex"));
-                Regex = Extensions.GetNodeInnerText(node.GetSingleNode("Regex"));
-                Value = Extensions.GetNodeInnerText(node.GetSingleNode("Value"));
+                EditHeaderType = (TRuleEditHeaderType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => EditHeaderType)));
+                Header = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Header)));
+                HasRegex = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => HasRegex)));
+                Regex = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Regex)));
+                Value = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Value)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "EditHeaderType", EditHeaderType);
-            XmlHelper.AppendTextElement(element, "Header", Header);
-            XmlHelper.AppendTextElement(element, "HasRegex", HasRegex);
-            XmlHelper.AppendTextElement(element, "Regex", Regex);
-            XmlHelper.AppendTextElement(element, "Value", Value);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => EditHeaderType), EditHeaderType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Header), Header);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => HasRegex), HasRegex);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Regex), Regex);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Value), Value);
 
             return element;
         }

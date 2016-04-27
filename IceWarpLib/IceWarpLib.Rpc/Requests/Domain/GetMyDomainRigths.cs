@@ -1,15 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Domain
 {
     /// <summary>
-    /// Gets the rights for domain properties. See <see cref="IceWarpCommand{TPropertyRightList}"/> for return type.
+    /// Gets the rights for domain properties.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetMyDomainRigths">https://www.icewarp.co.uk/api/#GetMyDomainRigths</see></para>
     /// </summary>
     public class GetMyDomainRigths : IceWarpCommand<TPropertyRightListResponse>
     {
@@ -22,26 +21,21 @@ namespace IceWarpLib.Rpc.Requests.Domain
         /// </summary>
         public TDomainPropertyList DomainPropertyList { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "domainstr", DomainStr);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => DomainStr), DomainStr);
             if (DomainPropertyList != null)
             {
-                commandParams.AppendChild(DomainPropertyList.BuildXmlElement(doc, "domainpropertylist"));
+                commandParams.AppendChild(DomainPropertyList.BuildXmlElement(doc, ClassHelper.GetMemberName(() => DomainPropertyList)));
             }
 
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TPropertyRightListResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TPropertyRightListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TPropertyRightListResponse(httpRequestResult);
