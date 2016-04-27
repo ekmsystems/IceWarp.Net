@@ -13,6 +13,7 @@ namespace IceWarpLib.Rpc
     public abstract class IceWarpCommand<T>
         where T : IceWarpResponse
     {
+        public const string _commandParamsElementName = "CommandParams";
         private const string _xmlns = "admin:iq:rpc";
 
         /// <summary>
@@ -34,7 +35,40 @@ namespace IceWarpLib.Rpc
         /// <returns><typeparam name="T">The parsed result object. See <see cref="IceWarpResponse"/> for more information.</typeparam></returns>
         public abstract T FromHttpRequestResult(HttpRequestResult httpRequestResult);
 
-        protected XmlElement CreateCommand(XmlDocument doc, string sessionId)
+        /// <summary>
+        /// Generates the XML for the request.
+        /// </summary>
+        /// <returns>The XML document. See <see cref="XmlDocument"/></returns>
+        public XmlDocument ToXml()
+        {
+            var doc = new XmlDocument();
+
+            var command = CreateCommand(doc, SessionId);
+
+            XmlHelper.AppendTextElement(command, "CommandName", this.GetType().Name.ToLower());
+
+            BuildCommandParams(doc, command);
+
+            return doc;
+        }
+
+        /// <summary>
+        /// Creates the CommanParams XML element.
+        /// </summary>
+        /// <param name="doc">The XML document. See <see cref="XmlDocument"/></param>
+        /// <returns>The CommandParams XML Element. See <see cref="XmlElement"/></returns>
+        protected XmlElement GetCommandParamsElement(XmlDocument doc)
+        {
+            return XmlHelper.CreateElement(doc, _commandParamsElementName);
+        }
+
+        /// <summary>
+        /// Creates the IceWarp API Command
+        /// </summary>
+        /// <param name="doc">The XML document. See <see cref="XmlDocument"/></param>
+        /// <param name="sessionId">The API sid (session id).</param>
+        /// <returns>The Command XML Element. See <see cref="XmlElement"/></returns>
+        private XmlElement CreateCommand(XmlDocument doc, string sessionId)
         {
             var root = doc.CreateElement("iq");
             root.SetAttribute("type", "get");
@@ -48,23 +82,6 @@ namespace IceWarpLib.Rpc
             root.AppendChild(query);
 
             return query;
-        }
-
-        /// <summary>
-        /// Generates the XML for the request.
-        /// </summary>
-        /// <returns>The XML document See <see cref="XmlDocument"/> for more information.</returns>
-        public XmlDocument ToXml()
-        {
-            var doc = new XmlDocument();
-
-            var command = CreateCommand(doc, SessionId);
-
-            XmlHelper.AppendTextElement(command, "commandname", this.GetType().Name.ToLower());
-
-            BuildCommandParams(doc, command);
-
-            return doc;
         }
     }
 }

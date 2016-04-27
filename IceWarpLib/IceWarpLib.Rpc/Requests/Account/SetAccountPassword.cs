@@ -35,13 +35,13 @@ namespace IceWarpLib.Rpc.Requests.Account
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "AccountEmail", AccountEmail);
-            XmlHelper.AppendTextElement(commandParams, "AuthType", AuthType);
-            XmlHelper.AppendTextElement(commandParams, "Password", Password);
-            XmlHelper.AppendTextElement(commandParams, "Digest", Digest);
-            XmlHelper.AppendTextElement(commandParams, "IgnorePolicy", IgnorePolicy);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AuthType), AuthType);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Password), Password);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Digest), Digest);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => IgnorePolicy), IgnorePolicy);
 
             command.AppendChild(commandParams);
         }

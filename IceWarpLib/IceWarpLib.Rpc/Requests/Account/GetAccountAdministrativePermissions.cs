@@ -18,9 +18,9 @@ namespace IceWarpLib.Rpc.Requests.Account
         
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "accountemail", AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
 
             command.AppendChild(commandParams);
         }

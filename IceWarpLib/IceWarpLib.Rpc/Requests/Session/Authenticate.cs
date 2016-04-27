@@ -31,17 +31,17 @@ namespace IceWarpLib.Rpc.Requests.Session
         /// <summary>
         /// Specifies the session expiration - 1 day or 24 days
         /// </summary>
-        public bool PersistantLogin { get; set; }
+        public bool PersistentLogin { get; set; }
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "authtype", ((int)AuthType).ToString());
-            XmlHelper.AppendTextElement(commandParams, "email", Email);
-            XmlHelper.AppendTextElement(commandParams, "password", Password);
-            XmlHelper.AppendTextElement(commandParams, "digest", Digest);
-            XmlHelper.AppendTextElement(commandParams, "persistentlogin", (PersistantLogin ? 1 : 0).ToString());
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AuthType), AuthType);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Email), Email);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Password), Password);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Digest), Digest);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => PersistentLogin), PersistentLogin);
 
             command.AppendChild(commandParams);
         }

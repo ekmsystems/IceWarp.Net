@@ -23,10 +23,10 @@ namespace IceWarpLib.Rpc.Requests.Domain
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "oldname", OldName);
-            XmlHelper.AppendTextElement(commandParams, "newname", NewName);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => OldName), OldName);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => NewName), NewName);
 
             command.AppendChild(commandParams);
         }

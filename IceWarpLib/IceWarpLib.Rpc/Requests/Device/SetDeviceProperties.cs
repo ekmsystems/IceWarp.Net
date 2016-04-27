@@ -23,7 +23,7 @@ namespace IceWarpLib.Rpc.Requests.Device
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "CommandParams");
+            var commandParams = GetCommandParamsElement(doc);
 
             XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => DeviceID), DeviceID);
             if (PropertyValueList != null)

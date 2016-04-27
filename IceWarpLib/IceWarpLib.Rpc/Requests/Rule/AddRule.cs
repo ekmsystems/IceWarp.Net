@@ -23,12 +23,12 @@ namespace IceWarpLib.Rpc.Requests.Rule
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "Who", Who);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Who), Who);
             if (RuleSettings != null)
             {
-                commandParams.AppendChild(RuleSettings.BuildXmlElement(doc, "RuleSettings"));
+                commandParams.AppendChild(RuleSettings.BuildXmlElement(doc, ClassHelper.GetMemberName(() => RuleSettings)));
             }
 
             command.AppendChild(commandParams);

@@ -19,9 +19,9 @@ namespace IceWarpLib.Rpc.Requests.Session
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "authtype", ((int)AuthType).ToString());
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AuthType), AuthType);
 
             command.AppendChild(commandParams);
         }

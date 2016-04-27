@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
@@ -21,10 +20,10 @@ namespace IceWarpLib.Rpc.Requests.Account
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "AccountEmail", AccountEmail);
-            commandParams.AppendChild(Members.BuildXmlElement(doc, "Members"));
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
+            commandParams.AppendChild(Members.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Members)));
 
             command.AppendChild(commandParams);
         }

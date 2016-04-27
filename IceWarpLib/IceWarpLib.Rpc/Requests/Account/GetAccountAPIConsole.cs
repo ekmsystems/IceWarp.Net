@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
@@ -35,18 +34,18 @@ namespace IceWarpLib.Rpc.Requests.Account
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "accountemail", AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
 
             if (Filter != null)
             {
-                commandParams.AppendChild(Filter.BuildXmlElement(doc, "filter"));
+                commandParams.AppendChild(Filter.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Filter)));
             }
 
-            XmlHelper.AppendTextElement(commandParams, "offset", Offset.ToString());
-            XmlHelper.AppendTextElement(commandParams, "count", Count.ToString());
-            XmlHelper.AppendTextElement(commandParams, "comments", Comments.ToBitString());
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Offset), Offset);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Count), Count);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => Comments), Comments);
 
             command.AppendChild(commandParams);
         }

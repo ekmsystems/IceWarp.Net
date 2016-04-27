@@ -1,5 +1,4 @@
 ﻿using System.Xml;
-using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
@@ -13,7 +12,7 @@ namespace IceWarpLib.Rpc.Requests.Session
     {
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            command.AppendChild(XmlHelper.CreateElement(doc, "commandparams"));
+            command.AppendChild(GetCommandParamsElement(doc));
         }
         
         /// <summary>

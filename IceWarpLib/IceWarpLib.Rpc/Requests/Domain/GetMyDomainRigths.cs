@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
 using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
@@ -24,12 +23,12 @@ namespace IceWarpLib.Rpc.Requests.Domain
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "domainstr", DomainStr);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => DomainStr), DomainStr);
             if (DomainPropertyList != null)
             {
-                commandParams.AppendChild(DomainPropertyList.BuildXmlElement(doc, "domainpropertylist"));
+                commandParams.AppendChild(DomainPropertyList.BuildXmlElement(doc, ClassHelper.GetMemberName(() => DomainPropertyList)));
             }
 
             command.AppendChild(commandParams);

@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
@@ -28,13 +27,13 @@ namespace IceWarpLib.Rpc.Requests.Account
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "AccountEmail", AccountEmail);
-            XmlHelper.AppendTextElement(commandParams, "FolderId", FolderId);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => FolderId), FolderId);
             if (Permissions != null)
             {
-                commandParams.AppendChild(Permissions.BuildXmlElement(doc, "Permissions"));
+                commandParams.AppendChild(Permissions.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Permissions)));
             }
 
             command.AppendChild(commandParams);

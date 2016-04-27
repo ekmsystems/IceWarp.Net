@@ -13,7 +13,7 @@ namespace IceWarpLib.Rpc.Requests.Account
     {
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            command.AppendChild(XmlHelper.CreateElement(doc, "commandparams"));
+            command.AppendChild(GetCommandParamsElement(doc));
         }
 
         /// <summary>

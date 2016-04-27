@@ -28,14 +28,14 @@ namespace IceWarpLib.Rpc.Requests.Account
 
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
-            var commandParams = XmlHelper.CreateElement(doc, "commandparams");
+            var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, "accountemail", AccountEmail);
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountEmail), AccountEmail);
             if (AccountPropertyList != null)
             {
-                commandParams.AppendChild(AccountPropertyList.BuildXmlElement(doc, "accountpropertylist"));
+                commandParams.AppendChild(AccountPropertyList.BuildXmlElement(doc, ClassHelper.GetMemberName(() => AccountPropertyList)));
             }
-            XmlHelper.AppendTextElement(commandParams, "accountpropertyset", AccountPropertySet.HasValue ? AccountPropertySet.Value.ToString("d") : TAccountPropertySet.None.ToString("d"));
+            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => AccountPropertySet), AccountPropertySet.HasValue ? AccountPropertySet.Value.ToString("d") : TAccountPropertySet.None.ToString("d"));
 
             command.AppendChild(commandParams);
         }

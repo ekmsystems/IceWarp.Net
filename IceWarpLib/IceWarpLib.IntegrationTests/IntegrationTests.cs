@@ -37,7 +37,7 @@ namespace IceWarpLib.IntegrationTests
                 Digest = "",
                 Email = ConfigurationManager.AppSettings["AdminEmail"],
                 Password = ConfigurationManager.AppSettings["AdminPassword"],
-                PersistantLogin = false
+                PersistentLogin = false
             };
             var authResult = api.Execute(url, authenticate);
 
