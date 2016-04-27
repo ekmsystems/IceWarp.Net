@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Classes.Rule;
@@ -58,6 +59,16 @@ namespace IceWarpLib.Objects.Helpers
         public static List<ClassType> TRuleConditionClasses()
         {
             return _tRuleConditionClasses;
+        }
+
+        public static string GetMemberName<TValue>(Expression<Func<TValue>> memberAccess)
+        {
+            return ((MemberExpression)memberAccess.Body).Member.Name;
+        }
+
+        public static string GetMemberName<T, TValue>(Expression<Func<T, TValue>> memberAccess)
+        {
+            return ((MemberExpression)memberAccess.Body).Member.Name;
         }
 
         public static object GetInstance(string assemblyQualifiedName)

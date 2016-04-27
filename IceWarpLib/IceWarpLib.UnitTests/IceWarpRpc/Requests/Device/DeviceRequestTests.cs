@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Device;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Enums;
 using IceWarpLib.Rpc.Requests.Device;
 using IceWarpLib.Rpc.Utilities;
@@ -31,6 +32,37 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
 
         [TestFixtureTearDown]
         public void FixtureTearDown() { }
+
+        [Test]
+        public void GetDeviceProperties()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetDeviceProperties.xml"));
+            var request = new GetDeviceProperties
+            {
+                SessionId = "sid",
+                DeviceID = "355310042481808",
+                DevicePropertyList = new TDevicePropertyList
+                {
+                    Items = new List<TAPIProperty>
+                    {
+                        new TAPIProperty{ PropName = "Device_Account" }
+                    }
+                }
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "GetDeviceProperties.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.AreEqual(1, response.Items.Count);
+            Assert.AreEqual(typeof(TPropertyString), response.Items.First().PropertyVal.GetType());
+            Assert.AreEqual(TPermission.None, response.Items.First().PropertyRight);
+            Assert.AreEqual("Device_Account", response.Items.First().APIProperty.PropName);
+            Assert.AreEqual("test@testing.com", ((TPropertyString)response.Items.First().PropertyVal).Val);
+        }
 
         [Test]
         public void GetDevicesInfoList()
@@ -70,5 +102,36 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
             Assert.AreEqual(TMobileDeviceStatus.Allowed, response.Items.First().Status);
         }
 
+        [Test]
+        public void SetDeviceProperties()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "SetDeviceProperties.xml"));
+            var request = new SetDeviceProperties
+            {
+                SessionId = "sid",
+                DeviceID = "355310042481808",
+                PropertyValueList = new TPropertyValueList
+                {
+                    Items = new List<TPropertyValue>
+                    {
+                        new TPropertyValue
+                        {
+                            APIProperty = new TAPIProperty{ PropName = "Device_Account" },
+                            PropertyRight = TPermission.None,
+                            PropertyVal = new TPropertyString{ Val = "test@testing.com" }
+                        }
+                    }
+                }
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "SetDeviceProperties.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
     }
 }

@@ -124,6 +124,7 @@
     <Compile Include="Rpc\Classes\Account\TActivationKey.cs" />
     <Compile Include="Rpc\Classes\Account\TAdministrativePermissions.cs" />
     <Compile Include="Rpc\Classes\Account\TAdministrativePermissionsList.cs" />
+    <Compile Include="Rpc\Classes\Device\TDevicePropertyList.cs" />
     <Compile Include="Rpc\Classes\Device\TMobileDeviceInfo.cs" />
     <Compile Include="Rpc\Classes\Device\TMobileDeviceListFilter.cs" />
     <Compile Include="Rpc\Classes\Property\TAPIProperty.cs" />

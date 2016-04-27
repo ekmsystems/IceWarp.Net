@@ -1,0 +1,20 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>setdeviceproperties</commandname>
+    <commandparams>
+      <deviceid>355310042481808</deviceid>
+      <propertyvaluelist>
+        <item>
+          <apiproperty>
+            <propname>Device_Account</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>test@testing.com</val>
+          </propertyval>
+          <propertyright>0</propertyright>
+        </item>
+      </propertyvaluelist>
+    </commandparams>
+  </query>
+</iq>

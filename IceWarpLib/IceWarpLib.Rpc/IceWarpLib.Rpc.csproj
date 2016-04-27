@@ -78,7 +78,9 @@
     <Compile Include="Requests\Account\SetAccountFolderPermissions.cs" />
     <Compile Include="Requests\Account\SetAccountPassword.cs" />
     <Compile Include="Requests\Account\SetAccountProperties.cs" />
+    <Compile Include="Requests\Device\GetDeviceProperties.cs" />
     <Compile Include="Requests\Device\GetDevicesInfoList.cs" />
+    <Compile Include="Requests\Device\SetDeviceProperties.cs" />
     <Compile Include="Requests\Domain\CreateDomain.cs" />
     <Compile Include="Requests\Domain\GetDomainAPIConsole.cs" />
     <Compile Include="Requests\Domain\GetDomainProperties.cs" />
