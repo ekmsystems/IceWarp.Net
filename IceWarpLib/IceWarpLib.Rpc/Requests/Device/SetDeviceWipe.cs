@@ -7,7 +7,7 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Requests.Device
 {
     /// <summary>
-    /// Sets mobile device properties.
+    /// Marks selected mobile device for remote wipe.
     /// <para><see href="https://www.icewarp.co.uk/api/#SetDeviceWipe">https://www.icewarp.co.uk/api/#SetDeviceWipe</see></para>
     /// </summary>
     public class SetDeviceWipe : IceWarpCommand<SuccessResponse>

@@ -60,6 +60,32 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
         }
 
         [Test]
+        public void DeleteAllDevices()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "DeleteAllDevices.xml"));
+            var request = new DeleteAllDevices
+            {
+                SessionId = "sid",
+                Who = "test@testing.com",
+                Filter = new TMobileDeviceListFilter
+                {
+                    NameMask = "mask",
+                    Status = TMobileDeviceStatus.Allowed,
+                    LastSync = 5
+                }
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "DeleteAllDevices.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
         public void GetDeviceProperties()
         {
             string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetDeviceProperties.xml"));

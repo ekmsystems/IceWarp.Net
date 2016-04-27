@@ -7,7 +7,7 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Requests.Device
 {
     /// <summary>
-    /// Sets mobile device properties.
+    /// Sets the specified mobile device status.
     /// <para><see href="https://www.icewarp.co.uk/api/#SetDeviceStatus">https://www.icewarp.co.uk/api/#SetDeviceStatus</see></para>
     /// </summary>
     public class SetDeviceStatus : IceWarpCommand<SuccessResponse>

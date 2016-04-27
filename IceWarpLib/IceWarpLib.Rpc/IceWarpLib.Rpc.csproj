@@ -78,6 +78,7 @@
     <Compile Include="Requests\Account\SetAccountFolderPermissions.cs" />
     <Compile Include="Requests\Account\SetAccountPassword.cs" />
     <Compile Include="Requests\Account\SetAccountProperties.cs" />
+    <Compile Include="Requests\Device\DeleteAllDevices.cs" />
     <Compile Include="Requests\Device\DeleteDevices.cs" />
     <Compile Include="Requests\Device\GetDeviceProperties.cs" />
     <Compile Include="Requests\Device\GetDevicesInfoList.cs" />
