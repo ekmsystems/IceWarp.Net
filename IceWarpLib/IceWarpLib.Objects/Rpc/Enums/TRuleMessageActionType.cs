@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents enumeration TRuleMessageActionType
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleMessageActionType">https://www.icewarp.co.uk/api/#TRuleMessageActionType</see></para>
     /// </summary>
     public enum TRuleMessageActionType
     {

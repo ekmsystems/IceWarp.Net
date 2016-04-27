@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// IceWarp account administration level
-    /// <para><see href="https://www.icewarp.co.uk/api/#3.22.TAdminType">https://www.icewarp.co.uk/api/#3.22.TAdminType</see></para>
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAdminType">https://www.icewarp.co.uk/api/#TAdminType</see></para>
     /// </summary>
     public enum TAdminType
     {

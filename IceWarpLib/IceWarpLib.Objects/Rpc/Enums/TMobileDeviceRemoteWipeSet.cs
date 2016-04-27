@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents enumeration TMobileDeviceRemoteWipeSet
+    /// <para><see href="https://www.icewarp.co.uk/api/#TMobileDeviceRemoteWipeSet">https://www.icewarp.co.uk/api/#TMobileDeviceRemoteWipeSet</see></para>
     /// </summary>
     public enum TMobileDeviceRemoteWipeSet
     {

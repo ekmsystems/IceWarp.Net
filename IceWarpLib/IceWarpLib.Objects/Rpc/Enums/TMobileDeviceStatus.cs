@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents enumeration TMobileDeviceStatus
+    /// <para><see href="https://www.icewarp.co.uk/api/#TMobileDeviceStatus">https://www.icewarp.co.uk/api/#TMobileDeviceStatus</see></para>
     /// </summary>
     public enum TMobileDeviceStatus
     {

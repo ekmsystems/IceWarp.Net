@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Specifies the value type of API property
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyValueType">https://www.icewarp.co.uk/api/#TPropertyValueType</see></para>
     /// </summary>
     public enum TPropertyValueType
     {

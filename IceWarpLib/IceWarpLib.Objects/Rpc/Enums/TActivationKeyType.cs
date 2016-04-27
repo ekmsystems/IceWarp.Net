@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Type of activation key - outlook, desktop client.
-    /// <para><see href="https://www.icewarp.co.uk/api/#3.19.TActivationKeyType">https://www.icewarp.co.uk/api/#3.19.TActivationKeyType</see></para>
+    /// <para><see href="https://www.icewarp.co.uk/api/#TActivationKeyType">https://www.icewarp.co.uk/api/#TActivationKeyType</see></para>
     /// </summary>
     public enum TActivationKeyType
     {

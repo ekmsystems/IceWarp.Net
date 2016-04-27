@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// List of available property sets for IceWarp account.
-    /// <para><see href="https://www.icewarp.co.uk/api/#3.12.TAccountPropertySet">https://www.icewarp.co.uk/api/#3.12.TAccountPropertySet</see></para>
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAccountPropertySet">https://www.icewarp.co.uk/api/#TAccountPropertySet</see></para>
     /// </summary>
     public enum TAccountPropertySet
     {

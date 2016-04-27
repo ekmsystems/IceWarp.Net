@@ -1,5 +1,9 @@
 ﻿namespace IceWarpLib.Objects.Rpc.Enums
 {
+    /// <summary>
+    /// Represents enumeration TRuleActionType
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleActionType">https://www.icewarp.co.uk/api/#TRuleActionType</see></para>
+    /// </summary>
     public enum TRuleActionType
     {
         None = 0,
