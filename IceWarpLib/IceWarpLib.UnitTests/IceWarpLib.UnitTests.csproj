@@ -231,6 +231,9 @@
     <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountProperties.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\SetAllDevicesStatus.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\DeleteAllDevices.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -250,6 +253,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\GetDevicesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\SetAllDevicesStatus.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\DeleteAllDevices.xml">

@@ -82,6 +82,7 @@
     <Compile Include="Requests\Device\DeleteDevices.cs" />
     <Compile Include="Requests\Device\GetDeviceProperties.cs" />
     <Compile Include="Requests\Device\GetDevicesInfoList.cs" />
+    <Compile Include="Requests\Device\SetAllDevicesStatus.cs" />
     <Compile Include="Requests\Device\SetDeviceProperties.cs" />
     <Compile Include="Requests\Device\SetDeviceStatus.cs" />
     <Compile Include="Requests\Device\SetDeviceWipe.cs" />

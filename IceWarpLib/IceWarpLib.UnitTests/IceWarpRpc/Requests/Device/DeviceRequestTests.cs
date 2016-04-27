@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Device;
@@ -152,6 +149,33 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
             Assert.AreEqual("2016-04-26", response.Items.First().LastSync);
             Assert.AreEqual(TMobileDeviceRemoteWipe.None, response.Items.First().RemoteWipe);
             Assert.AreEqual(TMobileDeviceStatus.Allowed, response.Items.First().Status);
+        }
+
+        [Test]
+        public void SetAllDevicesStatus()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "SetAllDevicesStatus.xml"));
+            var request = new SetAllDevicesStatus
+            {
+                SessionId = "sid",
+                Who = "test@testing.com",
+                Filter = new TMobileDeviceListFilter
+                {
+                    NameMask = "mask",
+                    Status = TMobileDeviceStatus.Allowed,
+                    LastSync = 5
+                },
+                StatusType = TMobileDeviceStatusSet.Allowed
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "SetAllDevicesStatus.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
         }
 
         [Test]
