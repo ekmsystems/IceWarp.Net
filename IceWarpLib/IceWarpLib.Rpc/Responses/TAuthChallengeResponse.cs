@@ -28,8 +28,8 @@ namespace IceWarpLib.Rpc.Responses
         {
             if (node != null)
             {
-                HashId = Extensions.GetNodeInnerText(node.GetSingleNode("HashId"));
-                Timestamp = Extensions.UnixTimeStampToDateTime(Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Timestamp")));
+                HashId = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => HashId)));
+                Timestamp = Extensions.UnixTimeStampToDateTime(Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Timestamp))));
             }
         }
     }

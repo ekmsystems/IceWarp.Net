@@ -27,7 +27,7 @@ namespace IceWarpLib.Rpc.Responses
             Items = new List<TPropertyValue>();
             if (node != null)
             {
-                var items = node.GetNodes("item");
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 foreach (XmlNode item in items)
                 {
                     Items.Add(new TPropertyValue(item));

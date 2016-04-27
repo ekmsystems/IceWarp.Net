@@ -10,12 +10,8 @@ namespace IceWarpLib.Rpc
     /// Abstract base class for an API command.
     /// </summary>
     /// <typeparam name="T">API method return type See <see cref="IceWarpResponse"/> for more information.</typeparam>
-    public abstract class IceWarpCommand<T>
-        where T : IceWarpResponse
+    public abstract class IceWarpCommand<T> where T : IceWarpResponse
     {
-        public const string _commandParamsElementName = "CommandParams";
-        private const string _xmlns = "admin:iq:rpc";
-
         /// <summary>
         /// The API sid (session id).
         /// </summary>
@@ -45,7 +41,7 @@ namespace IceWarpLib.Rpc
 
             var command = CreateCommand(doc, SessionId);
 
-            XmlHelper.AppendTextElement(command, "CommandName", this.GetType().Name.ToLower());
+            XmlHelper.AppendTextElement(command, XmlHelper.CommandNameTag, this.GetType().Name.ToLower());
 
             BuildCommandParams(doc, command);
 
@@ -59,7 +55,7 @@ namespace IceWarpLib.Rpc
         /// <returns>The CommandParams XML Element. See <see cref="XmlElement"/></returns>
         protected XmlElement GetCommandParamsElement(XmlDocument doc)
         {
-            return XmlHelper.CreateElement(doc, _commandParamsElementName);
+            return XmlHelper.CreateElement(doc, XmlHelper.CommandParamsTag);
         }
 
         /// <summary>
@@ -70,15 +66,15 @@ namespace IceWarpLib.Rpc
         /// <returns>The Command XML Element. See <see cref="XmlElement"/></returns>
         private XmlElement CreateCommand(XmlDocument doc, string sessionId)
         {
-            var root = doc.CreateElement("iq");
-            root.SetAttribute("type", "get");
+            var root = doc.CreateElement(XmlHelper.IqTag);
+            root.SetAttribute(XmlHelper.TypeAttribute, XmlHelper.TypeGetValue);
             if (!String.IsNullOrEmpty(sessionId))
             {
-                root.SetAttribute("sid", sessionId);
+                root.SetAttribute(XmlHelper.SidAttribute, sessionId);
             }
             doc.AppendChild(root);
 
-            var query = XmlHelper.CreateElement(doc, "query", _xmlns);
+            var query = XmlHelper.CreateElement(doc, XmlHelper.QueryTag, XmlHelper.Xmlns);
             root.AppendChild(query);
 
             return query;

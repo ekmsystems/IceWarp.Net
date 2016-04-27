@@ -75,11 +75,11 @@ namespace IceWarpLib.Rpc.Responses
         {
             if (node != null)
             {
-                Conditions = new TRuleConditions(node.GetSingleNode("Conditions"));
-                Actions = new TRuleActions(node.GetSingleNode("Actions"));
-                Title = Extensions.GetNodeInnerText(node.GetSingleNode("Title"));
-                Active = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Active"));
-                RuleID = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RuleID"));
+                Conditions = new TRuleConditions(node.GetSingleNode(ClassHelper.GetMemberName(() => Conditions)));
+                Actions = new TRuleActions(node.GetSingleNode(ClassHelper.GetMemberName(() => Actions)));
+                Title = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Title)));
+                Active = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Active)));
+                RuleID = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RuleID)));
             }
         }
     }

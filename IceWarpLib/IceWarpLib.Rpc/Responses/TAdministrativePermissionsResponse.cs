@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
 using IceWarpLib.Rpc.Utilities;
@@ -27,8 +26,8 @@ namespace IceWarpLib.Rpc.Responses
         {
             if (node != null)
             {
-                DomainsPermissions = new TDomainsPermissionsList(node.GetSingleNode("DomainsPermissions"));
-                GlobalPermissions = new TAdministrativePermissionsList(node.GetSingleNode("GlobalPermissions"));
+                DomainsPermissions = new TDomainsPermissionsList(node.GetSingleNode(ClassHelper.GetMemberName(() => DomainsPermissions)));
+                GlobalPermissions = new TAdministrativePermissionsList(node.GetSingleNode(ClassHelper.GetMemberName(() => GlobalPermissions)));
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Rpc.Utilities;
 
@@ -31,8 +30,8 @@ namespace IceWarpLib.Rpc.Responses
             Items = new List<TFolderPermissionsItem>();
             if (node != null)
             {
-                IsInherited = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("IsInherited"));
-                var items = node.GetNodes("item");
+                IsInherited = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => IsInherited)));
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 if (items != null)
                 {
                     foreach (XmlNode item in items)

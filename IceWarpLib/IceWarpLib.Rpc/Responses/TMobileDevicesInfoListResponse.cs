@@ -66,9 +66,9 @@ namespace IceWarpLib.Rpc.Responses
             Items = new List<TMobileDeviceInfo>();
             if (node != null)
             {
-                Offset = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Offset"));
-                OverallCount = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("OverallCount"));
-                var items = node.GetNodes("item");
+                Offset = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Offset)));
+                OverallCount = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => OverallCount)));
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 if (items != null)
                 {
                     foreach (XmlNode item in items)

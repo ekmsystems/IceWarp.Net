@@ -32,9 +32,9 @@ namespace IceWarpLib.Rpc.Responses
         {
             if (node != null)
             {
-                Email = Extensions.GetNodeInnerText(node.GetSingleNode("Email"));
-                Domain = Extensions.GetNodeInnerText(node.GetSingleNode("Domain"));
-                AdminType = (TAdminType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("AdminType"));
+                Email = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Email)));
+                Domain = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Domain)));
+                AdminType = (TAdminType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => AdminType)));
             }
         }
     }

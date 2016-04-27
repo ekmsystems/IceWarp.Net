@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Rpc.Utilities;
 
@@ -41,11 +40,11 @@ namespace IceWarpLib.Rpc.Responses
         {
             if (node != null)
             {
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
-                ID = Extensions.GetNodeInnerText(node.GetSingleNode("ID"));
-                FolderType = Extensions.GetNodeInnerText(node.GetSingleNode("FolderType"));
-                DefaultType = Extensions.GetNodeInnerText(node.GetSingleNode("DefaultType"));
-                SubFolders = new TFolderInfoList(node.GetSingleNode("SubFolders"));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
+                ID = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => ID)));
+                FolderType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => FolderType)));
+                DefaultType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DefaultType)));
+                SubFolders = new TFolderInfoList(node.GetSingleNode(ClassHelper.GetMemberName(() => SubFolders)));
             }
         }
     }
