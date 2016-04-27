@@ -17,6 +17,7 @@ namespace IceWarpLib.Objects.Helpers
         public const string CommandNameTag = "commandname";
         public const string CommandParamsTag = "commandparams";
         public const string ItemTag = "item";
+        public const string ClassNameTag = "classname";
 
         public const string ResultXPath = "/iq/query/result";
         public const string ErrorXPath = "/iq/query/error";

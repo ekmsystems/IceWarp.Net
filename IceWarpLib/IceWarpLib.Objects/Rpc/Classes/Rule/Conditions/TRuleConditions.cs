@@ -7,45 +7,32 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// List of rule conditions
+    /// List of rule conditions.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleConditions">https://www.icewarp.co.uk/api/#TRuleConditions</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <item>
-    ///             <classname>truletrustedsessioncondition</classname>
-    ///         </item>
-    ///         <item>
-    ///         <classname>trulednsblcondition</classname>
-    ///         <server>stringval</server>
-    ///         <regex>stringval</regex>
-    ///         </item>
-    ///     </custom>
-    /// </code>
     public class TRuleConditions : BaseClass
     {
         /// <summary>
         /// List Of TRuleCondition. See <see cref="TRuleCondition"/> for more information.
         /// </summary>
         public List<TRuleCondition> Items { get; set; }
-        
+
+        /// <inheritdoc />
         public TRuleConditions()
         {
             Items = new List<TRuleCondition>();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleConditions(XmlNode node)
         {
             Items = new List<TRuleCondition>();
             if (node != null)
             {
-                var items = node.GetNodes("item");
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 foreach (XmlNode item in items)
                 {
-                    var className = Extensions.GetNodeInnerText(item.GetSingleNode("ClassName"));
+                    var className = Extensions.GetNodeInnerText(item.GetSingleNode(XmlHelper.ClassNameTag));
                     if (!String.IsNullOrEmpty(className))
                     {
                         var classType = ClassHelper.TRuleConditionClasses()
@@ -59,13 +46,14 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             foreach (var item in Items)
             {
-                element.AppendChild(item.BuildXmlElement(doc, "item"));
+                element.AppendChild(item.BuildXmlElement(doc, XmlHelper.ItemTag));
             }
 
             return element;

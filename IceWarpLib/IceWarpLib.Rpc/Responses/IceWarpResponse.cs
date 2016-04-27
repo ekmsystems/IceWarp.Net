@@ -12,12 +12,12 @@ namespace IceWarpLib.Rpc.Responses
     public abstract class IceWarpResponse
     {
         /// <summary>
-        /// The HTTP request result. See <see cref="HttpRequestResult"/>
+        /// The HTTP request result. See <see cref="HttpRequestResult"/> for more information.
         /// </summary>
         public HttpRequestResult HttpRequestResult { get; set; }
 
         /// <summary>
-        /// The type of request result i.e. result, error
+        /// The type of request result i.e. result, error.
         /// </summary>
         public string Type { get; set; }
 
@@ -31,7 +31,7 @@ namespace IceWarpLib.Rpc.Responses
         /// <summary>
         /// Creates an IceWarpResponse from the HTTP request result.
         /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result. See <see cref="HttpRequestResult"/>.</param>
+        /// <param name="httpRequestResult">The HTTP request result. See <see cref="HttpRequestResult"/>. for more information.</param>
         /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
         /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
         protected IceWarpResponse(HttpRequestResult httpRequestResult)
@@ -43,7 +43,7 @@ namespace IceWarpLib.Rpc.Responses
         /// <summary>
         /// Base method to process the result node in the responses XML.
         /// </summary>
-        /// <param name="node">The result XML node. See <see cref="XmlNode"/>.</param>
+        /// <param name="node">The result XML node. See <see cref="XmlNode"/> for more information.</param>
         public abstract void ProcessResultNode(XmlNode node);
 
         private void ProcessRequestResult()

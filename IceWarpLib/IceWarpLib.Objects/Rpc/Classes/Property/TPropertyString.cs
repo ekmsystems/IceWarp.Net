@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Represents api property of type string
+    /// Represents api property of type string.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyString">https://www.icewarp.co.uk/api/#TPropertyString</see></para>
     /// </summary>
     public class TPropertyString : TPropertyVal
     {
@@ -12,27 +13,26 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// String value
         /// </summary>
         public string Val { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyString() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TPropertyString(XmlNode node)
         {
             if (node != null)
             {
-                Val = Extensions.GetNodeInnerText(node.GetSingleNode("Val"));
+                Val = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Val)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            XmlHelper.AppendTextElement(element, "Val", Val);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Val), Val);
 
             return element;
         }

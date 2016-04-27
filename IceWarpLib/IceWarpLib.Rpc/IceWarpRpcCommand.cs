@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
@@ -29,12 +30,14 @@ namespace IceWarpLib.Rpc
         /// </summary>
         /// <param name="httpRequestResult">The HTTP request result. See <see cref="HttpRequestResult"/> for more information.</param>
         /// <returns><typeparam name="T">The parsed result object. See <see cref="IceWarpResponse"/> for more information.</typeparam></returns>
+        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
+        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
         public abstract T FromHttpRequestResult(HttpRequestResult httpRequestResult);
 
         /// <summary>
         /// Generates the XML for the request.
         /// </summary>
-        /// <returns>The XML document. See <see cref="XmlDocument"/></returns>
+        /// <returns>The XML document. See <see cref="XmlDocument"/> for more information.</returns>
         public XmlDocument ToXml()
         {
             var doc = new XmlDocument();
@@ -49,10 +52,10 @@ namespace IceWarpLib.Rpc
         }
 
         /// <summary>
-        /// Creates the CommanParams XML element.
+        /// Creates the CommandParams XML element.
         /// </summary>
-        /// <param name="doc">The XML document. See <see cref="XmlDocument"/></param>
-        /// <returns>The CommandParams XML Element. See <see cref="XmlElement"/></returns>
+        /// <param name="doc">The XML document. See <see cref="XmlDocument"/> for more information.</param>
+        /// <returns>The CommandParams XML Element. See <see cref="XmlElement"/> for more information.</returns>
         protected XmlElement GetCommandParamsElement(XmlDocument doc)
         {
             return XmlHelper.CreateElement(doc, XmlHelper.CommandParamsTag);
@@ -61,9 +64,9 @@ namespace IceWarpLib.Rpc
         /// <summary>
         /// Creates the IceWarp API Command
         /// </summary>
-        /// <param name="doc">The XML document. See <see cref="XmlDocument"/></param>
+        /// <param name="doc">The XML document. See <see cref="XmlDocument"/> for more information.</param>
         /// <param name="sessionId">The API sid (session id).</param>
-        /// <returns>The Command XML Element. See <see cref="XmlElement"/></returns>
+        /// <returns>The Command XML Element. See <see cref="XmlElement"/> for more information.</returns>
         private XmlElement CreateCommand(XmlDocument doc, string sessionId)
         {
             var root = doc.CreateElement(XmlHelper.IqTag);

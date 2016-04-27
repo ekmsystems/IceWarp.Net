@@ -9,7 +9,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
     <classname>trulelocaltimecondition</classname>
-    <conditiontype>0</conditiontype>
+    <conditiontype>33</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
     <bracketsleft>0</bracketsleft>
@@ -47,7 +47,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         {
             var testClass = new TRuleLocalTimeCondition(GetXmlNode(_xml));
 
-            Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
+            Assert.AreEqual(TRuleConditionType.Time, testClass.ConditionType);
             Assert.True(testClass.Weekdays);
         }
     }

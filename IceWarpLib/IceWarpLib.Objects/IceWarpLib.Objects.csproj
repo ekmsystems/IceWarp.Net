@@ -190,6 +190,7 @@
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition.cs" />
+    <Compile Include="Rpc\Classes\Session\TAuthChallenge.cs" />
     <Compile Include="Rpc\Enums\AccountType.cs" />
     <Compile Include="Rpc\Enums\TAccountPropertySet.cs" />
     <Compile Include="Rpc\Enums\TActivationKeyType.cs" />

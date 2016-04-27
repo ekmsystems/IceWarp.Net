@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Domain
 {
     /// <summary>
-    /// Basic information about an IceWarp domain object
+    /// Basic information about an IceWarp domain object.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TDomainInfo">https://www.icewarp.co.uk/api/#TDomainInfo</see></para>
     /// </summary>
     public class TDomainInfo : BaseClass
     {
@@ -25,32 +26,31 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
         /// Number of accounts
         /// </summary>
         public int AccountCount { get; set; }
-        
+
+        /// <inheritdoc />
         public TDomainInfo() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TDomainInfo(XmlNode node)
         {
             if (node != null)
             {
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
-                Desc = Extensions.GetNodeInnerText(node.GetSingleNode("Desc"));
-                DomainType = (TDomainType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("DomainType"));
-                AccountCount = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("AccountCount"));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
+                Desc = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Desc)));
+                DomainType = (TDomainType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => DomainType)));
+                AccountCount = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => AccountCount)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Name", Name);
-            XmlHelper.AppendTextElement(element, "Desc", Desc);
-            XmlHelper.AppendTextElement(element, "DomainType", DomainType);
-            XmlHelper.AppendTextElement(element, "AccountCount", AccountCount);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Name), Name);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Desc), Desc);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DomainType), DomainType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => AccountCount), AccountCount);
 
             return element;
         }

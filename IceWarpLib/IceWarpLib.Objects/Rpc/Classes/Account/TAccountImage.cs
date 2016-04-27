@@ -1,12 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Account avatar image object which is displayed in account's vCard
+    /// Account avatar image object which is displayed in account's vCard.
+    /// <para>><see href="https://www.icewarp.co.uk/api/#TAccountImage">https://www.icewarp.co.uk/api/#TAccountImage</see></para
     /// </summary>
-    public class TAccountImage : BaseClass
+    public class TAccountImage : TPropertyVal
     {
         /// <summary>
         /// Image Base64 data
@@ -16,28 +18,27 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// Image Content-Type
         /// </summary>
         public string ContentType { get; set; }
-        
-        public TAccountImage() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
+        public TAccountImage() { }
+        
+        /// <inheritdoc />
         public TAccountImage(XmlNode node)
         {
             if (node != null)
             {
-                Base64Data = Extensions.GetNodeInnerText(node.GetSingleNode("Base64Data"));
-                ContentType = Extensions.GetNodeInnerText(node.GetSingleNode("ContentType"));
+                Base64Data = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Base64Data)));
+                ContentType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => ContentType)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            XmlHelper.AppendTextElement(element, "Base64Data", Base64Data);
-            XmlHelper.AppendTextElement(element, "ContentType", ContentType);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Base64Data), Base64Data);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ContentType), ContentType);
             return element;
         }
     }

@@ -7,7 +7,9 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
-    /// List of permissions related to specific folder in IceWarp account
+    /// List of permissions related to specific folder in IceWarp account.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TFolderPermissions">https://www.icewarp.co.uk/api/#TFolderPermissions</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetAccountFolderPermissions">https://www.icewarp.co.uk/api/#GetAccountFolderPermissions</seealso></para>
     /// </summary>
     public class TFolderPermissionsResponse : IceWarpResponse
     {
@@ -20,11 +22,13 @@ namespace IceWarpLib.Rpc.Responses
         /// </summary>
         public List<TFolderPermissionsItem> Items { get; set; }
 
+        /// <inheritdoc />
         public TFolderPermissionsResponse(HttpRequestResult httpRequestResult) 
             : base(httpRequestResult)
         {
         }
 
+        /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
             Items = new List<TFolderPermissionsItem>();

@@ -7,7 +7,8 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Gets the list of account api variables, its values, data types and rights, its values, data types and rights. See <see cref="IceWarpCommand{TPropertyInfoList}"/> for return type.
+    /// Gets the list of account api variables, its values, data types and rights, its values, data types and rights.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountAPIConsole">https://www.icewarp.co.uk/api/#GetAccountAPIConsole</see></para>
     /// </summary>
     public class GetAccountAPIConsole : IceWarpCommand<TPropertyInfoListResponse>
     {
@@ -32,6 +33,7 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public bool Comments { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -50,6 +52,7 @@ namespace IceWarpLib.Rpc.Requests.Account
             command.AppendChild(commandParams);
         }
 
+        /// <inheritdoc />
         public override TPropertyInfoListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TPropertyInfoListResponse(httpRequestResult);

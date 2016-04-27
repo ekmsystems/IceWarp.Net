@@ -1,13 +1,13 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Gets the permission list for the folder specified by account email and folder id
+    /// Gets the permission list for the folder specified by account email and folder id.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountFolderPermissions">https://www.icewarp.co.uk/api/#GetAccountFolderPermissions</see></para>
     /// </summary>
     public class GetAccountFolderPermissions : IceWarpCommand<TFolderPermissionsResponse>
     {
@@ -20,6 +20,7 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public string FolderId { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -30,13 +31,7 @@ namespace IceWarpLib.Rpc.Requests.Account
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TFolderPermissionsResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TFolderPermissionsResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TFolderPermissionsResponse(httpRequestResult);

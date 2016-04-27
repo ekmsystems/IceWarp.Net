@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Defines a permissions for API property
+    /// Defines a permissions for API property.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyPermission">https://www.icewarp.co.uk/api/#TPropertyPermission</see></para>
     /// </summary>
     public class TPropertyPermission : BaseClass
     {
@@ -17,28 +18,27 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// Property Permission. See <see cref="TPermission"/>
         /// </summary>
         public TPermission Perm { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyPermission() { }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TPropertyPermission(XmlNode node)
         {
             if (node != null)
             {
-                Prop = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Prop"));
-                Perm = (TPermission)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Perm"));
+                Prop = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Prop)));
+                Perm = (TPermission)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Perm)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Prop", Prop.ToString());
-            XmlHelper.AppendTextElement(element, "Perm", Perm.ToString());
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Prop), Prop.ToString());
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Perm), Perm.ToString());
 
             return element;
         }

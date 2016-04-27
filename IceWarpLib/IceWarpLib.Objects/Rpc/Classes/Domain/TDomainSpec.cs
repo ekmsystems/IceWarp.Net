@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Domain
 {
     /// <summary>
-    /// This class represents a domain, or domain pattern using wildcards
+    /// This class represents a domain, or domain pattern using wildcards.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TDomainSpec">https://www.icewarp.co.uk/api/#TDomainSpec</see></para>
     /// </summary>
     public class TDomainSpec : BaseClass
     {
@@ -17,29 +18,28 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
         /// </summary>
         public bool Negate { get; set; }
 
+        /// <inheritdoc />
         public TDomainSpec()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TDomainSpec(XmlNode node)
         {
             if (node != null)
             {
-                Mask = Extensions.GetNodeInnerText(node.GetSingleNode("Mask"));
-                Negate = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Negate"));
+                Mask = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Mask)));
+                Negate = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Negate)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "Mask", Mask);
-            XmlHelper.AppendTextElement(element, "Negate", Negate);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Mask), Mask);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Negate), Negate);
 
             return element;
         }

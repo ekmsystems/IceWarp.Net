@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Device;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Device
 {
     /// <summary>
-    /// Get the info list of server, domain or account mobile devices. See <see cref="IceWarpCommand{TMobileDevicesInfoListResponse}"/> for return type.
+    /// Get the info list of server, domain or account mobile devices.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetDevicesInfoList">https://www.icewarp.co.uk/api/#GetDevicesInfoList</see></para>
     /// </summary>
     public class GetDevicesInfoList : IceWarpCommand<TMobileDevicesInfoListResponse>
     {
@@ -29,6 +29,7 @@ namespace IceWarpLib.Rpc.Requests.Device
         /// </summary>
         public int Count { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -44,13 +45,7 @@ namespace IceWarpLib.Rpc.Requests.Device
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TMobileDevicesInfoListResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TMobileDevicesInfoListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TMobileDevicesInfoListResponse(httpRequestResult);

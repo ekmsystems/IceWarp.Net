@@ -6,26 +6,29 @@ using IceWarpLib.Objects.Rpc.Classes.Property;
 namespace IceWarpLib.Objects.Rpc.Classes.Device
 {
     /// <summary>
-    /// Used to specify properties of IceWarp mobile device ( by property name )
+    /// Used to specify properties of IceWarp mobile device ( by property name ).
+    /// <para><see href="https://www.icewarp.co.uk/api/#TDevicePropertyList">https://www.icewarp.co.uk/api/#TDevicePropertyList</see></para>
     /// </summary>
     public class TDevicePropertyList : BaseClass
     {
         /// <summary>
-        /// List Of TAPIProperty. See <see cref="TAPIProperty"/> for more information.
+        /// List of TAPIProperty. See <see cref="TAPIProperty"/> for more information.
         /// </summary>
         public List<TAPIProperty> Items { get; set; }
 
+        /// <inheritdoc />
         public TDevicePropertyList()
         {
             Items = new List<TAPIProperty>();
         }
 
+        /// <inheritdoc />
         public TDevicePropertyList(XmlNode node)
         {
             Items = new List<TAPIProperty>();
             if (node != null)
             {
-                var items = node.GetNodes("item");
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 foreach (XmlNode item in items)
                 {
                     Items.Add(new TAPIProperty(item));
@@ -33,13 +36,14 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             foreach (var item in Items)
             {
-                element.AppendChild(item.BuildXmlElement(doc, "item"));
+                element.AppendChild(item.BuildXmlElement(doc, XmlHelper.ItemTag));
             }
 
             return element;

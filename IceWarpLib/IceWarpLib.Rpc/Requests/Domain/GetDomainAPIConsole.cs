@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Property;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Domain
 {
     /// <summary>
-    /// Gets the list of domain api variables, its values, data types and rights. See <see cref="IceWarpCommand{TPropertyInfoList}"/> for return type.
+    /// Gets the list of domain api variables, its values, data types and rights.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetDomainAPIConsole">https://www.icewarp.co.uk/api/#GetDomainAPIConsole</see></para>
     /// </summary>
     public class GetDomainAPIConsole : IceWarpCommand<TPropertyInfoListResponse>
     {
@@ -33,6 +33,7 @@ namespace IceWarpLib.Rpc.Requests.Domain
         /// </summary>
         public bool Comments { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -51,13 +52,7 @@ namespace IceWarpLib.Rpc.Requests.Domain
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TPropertyInfoListResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TPropertyInfoListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TPropertyInfoListResponse(httpRequestResult);

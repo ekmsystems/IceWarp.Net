@@ -1,5 +1,9 @@
 ﻿namespace IceWarpLib.Objects.Rpc.Enums
 {
+    /// <summary>
+    /// Type of the account.
+    /// See <see href="https://www.icewarp.co.uk/api/#3.7.TAccountInfo">https://www.icewarp.co.uk/api/#3.7.TAccountInfo</see>
+    /// </summary>
     public enum AccountType
     {
         User = 0,

@@ -9,7 +9,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
     <classname>truleisspamcondition</classname>
-    <conditiontype>0</conditiontype>
+    <conditiontype>9</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
     <bracketsleft>0</bracketsleft>
@@ -30,7 +30,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         {
             var testClass = new TRuleIsSpamCondition(GetXmlNode(_xml));
 
-            Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
+            Assert.AreEqual(TRuleConditionType.Spam, testClass.ConditionType);
         }
     }
 }

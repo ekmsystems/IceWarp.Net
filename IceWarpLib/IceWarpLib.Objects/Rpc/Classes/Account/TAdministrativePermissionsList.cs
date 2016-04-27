@@ -6,7 +6,8 @@ using IceWarpLib.Objects.Rpc.Classes.Property;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// List of API properties and its permissions
+    /// List of API properties and its permissions.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAdministrativePermissionsList">https://www.icewarp.co.uk/api/#TAdministrativePermissionsList</see></para>
     /// </summary>
     public class TAdministrativePermissionsList : BaseClass
     {
@@ -20,16 +21,13 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
             Items = new List<TPropertyPermission>();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TAdministrativePermissionsList(XmlNode node)
         {
             Items = new List<TPropertyPermission>();
             if (node != null)
             {
-                var items = node.GetNodes("item");
+                var items = node.GetNodes(XmlHelper.ItemTag);
                 foreach (XmlNode item in items)
                 {
                     Items.Add(new TPropertyPermission(item));
@@ -37,13 +35,14 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             foreach (var item in Items)
             {
-                element.AppendChild(item.BuildXmlElement(doc, "item"));
+                element.AppendChild(item.BuildXmlElement(doc, XmlHelper.ItemTag));
             }
 
             return element;

@@ -1,25 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Rule
 {
     /// <summary>
-    /// Returns detailed information about rule specified by Who and RuleID
+    /// Returns detailed information about rule specified by Who and RuleID.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetRule">https://www.icewarp.co.uk/api/#GetRule</see></para>
     /// </summary>
-    /// <code>
-    ///     <iq sid="sidval">
-    ///     <query xmlns="admin:iq:rpc">
-    ///       <commandname>getrule</commandname>
-    ///       <commandparams>
-    ///         <who>stringval</who>
-    ///         <ruleid>stringval</ruleid>
-    ///       </commandparams>
-    ///     </query>
-    ///     </iq>
-    /// </code>
     public class GetRule : IceWarpCommand<TRuleSettingsResponse>
     {
         /// <summary>
@@ -31,6 +20,7 @@ namespace IceWarpLib.Rpc.Requests.Rule
         /// </summary>
         public int RuleID { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -41,13 +31,7 @@ namespace IceWarpLib.Rpc.Requests.Rule
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TRuleSettingsResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TRuleSettingsResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TRuleSettingsResponse(httpRequestResult);

@@ -1,17 +1,13 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
 {
     /// <summary>
-    /// Action that forwards an email
+    /// Action that forwards an email.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleForwardToEmailAction">https://www.icewarp.co.uk/api/#TRuleForwardToEmailAction</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <classname>truleforwardtoemailaction</classname>
-    ///         <email>stringval</email>
-    ///     </custom>
-    /// </code>
     public class TRuleForwardToEmailAction : TRuleAction
     {
         /// <summary>
@@ -19,27 +15,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
         /// </summary>
         public string Email { get; set; }
 
-        public TRuleForwardToEmailAction() { }
-        
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
+        public TRuleForwardToEmailAction()
+        {
+            Actiontype = TRuleActionType.Forward;
+        }
+
+        /// <inheritdoc />
         public TRuleForwardToEmailAction(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                Email = Extensions.GetNodeInnerText(node.GetSingleNode("Email"));
+                Email = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Email)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "Email", Email);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Email), Email);
 
             return element;
         }

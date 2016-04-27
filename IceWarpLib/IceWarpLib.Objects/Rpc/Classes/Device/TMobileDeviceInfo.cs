@@ -5,24 +5,9 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Device
 {
     /// <summary>
-    /// Basic informations about IceWarp mobile device object, is used in mobile device listing
+    /// Basic informations about IceWarp mobile device object, is used in mobile device listing.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TMobileDeviceInfo">https://www.icewarp.co.uk/api/#TMobileDeviceInfo</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <deviceid>stringval</deviceid>
-    ///         <id>stringval</id>
-    ///         <account>stringval</account>
-    ///         <name>stringval</name>
-    ///         <devicetype>stringval</devicetype>
-    ///         <model>stringval</model>
-    ///         <os>stringval</os>
-    ///         <protocolversion>stringval</protocolversion>
-    ///         <registered>stringval</registered>
-    ///         <lastsync>stringval</lastsync>
-    ///         <remotewipe>enumval</remotewipe>
-    ///         <status>enumval</status>
-    ///     </custom>
-    /// </code>
     public class TMobileDeviceInfo : BaseClass
     {
         /// <summary>
@@ -74,44 +59,47 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
         /// </summary>
         public TMobileDeviceStatus Status { get; set; }
 
+        /// <inheritdoc />
         public TMobileDeviceInfo()
         {
         }
 
+        /// <inheritdoc />
         public TMobileDeviceInfo(XmlNode node) : base(node)
         {
             if (node != null)
             {
-                DeviceID = Extensions.GetNodeInnerText(node.GetSingleNode("DeviceID"));
-                ID = Extensions.GetNodeInnerText(node.GetSingleNode("ID"));
-                Account = Extensions.GetNodeInnerText(node.GetSingleNode("Account"));
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
-                DeviceType = Extensions.GetNodeInnerText(node.GetSingleNode("DeviceType"));
-                Model = Extensions.GetNodeInnerText(node.GetSingleNode("Model"));
-                OS = Extensions.GetNodeInnerText(node.GetSingleNode("OS"));
-                ProtocolVersion = Extensions.GetNodeInnerText(node.GetSingleNode("ProtocolVersion"));
-                Registered = Extensions.GetNodeInnerText(node.GetSingleNode("Registered"));
-                LastSync = Extensions.GetNodeInnerText(node.GetSingleNode("LastSync"));
-                RemoteWipe = (TMobileDeviceRemoteWipe)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RemoteWipe"));
-                Status = (TMobileDeviceStatus)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Status"));
+                DeviceID = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DeviceID)));
+                ID = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => ID)));
+                Account = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Account)));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
+                DeviceType = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => DeviceType)));
+                Model = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Model)));
+                OS = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => OS)));
+                ProtocolVersion = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => ProtocolVersion)));
+                Registered = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Registered)));
+                LastSync = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => LastSync)));
+                RemoteWipe = (TMobileDeviceRemoteWipe)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RemoteWipe)));
+                Status = (TMobileDeviceStatus)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Status)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "DeviceID", DeviceID);
-            XmlHelper.AppendTextElement(element, "ID", ID);
-            XmlHelper.AppendTextElement(element, "Account", Account);
-            XmlHelper.AppendTextElement(element, "Name", Name);
-            XmlHelper.AppendTextElement(element, "DeviceType", DeviceType);
-            XmlHelper.AppendTextElement(element, "Model", Model);
-            XmlHelper.AppendTextElement(element, "OS", OS);
-            XmlHelper.AppendTextElement(element, "ProtocolVersion", ProtocolVersion);
-            XmlHelper.AppendTextElement(element, "Registered", Registered);
-            XmlHelper.AppendTextElement(element, "LastSync", LastSync);
-            XmlHelper.AppendTextElement(element, "RemoteWipe", RemoteWipe);
-            XmlHelper.AppendTextElement(element, "Status", Status);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DeviceID), DeviceID);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ID), ID);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Account), Account);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Name), Name);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => DeviceType), DeviceType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Model), Model);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => OS), OS);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ProtocolVersion), ProtocolVersion);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Registered), Registered);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => LastSync), LastSync);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RemoteWipe), RemoteWipe);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Status), Status);
             return element;
         }
     }

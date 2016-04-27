@@ -4,10 +4,14 @@ using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
+    /// <summary>
+    /// Sender Recipient condition type.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSenderRecipientCondition">https://www.icewarp.co.uk/api/#</see></para>
+    /// </summary>
     public class TRuleSenderRecipientCondition : TRuleCondition
     {
         /// <summary>
-        /// Recipient or Sender condition
+        /// Recipient or Sender condition.
         /// </summary>
         public TRuleRecipientSenderType RecipientSender { get; set; }
         /// <summary>
@@ -23,35 +27,35 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
         /// </summary>
         public string Account { get; set; }
 
+        /// <inheritdoc />
         public TRuleSenderRecipientCondition()
         {
+            ConditionType = TRuleConditionType.SenderRecipient;
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleSenderRecipientCondition(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                RecipientSender = (TRuleRecipientSenderType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RecipientSender"));
-                RemoteLocal = (TRuleRemoteLocalType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RemoteLocal"));
-                RecipientCondition = (TRuleRecipientConditionType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RecipientCondition"));
-                Account = Extensions.GetNodeInnerText(node.GetSingleNode("Account"));
+                RecipientSender = (TRuleRecipientSenderType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RecipientSender)));
+                RemoteLocal = (TRuleRemoteLocalType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RemoteLocal)));
+                RecipientCondition = (TRuleRecipientConditionType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RecipientCondition)));
+                Account = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Account)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "RecipientSender", RecipientSender);
-            XmlHelper.AppendTextElement(element, "RemoteLocal", RemoteLocal);
-            XmlHelper.AppendTextElement(element, "RecipientCondition", RecipientCondition);
-            XmlHelper.AppendTextElement(element, "Account", Account);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RecipientSender), RecipientSender);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RemoteLocal), RemoteLocal);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RecipientCondition), RecipientCondition);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Account), Account);
 
             return element;
         }

@@ -7,7 +7,9 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
-    /// Informational list of accounts
+    /// Informational list of accounts.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAccountsInfoList">https://www.icewarp.co.uk/api/#TAccountsInfoList</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetAccountsInfoList">https://www.icewarp.co.uk/api/#GetAccountsInfoList</seealso></para>
     /// </summary>
     public class TAccountInfoListResponse : IceWarpResponse
     {
@@ -23,12 +25,14 @@ namespace IceWarpLib.Rpc.Responses
         /// List Of TAccountInfo. See <see cref="TAccountInfo"/> for more information.
         /// </summary>
         public List<TAccountInfo> Items { get; set; }
-        
+
+        /// <inheritdoc />
         public TAccountInfoListResponse(HttpRequestResult httpRequestResult)
             : base(httpRequestResult)
         {
         }
 
+        /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
             Items = new List<TAccountInfo>();

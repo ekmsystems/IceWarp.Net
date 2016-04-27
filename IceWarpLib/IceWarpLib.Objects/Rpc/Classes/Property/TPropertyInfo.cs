@@ -7,7 +7,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Brief information about API property on IceWarp server
+    /// Brief information about API property on IceWarp server.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyInfo">https://www.icewarp.co.uk/api/#TPropertyInfo</see></para>
     /// </summary>
     public class TPropertyInfo : BaseClass
     {
@@ -39,27 +40,25 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// Type of the property value
         /// </summary>
         public TPropertyValueType PropertyValueType { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyInfo()
         {
             APIProperty = new TAPIProperty();
             PropertyVal = new TPropertyNoValue();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TPropertyInfo(XmlNode node)
         {
             if (node != null)
             {
-                APIProperty = new TAPIProperty(node.GetSingleNode("APIProperty"));
+                APIProperty = new TAPIProperty(node.GetSingleNode(ClassHelper.GetMemberName(() => APIProperty)));
 
-                var propertyVal = node.GetSingleNode("PropertyVal");
+                var propertyVal = node.GetSingleNode(ClassHelper.GetMemberName(() => PropertyVal));
                 if (propertyVal != null)
                 {
-                    var className = Extensions.GetNodeInnerText(propertyVal.GetSingleNode("ClassName"));
+                    var className = Extensions.GetNodeInnerText(propertyVal.GetSingleNode(XmlHelper.ClassNameTag));
                     if (!String.IsNullOrEmpty(className))
                     {
                         var classType = ClassHelper.TPropertyValClasses()
@@ -71,27 +70,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
                     }
                 }
 
-                PropertyRight = (TPermission)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("propertyright"));
-                PropertyEnumValues = new TPropertyEnumValues(node.GetSingleNode("PropertyEnumValues"));
-                PropertyComment = Extensions.GetNodeInnerText(node.GetSingleNode("PropertyComment"));
-                PropertyGroup = Extensions.GetNodeInnerText(node.GetSingleNode("PropertyGroup"));
-                PropertyValueType = (TPropertyValueType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("PropertyValueType"));
+                PropertyRight = (TPermission)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => PropertyRight)));
+                PropertyEnumValues = new TPropertyEnumValues(node.GetSingleNode(ClassHelper.GetMemberName(() => PropertyEnumValues)));
+                PropertyComment = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => PropertyComment)));
+                PropertyGroup = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => PropertyGroup)));
+                PropertyValueType = (TPropertyValueType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => PropertyValueType)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            element.AppendChild(APIProperty.BuildXmlElement(doc, "APIProperty"));
-            element.AppendChild(PropertyVal.BuildXmlElement(doc, "PropertyVal"));
+            element.AppendChild(APIProperty.BuildXmlElement(doc, ClassHelper.GetMemberName(() => APIProperty)));
+            element.AppendChild(PropertyVal.BuildXmlElement(doc, ClassHelper.GetMemberName(() => PropertyVal)));
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => PropertyRight), PropertyRight);
             if (PropertyEnumValues != null)
             {
-                element.AppendChild(PropertyEnumValues.BuildXmlElement(doc, "PropertyEnumValues"));
+                element.AppendChild(PropertyEnumValues.BuildXmlElement(doc, ClassHelper.GetMemberName(() => PropertyEnumValues)));
             }
-            XmlHelper.AppendTextElement(element, "PropertyComment", PropertyComment);
-            XmlHelper.AppendTextElement(element, "PropertyGroup", PropertyGroup);
-            XmlHelper.AppendTextElement(element, "PropertyValueType", PropertyValueType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => PropertyComment), PropertyComment);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => PropertyGroup), PropertyGroup);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => PropertyValueType), PropertyValueType);
 
             return element;
         }

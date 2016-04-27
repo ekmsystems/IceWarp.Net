@@ -1,17 +1,13 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
 {
     /// <summary>
-    /// Action that moves the message into specified folder
+    /// Action that moves the message into specified folder.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleMoveToFolderAction">https://www.icewarp.co.uk/api/#TRuleMoveToFolderAction</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <classname>trulemovetofolderaction</classname>
-    ///         <folder>stringval</folder>
-    ///     </custom>
-    /// </code>
     public class TRuleMoveToFolderAction : TRuleAction
     {
         /// <summary>
@@ -19,27 +15,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
         /// </summary>
         public string Folder { get; set; }
 
-        public TRuleMoveToFolderAction() { }
-        
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
+        public TRuleMoveToFolderAction()
+        {
+            Actiontype = TRuleActionType.MoveFolder;
+        }
+
+        /// <inheritdoc />
         public TRuleMoveToFolderAction(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                Folder = Extensions.GetNodeInnerText(node.GetSingleNode("Folder"));
+                Folder = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Folder)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "Folder", Folder);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Folder), Folder);
 
             return element;
         }

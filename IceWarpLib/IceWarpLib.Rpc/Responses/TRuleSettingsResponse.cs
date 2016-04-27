@@ -7,42 +7,10 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
-    /// Detailed settings for current rule
+    /// Detailed settings for current rule.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSettings ">https://www.icewarp.co.uk/api/#TRuleSettings </see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetRule">https://www.icewarp.co.uk/api/#GetRule</seealso></para>
     /// </summary>
-    /// <code>
-    ///     <query>
-    ///     <result>
-    ///       <conditions>
-    ///         <item>
-    ///           <classname>truleallcondition</classname>
-    ///         </item>
-    ///         <item>
-    ///           <classname>trulesomewordscondition</classname>
-    ///           <matchfunction>enumval</matchfunction>
-    ///           <matchvalue>stringval</matchvalue>
-    ///           <matchcase>enumval</matchcase>
-    ///           <matchwholewordsonly>enumval</matchwholewordsonly>
-    ///           <notmatch>enumval</notmatch>
-    ///           <multipleitemsmatch>enumval</multipleitemsmatch>
-    ///           <parsexml>enumval</parsexml>
-    ///         </item>
-    ///       </conditions>
-    ///       <actions>
-    ///         <item>
-    ///           <classname>trulepriorityaction</classname>
-    ///           <priority>enumval</priority>
-    ///         </item>
-    ///         <item>
-    ///           <classname>trulemovetofolderaction</classname>
-    ///           <folder>stringval</folder>
-    ///         </item>
-    ///       </actions>
-    ///       <title>stringval</title>
-    ///       <active>enumval</active>
-    ///       <ruleid>intval</ruleid>
-    ///     </result>
-    ///     </query>
-    /// </code>
     public class TRuleSettingsResponse : IceWarpResponse
     {
         /// <summary>
@@ -66,11 +34,13 @@ namespace IceWarpLib.Rpc.Responses
         /// </summary>
         public int RuleID { get; set; }
 
+        /// <inheritdoc />
         public TRuleSettingsResponse(HttpRequestResult httpRequestResult)
             : base(httpRequestResult)
         {
         }
 
+        /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
             if (node != null)

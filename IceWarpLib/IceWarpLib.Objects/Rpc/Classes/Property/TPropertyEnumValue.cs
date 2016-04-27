@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Describes value of property enumeration
+    /// Describes value of property enumeration.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyEnumValue">https://www.icewarp.co.uk/api/#TPropertyEnumValue</see></para>
     /// </summary>
     public class TPropertyEnumValue : BaseClass
     {
@@ -16,27 +17,26 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// Enumeration value
         /// </summary>
         public string Value { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyEnumValue() {  }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TPropertyEnumValue(XmlNode node)
         {
             if (node != null)
             {
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Value"));
-                Value = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Value)));
+                Value = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "Value", Value);
-            XmlHelper.AppendTextElement(element, "Name", Name);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Value), Value);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Name), Name);
             return element;
         }
     }

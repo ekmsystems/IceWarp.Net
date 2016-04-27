@@ -6,7 +6,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// IceWarp account auto responder settings
+    /// IceWarp account auto responder settings.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAccountResponder">https://www.icewarp.co.uk/api/#TAccountResponder</see></para>
     /// </summary>
     public class TAccountResponder : TPropertyVal
     {
@@ -38,43 +39,42 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// Respond to messages sent only to account's email address
         /// </summary>
         public bool RespondOnlyIfToMe { get; set; }
-        
+
+        /// <inheritdoc />
         public TAccountResponder()
         {
             NoRespond = new TPropertyStringList();
             ResponderMessage = new TAccountResponderMessage();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TAccountResponder(XmlNode node)
         {
             if (node != null)
             {
-                NoRespond = new TPropertyStringList(node.GetSingleNode("NoRespond"));
-                ResponderMessage = new TAccountResponderMessage(node.GetSingleNode("ResponderMessage"));
-                ResponderType = (TResponder)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("ResponderType"));
-                RespondPeriod = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RespondPeriod"));
-                RespondBetweenFrom = Extensions.GetNodeInnerText(node.GetSingleNode("RespondBetweenFrom"));
-                RespondBetweenTo = Extensions.GetNodeInnerText(node.GetSingleNode("RespondBetweenTo"));
-                RespondOnlyIfToMe = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("RespondOnlyIfToMe"));
+                NoRespond = new TPropertyStringList(node.GetSingleNode(ClassHelper.GetMemberName(() => NoRespond)));
+                ResponderMessage = new TAccountResponderMessage(node.GetSingleNode(ClassHelper.GetMemberName(() => ResponderMessage)));
+                ResponderType = (TResponder)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => ResponderType)));
+                RespondPeriod = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RespondPeriod)));
+                RespondBetweenFrom = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => RespondBetweenFrom)));
+                RespondBetweenTo = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => RespondBetweenTo)));
+                RespondOnlyIfToMe = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => RespondOnlyIfToMe)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            element.AppendChild(NoRespond.BuildXmlElement(doc, "NoRespond"));
-            element.AppendChild(ResponderMessage.BuildXmlElement(doc, "ResponderMessage"));
-            XmlHelper.AppendTextElement(element, "ResponderType", ResponderType);
-            XmlHelper.AppendTextElement(element, "RespondPeriod", RespondPeriod);
-            XmlHelper.AppendTextElement(element, "RespondBetweenFrom", RespondBetweenFrom);
-            XmlHelper.AppendTextElement(element, "RespondBetweenTo", RespondBetweenTo);
-            XmlHelper.AppendTextElement(element, "RespondOnlyIfToMe", RespondOnlyIfToMe);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            element.AppendChild(NoRespond.BuildXmlElement(doc, ClassHelper.GetMemberName(() => NoRespond)));
+            element.AppendChild(ResponderMessage.BuildXmlElement(doc, ClassHelper.GetMemberName(() => ResponderMessage)));
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => ResponderType), ResponderType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RespondPeriod), RespondPeriod);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RespondBetweenFrom), RespondBetweenFrom);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RespondBetweenTo), RespondBetweenTo);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RespondOnlyIfToMe), RespondOnlyIfToMe);
 
             return element;
         }

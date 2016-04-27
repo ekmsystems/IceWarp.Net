@@ -6,34 +6,9 @@ using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
 namespace IceWarpLib.Objects.Rpc.Classes.Rule
 {
     /// <summary>
-    /// Represents the settings of the rule
+    /// Represents the settings of the rule.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSettings">https://www.icewarp.co.uk/api/#TRuleSettings</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <conditions>
-    ///           <item>
-    ///             <classname>truleisspamcondition</classname>
-    ///           </item>
-    ///           <item>
-    ///             <classname>trulespamscorecondition</classname>
-    ///             <comparetype>enumval</comparetype>
-    ///             <spamscore>stringval</spamscore>
-    ///           </item>
-    ///         </conditions>
-    ///         <actions>
-    ///           <item>
-    ///             <classname>trulemovetofolderaction</classname>
-    ///             <folder>stringval</folder>
-    ///           </item>
-    ///           <item>
-    ///             <classname>trulestopaction</classname>
-    ///           </item>
-    ///         </actions>
-    ///         <title>stringval</title>
-    ///         <active>enumval</active>
-    ///         <ruleid>intval</ruleid>
-    ///     </custom>
-    /// </code>
     public class TRuleSettings : BaseClass
     {
         /// <summary>
@@ -57,37 +32,36 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
         /// </summary>
         public int RuleID { get; set; }
 
+        /// <inheritdoc />
         public TRuleSettings()
         {
             Conditions = new TRuleConditions();
             Actions = new TRuleActions();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleSettings(XmlNode node) : base(node)
         {
             if (node != null)
             {
-                Conditions = new TRuleConditions(node.GetSingleNode("Conditions"));
-                Actions = new TRuleActions(node.GetSingleNode("Actions"));
-                Title = Extensions.GetNodeInnerText(node.GetSingleNode("Title"));
-                Active = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Active"));
-                RuleID = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("RuleID"));
+                Conditions = new TRuleConditions(node.GetSingleNode(ClassHelper.GetMemberName(() => Conditions)));
+                Actions = new TRuleActions(node.GetSingleNode(ClassHelper.GetMemberName(() => Actions)));
+                Title = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Title)));
+                Active = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Active)));
+                RuleID = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => RuleID)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            element.AppendChild(Conditions.BuildXmlElement(doc, "Conditions"));
-            element.AppendChild(Actions.BuildXmlElement(doc, "Actions"));
-            XmlHelper.AppendTextElement(element, "Title", Title);
-            XmlHelper.AppendTextElement(element, "Active", Active);
-            XmlHelper.AppendTextElement(element, "RuleID", RuleID);
+            element.AppendChild(Conditions.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Conditions)));
+            element.AppendChild(Actions.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Actions)));
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Title), Title);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Active), Active);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => RuleID), RuleID);
 
             return element;
         }

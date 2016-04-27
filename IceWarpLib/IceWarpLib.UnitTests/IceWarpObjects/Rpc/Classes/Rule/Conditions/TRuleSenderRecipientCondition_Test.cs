@@ -9,7 +9,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         private string _xml = @"
 <custom xmlns=""admin:iq:rpc"">
     <classname>trulesenderrecipientcondition</classname>
-    <conditiontype>0</conditiontype>
+    <conditiontype>21</conditiontype>
     <operatorand>0</operatorand>
     <logicalnot>0</logicalnot>
     <bracketsleft>0</bracketsleft>
@@ -39,7 +39,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
         {
             var testClass = new TRuleSenderRecipientCondition(GetXmlNode(_xml));
 
-            Assert.AreEqual(TRuleConditionType.None, testClass.ConditionType);
+            Assert.AreEqual(TRuleConditionType.SenderRecipient, testClass.ConditionType);
             Assert.AreEqual(TRuleRecipientSenderType.Sender, testClass.RecipientSender);
             Assert.AreEqual(TRuleRemoteLocalType.Local, testClass.RemoteLocal);
             Assert.AreEqual(TRuleRecipientConditionType.AccountExists, testClass.RecipientCondition);

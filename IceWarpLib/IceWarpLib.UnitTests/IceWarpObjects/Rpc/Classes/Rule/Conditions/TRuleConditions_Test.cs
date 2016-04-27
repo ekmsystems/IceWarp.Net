@@ -11,7 +11,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
 <custom xmlns=""admin:iq:rpc"">
     <item>
         <classname>truletrustedsessioncondition</classname>
-        <conditiontype>0</conditiontype>
+        <conditiontype>28</conditiontype>
         <operatorand>0</operatorand>
         <logicalnot>0</logicalnot>
         <bracketsleft>0</bracketsleft>
@@ -19,7 +19,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
     </item>
     <item>
         <classname>trulednsblcondition</classname>
-        <conditiontype>0</conditiontype>
+        <conditiontype>27</conditiontype>
         <operatorand>0</operatorand>
         <logicalnot>0</logicalnot>
         <bracketsleft>0</bracketsleft>
@@ -52,10 +52,10 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes.Rule.Conditions
             Assert.AreEqual(2, testClass.Items.Count);
 
             Assert.AreEqual(typeof(TRuleTrustedSessionCondition), testClass.Items.First().GetType());
-            Assert.AreEqual(TRuleConditionType.None, testClass.Items.First().ConditionType);
+            Assert.AreEqual(TRuleConditionType.TrustedSession, testClass.Items.First().ConditionType);
 
             Assert.AreEqual(typeof(TRuleDNSBLCondition), testClass.Items.Last().GetType());
-            Assert.AreEqual(TRuleConditionType.None, testClass.Items.Last().ConditionType);
+            Assert.AreEqual(TRuleConditionType.DNSBL, testClass.Items.Last().ConditionType);
             Assert.AreEqual("server", ((TRuleDNSBLCondition)testClass.Items.Last()).Server);
             Assert.AreEqual("regex", ((TRuleDNSBLCondition)testClass.Items.Last()).Regex);
         }

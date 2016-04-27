@@ -4,7 +4,8 @@ using IceWarpLib.Objects.Helpers;
 namespace IceWarpLib.Objects.Rpc.Classes.Property
 {
     /// <summary>
-    /// Represents the account member( mailing list, group )
+    /// Represents the account member( mailing list, group ).
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyMember">https://www.icewarp.co.uk/api/#TPropertyMember</see></para>
     /// </summary>
     public class TPropertyMember : TPropertyVal
     {
@@ -28,37 +29,36 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
         /// Mailing list - Member will receive all messages sent to the list, in a single "digest" message, and cannot post messages to the list.
         /// </summary>
         public bool Digest { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyMember()
         {
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TPropertyMember(XmlNode node)
         {
             if (node != null)
             {
-                Val = Extensions.GetNodeInnerText(node.GetSingleNode("Val"));
-                Default = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Default"));
-                Recieve = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Recieve"));
-                Post = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Post"));
-                Digest = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode("Digest"));
+                Val = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Val)));
+                Default = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Default)));
+                Recieve = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Recieve)));
+                Post = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Post)));
+                Digest = Extensions.GetNodeInnerTextAsBool(node.GetSingleNode(ClassHelper.GetMemberName(() => Digest)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            XmlHelper.AppendTextElement(element, "ClassName", ClassName);
-            XmlHelper.AppendTextElement(element, "Val", Val);
-            XmlHelper.AppendTextElement(element, "Default", Default);
-            XmlHelper.AppendTextElement(element, "Recieve", Recieve);
-            XmlHelper.AppendTextElement(element, "Post", Post);
-            XmlHelper.AppendTextElement(element, "Digest", Digest);
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Val), Val);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Default), Default);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Recieve), Recieve);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Post), Post);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Digest), Digest);
 
             return element;
         }

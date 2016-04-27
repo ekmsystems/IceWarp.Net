@@ -8,39 +8,9 @@ namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
     /// Represents the list of mobile devices
+    /// <para><see href="https://www.icewarp.co.uk/api/#">https://www.icewarp.co.uk/api/#</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#">https://www.icewarp.co.uk/api/#</seealso></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///     <item>
-    ///       <deviceid>stringval</deviceid>
-    ///       <id>stringval</id>
-    ///       <account>stringval</account>
-    ///       <name>stringval</name>
-    ///       <devicetype>stringval</devicetype>
-    ///       <model>stringval</model>
-    ///       <os>stringval</os>
-    ///       <protocolversion>stringval</protocolversion>
-    ///       <registered>stringval</registered>
-    ///       <lastsync>stringval</lastsync>
-    ///       <remotewipe>enumval</remotewipe>
-    ///       <status>enumval</status>
-    ///     </item>
-    ///     <item>
-    ///       <deviceid>stringval</deviceid>
-    ///       <id>stringval</id>
-    ///       <account>stringval</account>
-    ///       <name>stringval</name>
-    ///       <devicetype>stringval</devicetype>
-    ///       <model>stringval</model>
-    ///       <os>stringval</os>
-    ///       <protocolversion>stringval</protocolversion>
-    ///       <registered>stringval</registered>
-    ///       <lastsync>stringval</lastsync>
-    ///       <remotewipe>enumval</remotewipe>
-    ///       <status>enumval</status>
-    ///     </item>
-    ///     </custom>
-    /// </code>
     public class TMobileDevicesInfoListResponse : IceWarpResponse
     {
         /// <summary>
@@ -56,11 +26,13 @@ namespace IceWarpLib.Rpc.Responses
         /// </summary>
         public List<TMobileDeviceInfo> Items { get; set; }
 
+        /// <inheritdoc />
         public TMobileDevicesInfoListResponse(HttpRequestResult httpRequestResult)
             : base(httpRequestResult)
         {
         }
 
+        /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
             Items = new List<TMobileDeviceInfo>();

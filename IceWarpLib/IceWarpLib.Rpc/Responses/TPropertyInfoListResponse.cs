@@ -7,7 +7,11 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
-    /// Represents the list of properties returned in API Console
+    /// Represents the list of properties returned in API Console.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyInfoList">https://www.icewarp.co.uk/api/#TPropertyInfoList</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetAccountAPIConsole">https://www.icewarp.co.uk/api/#GetAccountAPIConsole</seealso></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetDomainAPIConsole">https://www.icewarp.co.uk/api/#GetDomainAPIConsole</seealso></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetServerAPIConsole">https://www.icewarp.co.uk/api/#GetServerAPIConsole</seealso></para>
     /// </summary>
     public class TPropertyInfoListResponse : IceWarpResponse
     {
@@ -23,12 +27,14 @@ namespace IceWarpLib.Rpc.Responses
         /// List Of TPropertyInfo. See <see cref="TPropertyInfo"/> for more information.
         /// </summary>
         public List<TPropertyInfo> Items { get; set; }
-        
+
+        /// <inheritdoc />
         public TPropertyInfoListResponse(HttpRequestResult httpRequestResult)
             : base(httpRequestResult)
         {
         }
 
+        /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
             Items = new List<TPropertyInfo>();

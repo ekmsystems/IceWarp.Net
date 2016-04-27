@@ -1,21 +1,22 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// Session is trusted condition type
+    /// Session is trusted condition type.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleTrustedSessionCondition">https://www.icewarp.co.uk/api/#TRuleTrustedSessionCondition</see></para>
     /// </summary>
     public class TRuleTrustedSessionCondition : TRuleCondition
     {
+        /// <inheritdoc />
         public TRuleTrustedSessionCondition()
         {
+            ConditionType = TRuleConditionType.TrustedSession;
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleTrustedSessionCondition(XmlNode node)
         {
             if (node != null)
@@ -24,6 +25,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);

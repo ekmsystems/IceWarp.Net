@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Classes.Domain;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// This encapsulates permisions which can be defined FOR certain entity
+    /// This encapsulates permisions which can be defined FOR certain entity.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAdministrativePermissions">https://www.icewarp.co.uk/api/#TAdministrativePermissions</see></para>
     /// </summary>
     public class TAdministrativePermissions : BaseClass
     {
@@ -18,31 +19,30 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// </summary>
         public TAdministrativePermissionsList GlobalPermissions { get; set; }
 
+        /// <inheritdoc />
         public TAdministrativePermissions()
         {
             DomainsPermissions = new TDomainsPermissionsList();
             GlobalPermissions = new TAdministrativePermissionsList();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TAdministrativePermissions(XmlNode node)
         {
             if (node != null)
             {
-                DomainsPermissions = new TDomainsPermissionsList(node.GetSingleNode("DomainsPermissions"));
-                GlobalPermissions = new TAdministrativePermissionsList(node.GetSingleNode("GlobalPermissions"));
+                DomainsPermissions = new TDomainsPermissionsList(node.GetSingleNode(ClassHelper.GetMemberName(() => DomainsPermissions)));
+                GlobalPermissions = new TAdministrativePermissionsList(node.GetSingleNode(ClassHelper.GetMemberName(() => GlobalPermissions)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
-            element.AppendChild(DomainsPermissions.BuildXmlElement(doc, "DomainsPermissions"));
-            element.AppendChild(GlobalPermissions.BuildXmlElement(doc, "GlobalPermissions"));
+            element.AppendChild(DomainsPermissions.BuildXmlElement(doc, ClassHelper.GetMemberName(() => DomainsPermissions)));
+            element.AppendChild(GlobalPermissions.BuildXmlElement(doc, ClassHelper.GetMemberName(() => GlobalPermissions)));
 
             return element;
         }

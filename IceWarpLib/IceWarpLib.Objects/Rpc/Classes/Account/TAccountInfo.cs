@@ -5,7 +5,8 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Account
 {
     /// <summary>
-    /// Basic informations about IceWarp account object, is used in account listing
+    /// Basic informations about IceWarp account object, is used in account listing.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TAccountInfo">https://www.icewarp.co.uk/api/#TAccountInfo</see></para>
     /// </summary>
     public class TAccountInfo : BaseClass
     {
@@ -33,39 +34,38 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
         /// Account vCard image
         /// </summary>
         public TAccountImage Image { get; set; }
-        
+
+        /// <inheritdoc />
         public TAccountInfo()
         {
             Quota = new TAccountQuota();
             Image = new TAccountImage();
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TAccountInfo(XmlNode node)
         {
             if (node != null)
             {
-                Name = Extensions.GetNodeInnerText(node.GetSingleNode("Name"));
-                Email = Extensions.GetNodeInnerText(node.GetSingleNode("Email"));
-                AccountType = (AccountType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("AccountType"));
-                AdminType = (TAdminType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("AdminType"));
-                Quota = new TAccountQuota(node.GetSingleNode("Quota"));
-                Image = new TAccountImage(node.GetSingleNode("Image"));
+                Name = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Name)));
+                Email = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Email)));
+                AccountType = (AccountType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => AccountType)));
+                AdminType = (TAdminType)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => AdminType)));
+                Quota = new TAccountQuota(node.GetSingleNode(ClassHelper.GetMemberName(() => Quota)));
+                Image = new TAccountImage(node.GetSingleNode(ClassHelper.GetMemberName(() => Image)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "Name", Name);
-            XmlHelper.AppendTextElement(element, "Email", Email);
-            XmlHelper.AppendTextElement(element, "AccountType", AccountType);
-            XmlHelper.AppendTextElement(element, "AdminType", AdminType);
-            element.AppendChild(Quota.BuildXmlElement(doc, "Quota"));
-            element.AppendChild(Image.BuildXmlElement(doc, "Image"));
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Name), Name);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Email), Email);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => AccountType), AccountType);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => AdminType), AdminType);
+            element.AppendChild(Quota.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Quota)));
+            element.AppendChild(Image.BuildXmlElement(doc, ClassHelper.GetMemberName(() => Image)));
             
             return element;
         }

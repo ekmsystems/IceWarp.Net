@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Domain
 {
     /// <summary>
-    /// Get the informations about domains available in current session. See <see cref="IceWarpCommand{TDomainsInfoList}"/> for return type.
+    /// Get the informations about domains available in current session.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetDomainsInfoList">https://www.icewarp.co.uk/api/#GetDomainsInfoList</see></para>
     /// </summary>
     public class GetDomainsInfoList : IceWarpCommand<TDomainsInfoListResponse>
     {
@@ -25,6 +25,7 @@ namespace IceWarpLib.Rpc.Requests.Domain
         /// </summary>
         public int Count { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -40,13 +41,7 @@ namespace IceWarpLib.Rpc.Requests.Domain
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="TDomainsInfoListResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override TDomainsInfoListResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new TDomainsInfoListResponse(httpRequestResult);

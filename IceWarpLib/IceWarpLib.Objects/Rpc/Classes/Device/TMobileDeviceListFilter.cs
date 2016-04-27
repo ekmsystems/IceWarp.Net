@@ -5,15 +5,9 @@ using IceWarpLib.Objects.Rpc.Enums;
 namespace IceWarpLib.Objects.Rpc.Classes.Device
 {
     /// <summary>
-    /// Used to filter the list of mobile devices in IceWarp server
+    /// Used to filter the list of mobile devices in IceWarp server.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TMobileDeviceListFilter">https://www.icewarp.co.uk/api/#TMobileDeviceListFilter</see></para>
     /// </summary>
-    /// <code>
-    ///     <custom>
-    ///         <namemask>stringval</namemask>
-    ///         <status>enumval</status>
-    ///         <lastsync>intval</lastsync>
-    ///     </custom>
-    /// </code>
     public class TMobileDeviceListFilter : BaseClass
     {
         /// <summary>
@@ -29,26 +23,29 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
         /// </summary>
         public int? LastSync { get; set; }
 
+        /// <inheritdoc />
         public TMobileDeviceListFilter()
         {
         }
 
+        /// <inheritdoc />
         public TMobileDeviceListFilter(XmlNode node) : base(node)
         {
             if (node != null)
             {
-                NameMask = Extensions.GetNodeInnerText(node.GetSingleNode("NameMask"));
-                Status = (TMobileDeviceStatus)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode("Status"));
-                LastSync = Extensions.GetNodeInnerTextAsNullableInt(node.GetSingleNode("LastSync"));
+                NameMask = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => NameMask)));
+                Status = (TMobileDeviceStatus)Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Status)));
+                LastSync = Extensions.GetNodeInnerTextAsNullableInt(node.GetSingleNode(ClassHelper.GetMemberName(() => LastSync)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
-            XmlHelper.AppendTextElement(element, "NameMask", NameMask);
-            XmlHelper.AppendTextElement(element, "Status", Status);
-            XmlHelper.AppendTextElement(element, "LastSync", LastSync);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => NameMask), NameMask);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Status), Status);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => LastSync), LastSync);
             return element;
         }
     }

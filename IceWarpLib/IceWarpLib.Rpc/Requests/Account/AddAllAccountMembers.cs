@@ -1,14 +1,14 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Account;
-using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Responses;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Requests.Account
 {
     /// <summary>
-    /// Adds the members to the specified IceWarp account. Members are specified by IceWarp domain name and current account filter. Available for groups and mailing lists
+    /// Adds the members to the specified IceWarp account. Members are specified by IceWarp domain name and current account filter. Available for groups and mailing lists.
+    /// <para><see href="https://www.icewarp.co.uk/api/#AddAllAccountMembers">https://www.icewarp.co.uk/api/#AddAllAccountMembers</see></para>
     /// </summary>
     public class AddAllAccountMembers : IceWarpCommand<SuccessResponse>
     {
@@ -25,6 +25,7 @@ namespace IceWarpLib.Rpc.Requests.Account
         /// </summary>
         public TAccountListFilter Filter { get; set; }
 
+        /// <inheritdoc />
         protected override void BuildCommandParams(XmlDocument doc, XmlElement command)
         {
             var commandParams = GetCommandParamsElement(doc);
@@ -39,13 +40,7 @@ namespace IceWarpLib.Rpc.Requests.Account
             command.AppendChild(commandParams);
         }
 
-        /// <summary>
-        /// Generates the response from the HTTP request result.
-        /// </summary>
-        /// <param name="httpRequestResult">The HTTP request result.</param>
-        /// <returns>The response from IceWarp. See <see cref="SuccessResponse"/> for more information.</returns>
-        /// <exception cref="ProcessResponseException"> Thrown if HttpRequestResult is null, if HttpRequestResult.Response is null or empty or an exception occurs when loading the XML.</exception>
-        /// <exception cref="IceWarpErrorException">Thrown if IceWarp returned and error.</exception>
+        /// <inheritdoc />
         public override SuccessResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
             return new SuccessResponse(httpRequestResult);

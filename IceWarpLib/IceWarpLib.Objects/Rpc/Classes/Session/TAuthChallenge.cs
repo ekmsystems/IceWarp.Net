@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Rpc.Utilities;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 
-namespace IceWarpLib.Rpc.Responses
+namespace IceWarpLib.Objects.Rpc.Classes.Session
 {
     /// <summary>
     /// Returns current hash(RSA public modulus) and timestamp used in authorization.
     /// <para><see href="https://www.icewarp.co.uk/api/#TAuthChallenge">https://www.icewarp.co.uk/api/#TAuthChallenge</see></para>
-    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetAuthChallenge">https://www.icewarp.co.uk/api/#GetAuthChallenge</seealso></para>
     /// </summary>
-    public class TAuthChallengeResponse : IceWarpResponse
+    public class TAuthChallenge : TPropertyVal
     {
         /// <summary>
         /// Hash ( public RSA key modulus )
@@ -22,19 +21,30 @@ namespace IceWarpLib.Rpc.Responses
         public DateTime Timestamp { get; set; }
 
         /// <inheritdoc />
-        public TAuthChallengeResponse(HttpRequestResult httpRequestResult)
-            : base(httpRequestResult)
+        public TAuthChallenge()
         {
         }
 
         /// <inheritdoc />
-        public override void ProcessResultNode(XmlNode node)
+        public TAuthChallenge(XmlNode node)
         {
             if (node != null)
             {
                 HashId = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => HashId)));
                 Timestamp = Extensions.UnixTimeStampToDateTime(Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Timestamp))));
             }
+        }
+
+        /// <inheritdoc />
+        public override XmlElement BuildXmlElement(XmlDocument doc, string name)
+        {
+            XmlElement element = XmlHelper.CreateElement(doc, name);
+
+            XmlHelper.AppendTextElement(element, XmlHelper.ClassNameTag, ClassName);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => HashId), HashId);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Timestamp), Timestamp.ToUnixTimeStamp());
+
+            return element;
         }
     }
 }

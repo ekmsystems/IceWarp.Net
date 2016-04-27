@@ -1,10 +1,12 @@
 ﻿using System.Xml;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
 {
     /// <summary>
-    /// RFC822 condition type Application condition type DNSBL server condition type
+    /// RFC822 condition type Application condition type DNSBL server condition type.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TRuleDNSBLCondition">https://www.icewarp.co.uk/api/#TRuleDNSBLCondition</see></para>
     /// </summary>
     public class TRuleDNSBLCondition : TRuleCondition
     {
@@ -17,31 +19,31 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
         /// </summary>
         public string Regex { get; set; }
 
+        /// <inheritdoc />
         public TRuleDNSBLCondition()
         {
+            ConditionType = TRuleConditionType.DNSBL;
         }
 
-        /// <summary>
-        /// Creates new instance from an XML node. See <see cref="XmlNode"/> for more information.
-        /// </summary>
-        /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
+        /// <inheritdoc />
         public TRuleDNSBLCondition(XmlNode node)
         {
             if (node != null)
             {
                 ProcessNode(node);
-                Server = Extensions.GetNodeInnerText(node.GetSingleNode("Server"));
-                Regex = Extensions.GetNodeInnerText(node.GetSingleNode("Regex"));
+                Server = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Server)));
+                Regex = Extensions.GetNodeInnerText(node.GetSingleNode(ClassHelper.GetMemberName(() => Regex)));
             }
         }
 
+        /// <inheritdoc />
         public override XmlElement BuildXmlElement(XmlDocument doc, string name)
         {
             XmlElement element = XmlHelper.CreateElement(doc, name);
 
             AppendBaseElements(element);
-            XmlHelper.AppendTextElement(element, "Server", Server);
-            XmlHelper.AppendTextElement(element, "Regex", Regex);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Server), Server);
+            XmlHelper.AppendTextElement(element, ClassHelper.GetMemberName(() => Regex), Regex);
 
             return element;
         }
