@@ -81,6 +81,7 @@
     <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Rules\RulesRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Session\SessionRequestTests.cs" />
+    <Compile Include="IceWarpRpc\Requests\Statistics\StatisticsRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Webclient\WebclientRequestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -392,6 +393,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Session\TestData\Responses\Logout.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Statistics\TestData\Requests\GetStatisticsProperties.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Statistics\TestData\Responses\GetStatisticsProperties.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Webclient\TestData\Requests\GetWebmailResource.xml">

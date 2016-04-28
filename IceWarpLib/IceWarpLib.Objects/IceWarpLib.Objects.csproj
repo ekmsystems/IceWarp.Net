@@ -191,6 +191,7 @@
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition.cs" />
     <Compile Include="Rpc\Classes\Session\TAuthChallenge.cs" />
+    <Compile Include="Rpc\Classes\Statistics\TStatisticsPropertyList.cs" />
     <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItem.cs" />
     <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItemList.cs" />
     <Compile Include="Rpc\Enums\AccountType.cs" />
