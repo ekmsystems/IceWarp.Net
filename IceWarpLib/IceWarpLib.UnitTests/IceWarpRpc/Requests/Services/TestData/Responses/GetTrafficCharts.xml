@@ -1,0 +1,62 @@
+﻿<iq type="result" sid="201604280826030014">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <list>
+        <item>
+          <v>0.00</v>
+          <d>1461773370</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461782010</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461790650</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461799290</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461807930</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461816570</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461825210</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461833850</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461842490</d>
+
+        </item>
+        <item>
+          <v>0.00</v>
+          <d>1461851130</d>
+
+        </item>
+
+      </list>
+
+    </result>
+
+  </query>
+
+</iq>

@@ -1,0 +1,13 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>gettrafficcharts</commandname>
+    <commandparams>
+      <stype>0</stype>
+      <charttype>0</charttype>
+      <count>10</count>
+      <period>2</period>
+      <ffrom />
+      <fto />
+    </commandparams>
+  </query>
+</iq>

@@ -1,0 +1,417 @@
+﻿<iq type="result" sid="201604281118563693">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>ST_Time</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ServerOut</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ServerIn</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ClientOut</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ClientIn</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_Server</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ServerPeak</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_Client</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ClientPeak</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_ServerConns</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_PeakWorkingSetSize</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_PageFileUsage</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_WorkingSetSize</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_RunningTime</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_MessageOut</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_MessageIn</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_MessageFailed</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedGL</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedVirus</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedCF</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedStaticFilter</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedFilter</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedRBL</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedTarpit</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedSpam</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedSpamQuarantine</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedSpamRefused</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedSA</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedCTBulk</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SMTP_FailedCTSpam</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SIP_PacketsIn</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SIP_PacketsOut</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SIP_RTPPacketsIn</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>ST_SIP_RTPPacketsOut</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyNoValue</classname>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+
+    </result>
+
+  </query>
+
+</iq>

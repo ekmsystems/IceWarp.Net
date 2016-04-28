@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes.Account;
+using IceWarpLib.Objects.Rpc.Classes.Services;
 using IceWarpLib.Rpc.Utilities;
 
 namespace IceWarpLib.Rpc.Responses
 {
     /// <summary>
-    /// Informational list of accounts.
-    /// <para><see href="https://www.icewarp.co.uk/api/#TAccountsInfoList">https://www.icewarp.co.uk/api/#TAccountsInfoList</see></para>
-    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetAccountsInfoList">https://www.icewarp.co.uk/api/#GetAccountsInfoList</seealso></para>
+    /// Represents the list of IceWarp services.
+    /// <para><see href="https://www.icewarp.co.uk/api/#TServicesInfoList">https://www.icewarp.co.uk/api/#TServicesInfoList</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#GetServicesInfoList">https://www.icewarp.co.uk/api/#GetServicesInfoList</seealso></para>
     /// </summary>
-    public class TAccountInfoListResponse : IceWarpResponse
+    public class TServicesInfoListResponse : IceWarpResponse
     {
         /// <summary>
         /// Current offset in the list.
@@ -22,12 +22,12 @@ namespace IceWarpLib.Rpc.Responses
         /// </summary>
         public int OverallCount { get; set; }
         /// <summary>
-        /// List Of TAccountInfo. See <see cref="TAccountInfo"/> for more information.
+        /// List Of TServiceInfo. See <see cref="TServiceInfo"/> for more information.
         /// </summary>
-        public List<TAccountInfo> Items { get; set; }
+        public List<TServiceInfo> Items { get; set; }
 
         /// <inheritdoc />
-        public TAccountInfoListResponse(HttpRequestResult httpRequestResult)
+        public TServicesInfoListResponse(HttpRequestResult httpRequestResult)
             : base(httpRequestResult)
         {
         }
@@ -35,7 +35,7 @@ namespace IceWarpLib.Rpc.Responses
         /// <inheritdoc />
         public override void ProcessResultNode(XmlNode node)
         {
-            Items = new List<TAccountInfo>();
+            Items = new List<TServiceInfo>();
             if (node != null)
             {
                 Offset = Extensions.GetNodeInnerTextAsInt(node.GetSingleNode(ClassHelper.GetMemberName(() => Offset)));
@@ -45,7 +45,7 @@ namespace IceWarpLib.Rpc.Responses
                 {
                     foreach (XmlNode item in items)
                     {
-                        Items.Add(new TAccountInfo(item));
+                        Items.Add(new TServiceInfo(item));
                     }
                 }
             }

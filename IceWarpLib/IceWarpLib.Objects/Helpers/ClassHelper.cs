@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Classes.Rule.Actions;
 using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
+using IceWarpLib.Objects.Rpc.Classes.Services;
 
 namespace IceWarpLib.Objects.Helpers
 {
@@ -12,7 +13,8 @@ namespace IceWarpLib.Objects.Helpers
     {
         private static List<ClassType> _tPropertyValClasses;
         private static List<ClassType> _tRuleConditionClasses;
-        private static List<ClassType> _tRuleActionClasses; 
+        private static List<ClassType> _tRuleActionClasses;
+        private static List<ClassType> _tServiceStatisticsClasses;
 
         static ClassHelper()
         {
@@ -42,6 +44,15 @@ namespace IceWarpLib.Objects.Helpers
                                                       })
                                                       .OrderBy(x => x.ClassName)
                                                       .ToList();
+
+            _tServiceStatisticsClasses = ReflectiveEnumerator.GetEnumerableOfType<TServiceStatistics>()
+                                                      .Select(x => new ClassType
+                                                      {
+                                                          ClassName = x.GetType().Name.ToLower(),
+                                                          AssemblyQualifiedName = x.GetType().AssemblyQualifiedName
+                                                      })
+                                                      .OrderBy(x => x.ClassName)
+                                                      .ToList();
         }
 
         public static List<ClassType> TPropertyValClasses()
@@ -57,6 +68,11 @@ namespace IceWarpLib.Objects.Helpers
         public static List<ClassType> TRuleConditionClasses()
         {
             return _tRuleConditionClasses;
+        }
+
+        public static List<ClassType> TServiceStatisticsClasses()
+        {
+            return _tServiceStatisticsClasses;
         }
 
         public static string GetMemberName<TValue>(Expression<Func<TValue>> memberAccess)

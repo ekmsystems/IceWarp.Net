@@ -1,0 +1,12 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getservicesinfolist</commandname>
+    <commandparams>
+      <filter>
+        <mask />
+      </filter>
+      <offset>0</offset>
+      <count>0</count>
+    </commandparams>
+  </query>
+</iq>

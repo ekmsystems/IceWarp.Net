@@ -1,0 +1,41 @@
+﻿<iq type="result" sid="201604280826030014">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <uptime>598728</uptime>
+      <conntotal>2</conntotal>
+      <serverconn>0</serverconn>
+      <serverconnpeak>1</serverconnpeak>
+      <serverdatatotal>709</serverdatatotal>
+      <serverdatain>216</serverdatain>
+      <serverdataout>493</serverdataout>
+      <clientconn>0</clientconn>
+      <clientconnpeak>0</clientconnpeak>
+      <clientdatatotal>0</clientdatatotal>
+      <clientdatain>0</clientdatain>
+      <clientdataout>0</clientdataout>
+      <memorysize>23298048</memorysize>
+      <memorypeak>23314432</memorypeak>
+      <classname>TServiceSMTPStatistics</classname>
+      <msgreceived>1</msgreceived>
+      <msgsent>0</msgsent>
+      <msgfailed>0</msgfailed>
+      <msgvirus>0</msgvirus>
+      <msgcontentfilter>0</msgcontentfilter>
+      <msgrules>0</msgrules>
+      <msgexternal>0</msgexternal>
+      <msgintrusionprevention>0</msgintrusionprevention>
+      <msgdns>0</msgdns>
+      <quarantine>0</quarantine>
+      <spamassasin>0</spamassasin>
+      <spammarked>0</spammarked>
+      <spamlivebulk>0</spamlivebulk>
+      <spamlive>0</spamlive>
+      <refused>0</refused>
+      <greylisting>0</greylisting>
+
+    </result>
+
+  </query>
+
+</iq>
+

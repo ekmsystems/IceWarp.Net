@@ -72,5 +72,15 @@ namespace IceWarpLib.Objects.Helpers
             }
             return null;
         }
+
+        public static float GetNodeInnerTextAsFloat(XmlNode node)
+        {
+            if (node != null && !String.IsNullOrEmpty(node.InnerText))
+            {
+                return float.Parse(node.InnerText);
+            }
+            return 0;
+        }
+
     }
 }

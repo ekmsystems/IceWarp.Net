@@ -1,0 +1,32 @@
+﻿<iq type="result" sid="201604280826030014">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <uptime>598680</uptime>
+      <conntotal>2</conntotal>
+      <serverconn>2</serverconn>
+      <serverconnpeak>2</serverconnpeak>
+      <serverdatatotal>51085724</serverdatatotal>
+      <serverdatain>25559684</serverdatain>
+      <serverdataout>25526040</serverdataout>
+      <clientconn>0</clientconn>
+      <clientconnpeak>0</clientconnpeak>
+      <clientdatatotal>0</clientdatatotal>
+      <clientdatain>0</clientdatain>
+      <clientdataout>0</clientdataout>
+      <memorysize>39067648</memorysize>
+      <memorypeak>39108608</memorypeak>
+      <classname>TServiceVOIPStatistics</classname>
+      <packetsreceived>44352</packetsreceived>
+      <packetssent>44352</packetssent>
+      <rtppacketsreceived>0</rtppacketsreceived>
+      <rtppacketssent>0</rtppacketssent>
+      <callcount>0</callcount>
+      <callpeak>0</callpeak>
+      <calltotal>0</calltotal>
+
+    </result>
+
+  </query>
+
+</iq>
+

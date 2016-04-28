@@ -190,7 +190,16 @@
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition.cs" />
+    <Compile Include="Rpc\Classes\Services\TSCItm.cs" />
+    <Compile Include="Rpc\Classes\Services\TSCItmList.cs" />
+    <Compile Include="Rpc\Classes\Services\TServiceBasicStatistics.cs" />
+    <Compile Include="Rpc\Classes\Services\TServiceInfo.cs" />
+    <Compile Include="Rpc\Classes\Services\TServiceListFilter.cs" />
+    <Compile Include="Rpc\Classes\Services\TServiceSMTPStatistics.cs" />
+    <Compile Include="Rpc\Classes\Services\TServiceStatistics.cs" />
+    <Compile Include="Rpc\Classes\Services\TServiceVOIPStatistics.cs" />
     <Compile Include="Rpc\Classes\Session\TAuthChallenge.cs" />
+    <Compile Include="Rpc\Classes\Statistics\TStatisticsPropertyList.cs" />
     <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItem.cs" />
     <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItemList.cs" />
     <Compile Include="Rpc\Enums\AccountType.cs" />
@@ -218,6 +227,9 @@
     <Compile Include="Rpc\Enums\TRuleRecipientSenderType.cs" />
     <Compile Include="Rpc\Enums\TRuleRemoteLocalType.cs" />
     <Compile Include="Rpc\Enums\TRuleSomeWordsFunctionType.cs" />
+    <Compile Include="Rpc\Enums\TServiceChartPeriod.cs" />
+    <Compile Include="Rpc\Enums\TServiceChartType.cs" />
+    <Compile Include="Rpc\Enums\TServiceType.cs" />
     <Compile Include="Rpc\Enums\TUserState.cs" />
     <Compile Include="Rpc\Enums\TWebmailSettingAccessLevel.cs" />
     <Compile Include="Rpc\Enums\TWebmailSettingLevel.cs" />
