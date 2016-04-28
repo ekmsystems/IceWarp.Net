@@ -1,0 +1,102 @@
+﻿<iq type="result" sid="201604280826030014">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <servicetype>0</servicetype>
+        <uptime>589075</uptime>
+        <connections>0</connections>
+        <maxconnections>1</maxconnections>
+        <data>14254080</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>1</servicetype>
+        <uptime>589076</uptime>
+        <connections>0</connections>
+        <maxconnections>1</maxconnections>
+        <data>10485760</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>2</servicetype>
+        <uptime>589077</uptime>
+        <connections>1</connections>
+        <maxconnections>2</maxconnections>
+        <data>20668416</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>3</servicetype>
+        <uptime>589069</uptime>
+        <connections>0</connections>
+        <maxconnections>0</maxconnections>
+        <data>29929472</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>4</servicetype>
+        <uptime>589077</uptime>
+        <connections>0</connections>
+        <maxconnections>1</maxconnections>
+        <data>14024704</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>6</servicetype>
+        <uptime>589077</uptime>
+        <connections>0</connections>
+        <maxconnections>2</maxconnections>
+        <data>20668416</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>7</servicetype>
+        <uptime>0</uptime>
+        <connections>0</connections>
+        <maxconnections>2</maxconnections>
+        <data>0</data>
+        <isrunning>0</isrunning>
+
+      </item>
+      <item>
+        <servicetype>8</servicetype>
+        <uptime>589076</uptime>
+        <connections>0</connections>
+        <maxconnections>1</maxconnections>
+        <data>10485760</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>9</servicetype>
+        <uptime>589075</uptime>
+        <connections>0</connections>
+        <maxconnections>1</maxconnections>
+        <data>14254080</data>
+        <isrunning>1</isrunning>
+
+      </item>
+      <item>
+        <servicetype>10</servicetype>
+        <uptime>0</uptime>
+        <connections>0</connections>
+        <maxconnections>2</maxconnections>
+        <data>0</data>
+        <isrunning>0</isrunning>
+
+      </item>
+      <offset>0</offset>
+      <overallcount>21</overallcount>
+
+    </result>
+
+  </query>
+
+</iq>
+

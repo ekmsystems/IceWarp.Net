@@ -80,6 +80,7 @@
     <Compile Include="IceWarpRpc\Requests\Domain\DomainRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Rules\RulesRequestTests.cs" />
+    <Compile Include="IceWarpRpc\Requests\Services\ServicesRequestsTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Session\SessionRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Statistics\StatisticsRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Webclient\WebclientRequestTests.cs" />
@@ -369,6 +370,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\GetRulesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetServicesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\GetServicesInfoList.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Session\TestData\Requests\Authenticate.xml">
