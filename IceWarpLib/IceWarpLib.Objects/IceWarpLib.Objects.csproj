@@ -191,6 +191,8 @@
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition.cs" />
     <Compile Include="Rpc\Classes\Session\TAuthChallenge.cs" />
+    <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItem.cs" />
+    <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItemList.cs" />
     <Compile Include="Rpc\Enums\AccountType.cs" />
     <Compile Include="Rpc\Enums\TAccountPropertySet.cs" />
     <Compile Include="Rpc\Enums\TActivationKeyType.cs" />
@@ -217,6 +219,8 @@
     <Compile Include="Rpc\Enums\TRuleRemoteLocalType.cs" />
     <Compile Include="Rpc\Enums\TRuleSomeWordsFunctionType.cs" />
     <Compile Include="Rpc\Enums\TUserState.cs" />
+    <Compile Include="Rpc\Enums\TWebmailSettingAccessLevel.cs" />
+    <Compile Include="Rpc\Enums\TWebmailSettingLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

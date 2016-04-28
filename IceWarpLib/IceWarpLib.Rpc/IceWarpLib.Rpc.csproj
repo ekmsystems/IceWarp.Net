@@ -103,6 +103,7 @@
     <Compile Include="Requests\Session\GetAuthChallenge.cs" />
     <Compile Include="Requests\Session\GetSessionInfo.cs" />
     <Compile Include="Requests\Session\Logout.cs" />
+    <Compile Include="Requests\Webclient\GetWebmailResource.cs" />
     <Compile Include="Responses\GenerateAccountActivationKeyResponse.cs" />
     <Compile Include="Responses\GeneratedPasswordResponse.cs" />
     <Compile Include="Responses\IceWarpResponse.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Responses\TPropertyValueListResponse.cs" />
     <Compile Include="Responses\TRuleSettingsResponse.cs" />
     <Compile Include="Responses\TRulesInfoListResponse.cs" />
+    <Compile Include="Responses\TWebmailSettingsResource.cs" />
     <Compile Include="Utilities\HttpRequestResult.cs" />
     <Compile Include="Utilities\HttpUtility.cs" />
   </ItemGroup>
@@ -130,7 +132,6 @@
     <Folder Include="Requests\Server\" />
     <Folder Include="Requests\Service\" />
     <Folder Include="Requests\Statistics\" />
-    <Folder Include="Requests\Webclient\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IceWarpLib.Objects\IceWarpLib.Objects.csproj">

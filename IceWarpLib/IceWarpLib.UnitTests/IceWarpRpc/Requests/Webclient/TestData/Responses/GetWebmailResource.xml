@@ -1,0 +1,23 @@
+﻿<iq type="result" sid="201602051125504026">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <list>
+        <item>
+          <domainadminaccesslevel>2</domainadminaccesslevel>
+          <useraccesslevel>2</useraccesslevel>
+          <accesslevel>3</accesslevel>
+          <name>Resource 1 name</name>
+          <value>Resource 1 value</value>
+        </item>
+        <item>
+          <domainadminaccesslevel>1</domainadminaccesslevel>
+          <useraccesslevel>1</useraccesslevel>
+          <accesslevel>0</accesslevel>
+          <name>Resource 2 name</name>
+          <value>Resource 2 value</value>
+        </item>
+      </list>
+      <name>Test Resource</name>
+    </result>
+  </query>
+</iq>

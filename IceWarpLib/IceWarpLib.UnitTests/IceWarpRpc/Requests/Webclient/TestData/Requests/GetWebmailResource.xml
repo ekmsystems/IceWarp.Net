@@ -1,0 +1,22 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getwebmailresource</commandname>
+    <commandparams>
+      <resource>Test Resource</resource>
+      <level>1</level>
+      <selector>testing.co.uk</selector>
+      <items>
+        <classname>tpropertystringlist</classname>
+        <val>
+          <item>s_allowconflicts</item>
+          <item>s_manager</item>
+          <item>s_notificationtomanager</item>
+          <item>s_organizersfile</item>
+          <item>s_organizersfile_contents</item>
+          <item>s_type</item>
+          <item>s_unavailable</item>
+        </val>
+      </items>
+    </commandparams>
+  </query>
+</iq>

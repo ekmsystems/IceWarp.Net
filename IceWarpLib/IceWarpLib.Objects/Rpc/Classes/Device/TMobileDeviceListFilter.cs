@@ -11,7 +11,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
     public class TMobileDeviceListFilter : BaseClass
     {
         /// <summary>
-        /// Used agains mobile device name
+        /// Used against mobile device name
         /// </summary>
         public string NameMask { get; set; }
         /// <summary>
