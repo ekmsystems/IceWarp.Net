@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using IceWarpLib.Objects.Rpc.Enums;
 using IceWarpLib.Rpc;
 using IceWarpLib.Rpc.Requests.Session;
@@ -29,7 +24,7 @@ namespace IceWarpLib.IntegrationTests
         [Test]
         public void Connect()
         {
-            var url = ConfigurationManager.AppSettings["IceWarpUrl"]; ;
+            var url = ConfigurationManager.AppSettings["IceWarpUrl"];
             var api = new IceWarpRpcApi();
             var authenticate = new Authenticate
             {
