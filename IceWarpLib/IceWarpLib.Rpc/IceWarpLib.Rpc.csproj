@@ -101,6 +101,7 @@
     <Compile Include="Requests\Rule\MoveRule.cs" />
     <Compile Include="Requests\Service\GetServicesInfoList.cs" />
     <Compile Include="Requests\Service\GetServiceStatistics.cs" />
+    <Compile Include="Requests\Service\GetTrafficCharts.cs" />
     <Compile Include="Requests\Service\RestartService.cs" />
     <Compile Include="Requests\Service\StopService.cs" />
     <Compile Include="Requests\Service\StartService.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Responses\TPropertyValueListResponse.cs" />
     <Compile Include="Responses\TRuleSettingsResponse.cs" />
     <Compile Include="Responses\TRulesInfoListResponse.cs" />
+    <Compile Include="Responses\TServiceChartResponse.cs" />
     <Compile Include="Responses\TServicesInfoListResponse.cs" />
     <Compile Include="Responses\TServiceStatisticsResponse.cs" />
     <Compile Include="Responses\TWebmailSettingsResource.cs" />

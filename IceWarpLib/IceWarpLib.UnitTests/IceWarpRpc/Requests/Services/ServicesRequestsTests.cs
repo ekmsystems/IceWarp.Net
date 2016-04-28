@@ -161,6 +161,33 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Services
         }
 
         [Test]
+        public void GetTrafficCharts()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetTrafficCharts.xml"));
+            var request = new GetTrafficCharts
+            {
+                SessionId = "sid",
+                SType = TServiceType.SMTP,
+                ChartType = TServiceChartType.ServerData,
+                Count = 10,
+                Period = TServiceChartPeriod.Day
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "GetTrafficCharts.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.NotNull(response.List);
+            Assert.AreEqual(10, response.List.Items.Count);
+
+            Assert.AreEqual(0.00, response.List.Items.First().V);
+            Assert.AreEqual("1461773370", response.List.Items.First().D);
+        }
+
+        [Test]
         public void IsServiceRunning()
         {
             string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "IsServiceRunning.xml"));
