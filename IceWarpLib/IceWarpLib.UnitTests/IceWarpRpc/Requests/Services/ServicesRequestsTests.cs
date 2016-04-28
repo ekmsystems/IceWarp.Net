@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Classes.Services;
-using IceWarpLib.Objects.Rpc.Classes.Statistics;
 using IceWarpLib.Objects.Rpc.Enums;
 using IceWarpLib.Rpc.Requests.Service;
 using IceWarpLib.Rpc.Utilities;
@@ -99,7 +95,69 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Services
             var item10 = response.Items.ElementAt(9);
             Assert.NotNull(item10);
             Assert.AreEqual(TServiceType.FTP, item10.ServiceType);
+        }
 
+        [Test]
+        public void GetServiceStatistics_POP3()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetServiceStatistics_POP3.xml"));
+            var request = new GetServiceStatistics
+            {
+                SessionId = "sid",
+                SType = TServiceType.POP3
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "GetServiceStatistics_POP3.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.NotNull(response.Statistics);
+            Assert.AreEqual(typeof(TServiceBasicStatistics), response.Statistics.GetType());
+        }
+
+        [Test]
+        public void GetServiceStatistics_SMTP()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetServiceStatistics_SMTP.xml"));
+            var request = new GetServiceStatistics
+            {
+                SessionId = "sid",
+                SType = TServiceType.SMTP
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "GetServiceStatistics_SMTP.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.NotNull(response.Statistics);
+            Assert.AreEqual(typeof(TServiceSMTPStatistics), response.Statistics.GetType());
+        }
+
+        [Test]
+        public void GetServiceStatistics_VOIP()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetServiceStatistics_VOIP.xml"));
+            var request = new GetServiceStatistics
+            {
+                SessionId = "sid",
+                SType = TServiceType.SIP
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "GetServiceStatistics_VOIP.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.NotNull(response.Statistics);
+            Assert.AreEqual(typeof(TServiceVOIPStatistics), response.Statistics.GetType());
         }
     }
 }

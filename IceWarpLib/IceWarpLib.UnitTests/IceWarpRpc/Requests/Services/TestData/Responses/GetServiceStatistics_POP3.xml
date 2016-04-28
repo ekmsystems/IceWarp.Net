@@ -1,0 +1,25 @@
+﻿<iq type="result" sid="201604280826030014">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <uptime>598748</uptime>
+      <conntotal>1</conntotal>
+      <serverconn>0</serverconn>
+      <serverconnpeak>1</serverconnpeak>
+      <serverdatatotal>100</serverdatatotal>
+      <serverdatain>0</serverdatain>
+      <serverdataout>100</serverdataout>
+      <clientconn>0</clientconn>
+      <clientconnpeak>0</clientconnpeak>
+      <clientdatatotal>0</clientdatatotal>
+      <clientdatain>0</clientdatain>
+      <clientdataout>0</clientdataout>
+      <memorysize>18530304</memorysize>
+      <memorypeak>18563072</memorypeak>
+      <classname>TServiceBasicStatistics</classname>
+
+    </result>
+
+  </query>
+
+</iq>
+
