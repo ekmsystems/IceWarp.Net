@@ -7,10 +7,10 @@ using IceWarpLib.Rpc.Utilities;
 namespace IceWarpLib.Rpc.Requests.Service
 {
     /// <summary>
-    /// Check if specified IceWarp service is running or not.
-    /// <para><see href="https://www.icewarp.co.uk/api/#IsServiceRunning">https://www.icewarp.co.uk/api/#IsServiceRunning</see></para>
+    /// Starts the specified IceWarp service.
+    /// <para><see href="https://www.icewarp.co.uk/api/#StartService">https://www.icewarp.co.uk/api/#StartService</see></para>
     /// </summary>
-    public class IsServiceRunning : IceWarpCommand<IsServiceRunningResponse>
+    public class StartService : IceWarpCommand<SuccessResponse>
     {
         /// <summary>
         /// Service type specification
@@ -28,10 +28,10 @@ namespace IceWarpLib.Rpc.Requests.Service
         }
 
         /// <inheritdoc />
-        /// <returns>See <see cref="IsServiceRunningResponse"/></returns>
-        public override IsServiceRunningResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
+        /// <returns>See <see cref="SuccessResponse"/></returns>
+        public override SuccessResponse FromHttpRequestResult(HttpRequestResult httpRequestResult)
         {
-            return new IsServiceRunningResponse(httpRequestResult);
+            return new SuccessResponse(httpRequestResult);
         }
     }
 }

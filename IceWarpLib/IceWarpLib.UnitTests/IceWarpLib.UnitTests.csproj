@@ -372,6 +372,15 @@
     <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\GetRulesInfoList.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\RestartService.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\StopService.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\StartService.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\IsServiceRunning.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -385,6 +394,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetServicesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\StartService.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\StopService.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\RestartService.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\IsServiceRunning.xml">

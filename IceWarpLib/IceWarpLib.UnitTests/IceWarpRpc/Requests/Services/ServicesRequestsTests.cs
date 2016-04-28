@@ -180,5 +180,65 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Services
             Assert.True(response.IsRunning);
         }
 
+        [Test]
+        public void RestartService()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "RestartService.xml"));
+            var request = new RestartService
+            {
+                SessionId = "sid",
+                Service = TServiceType.POP3
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "RestartService.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
+        public void StartService()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "StartService.xml"));
+            var request = new StartService
+            {
+                SessionId = "sid",
+                Service = TServiceType.POP3
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "StartService.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
+        public void StopService()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "StopService.xml"));
+            var request = new StopService
+            {
+                SessionId = "sid",
+                Service = TServiceType.POP3
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "StopService.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
     }
 }
