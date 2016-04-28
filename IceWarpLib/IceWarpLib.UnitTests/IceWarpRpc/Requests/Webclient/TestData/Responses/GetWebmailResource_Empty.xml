@@ -1,0 +1,5 @@
+﻿<iq type="result" sid="201602051125504026">
+  <query xmlns="admin:iq:rpc">
+    <result/>
+  </query>
+</iq>
