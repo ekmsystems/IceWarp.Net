@@ -159,5 +159,26 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Services
             Assert.NotNull(response.Statistics);
             Assert.AreEqual(typeof(TServiceVOIPStatistics), response.Statistics.GetType());
         }
+
+        [Test]
+        public void IsServiceRunning()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "IsServiceRunning.xml"));
+            var request = new IsServiceRunning
+            {
+                SessionId = "sid",
+                Service = TServiceType.POP3
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "IsServiceRunning.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.IsRunning);
+        }
+
     }
 }
