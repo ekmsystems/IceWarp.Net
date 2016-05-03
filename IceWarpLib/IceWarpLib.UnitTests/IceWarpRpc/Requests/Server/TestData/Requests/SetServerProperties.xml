@@ -1,0 +1,19 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>setserverproperties</commandname>
+    <commandparams>
+      <propertyvaluelist>
+        <item>
+          <apiproperty>
+            <propname>C_System_Services_LDAP_Enable</propname>
+          </apiproperty>
+          <propertyval>
+            <classname>tpropertystring</classname>
+            <val>1</val>
+          </propertyval>
+          <propertyright>2</propertyright>
+        </item>
+      </propertyvaluelist>
+    </commandparams>
+  </query>
+</iq>

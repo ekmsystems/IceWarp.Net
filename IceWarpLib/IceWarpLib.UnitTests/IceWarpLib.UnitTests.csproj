@@ -80,6 +80,7 @@
     <Compile Include="IceWarpRpc\Requests\Domain\DomainRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Rules\RulesRequestTests.cs" />
+    <Compile Include="IceWarpRpc\Requests\Server\ServerRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Services\ServicesRequestsTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Session\SessionRequestTests.cs" />
     <Compile Include="IceWarpRpc\Requests\Statistics\StatisticsRequestTests.cs" />
@@ -376,6 +377,33 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\GetRulesInfoList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetAllAPIVariables.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetServerAPIConsole.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetServerAPIConsole_NoFilter.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetServerProperties.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\SetServerProperties.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\GetServerAPIConsole.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\GetAllAPIVariables.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\GetServerProperties.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\SetServerProperties.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetTrafficCharts.xml">
