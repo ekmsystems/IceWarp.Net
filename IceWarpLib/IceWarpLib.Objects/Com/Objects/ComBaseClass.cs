@@ -9,7 +9,8 @@ namespace IceWarpLib.Objects.Com.Objects
     /// <summary>
     /// Base class for an IceWarp API COM Object
     /// </summary>
-    public class ComBaseClass
+    public abstract class ComBaseClass
     {
+        
     }
 }

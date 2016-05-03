@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Com.Objects
     /// <para><see href="https://www.icewarp.co.uk/api/#GetDomainProperties">https://www.icewarp.co.uk/api/#GetDomainProperties</see></para>
     /// <para><seealso href="https://www.icewarp.co.uk/api/#SetDomainProperties">https://www.icewarp.co.uk/api/#SetDomainProperties</seealso></para>
     /// </summary>
-    public class Domain
+    public class Domain : ComBaseClass
     {
         //Domain
 

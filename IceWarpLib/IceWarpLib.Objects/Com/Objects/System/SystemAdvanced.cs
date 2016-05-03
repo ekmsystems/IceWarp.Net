@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Com.Objects.System
     /// <para><see href="https://www.icewarp.co.uk/api/#GetServerProperties">https://www.icewarp.co.uk/api/#GetServerProperties</see></para>
     /// <para><seealso href="https://www.icewarp.co.uk/api/#SetServerProperties">https://www.icewarp.co.uk/api/#SetServerProperties</seealso></para>
     /// </summary>
-    public class SystemAdvanced
+    public class SystemAdvanced : ComBaseClass
     {
         /// <summary>
         /// Session timeout - 300

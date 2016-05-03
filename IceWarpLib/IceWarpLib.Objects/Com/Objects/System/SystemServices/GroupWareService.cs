@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Com.Objects.System.SystemServices
     /// <para><see href="https://www.icewarp.co.uk/api/#GetServerProperties">https://www.icewarp.co.uk/api/#GetServerProperties</see></para>
     /// <para><seealso href="https://www.icewarp.co.uk/api/#SetServerProperties">https://www.icewarp.co.uk/api/#SetServerProperties</seealso></para>
     /// </summary>
-    public class GroupWareService
+    public class GroupWareService : ComBaseClass
     {
         /// <summary>
         /// GW service port - 5229

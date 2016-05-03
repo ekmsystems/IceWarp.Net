@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Com.Objects.System.SystemServices
     /// <para><see href="https://www.icewarp.co.uk/api/#GetServerProperties">https://www.icewarp.co.uk/api/#GetServerProperties</see></para>
     /// <para><seealso href="https://www.icewarp.co.uk/api/#SetServerProperties">https://www.icewarp.co.uk/api/#SetServerProperties</seealso></para>
     /// </summary>
-    public class POP3Service
+    public class POP3Service : ComBaseClass
     {
         /// <summary>
         /// POP3 service port - 110
