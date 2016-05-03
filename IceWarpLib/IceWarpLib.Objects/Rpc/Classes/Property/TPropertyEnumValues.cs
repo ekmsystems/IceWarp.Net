@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// List of property enumeration values.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyEnumValues">https://www.icewarp.co.uk/api/#TPropertyEnumValues</see></para>
     /// </summary>
-    public class TPropertyEnumValues : BaseClass
+    public class TPropertyEnumValues : RpcBaseClass
     {
         /// <summary>
         /// List of property enumeration values. See <see cref="TPropertyEnumValue"/> for more information.

@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// This class represents set of domains it may be list, single item, or even wildcard, or even negation.
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainsSet">https://www.icewarp.co.uk/api/#TDomainsSet</see></para>
     /// </summary>
-    public class TDomainsSet : BaseClass
+    public class TDomainsSet : RpcBaseClass
     {
         /// <summary>
         /// List Of TDomainSpec. See <see cref="TDomainSpec"/> for more information.

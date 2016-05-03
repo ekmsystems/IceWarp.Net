@@ -10,7 +10,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
     /// List of rule conditions.
     /// <para><see href="https://www.icewarp.co.uk/api/#TRuleConditions">https://www.icewarp.co.uk/api/#TRuleConditions</see></para>
     /// </summary>
-    public class TRuleConditions : BaseClass
+    public class TRuleConditions : RpcBaseClass
     {
         /// <summary>
         /// List Of TRuleCondition. See <see cref="TRuleCondition"/> for more information.

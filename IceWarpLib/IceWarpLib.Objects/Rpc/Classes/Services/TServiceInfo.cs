@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Services
     /// Brief information about IceWarp service.
     /// <para><see href="https://www.icewarp.co.uk/api/#TServiceInfo">https://www.icewarp.co.uk/api/#TServiceInfo</see></para>
     /// </summary>
-    public class TServiceInfo : BaseClass
+    public class TServiceInfo : RpcBaseClass
     {
         /// <summary>
         /// Service type

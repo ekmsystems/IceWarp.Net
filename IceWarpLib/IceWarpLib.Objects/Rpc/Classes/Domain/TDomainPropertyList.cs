@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// Used to specify properties of IceWarp domain ( by property name ).
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainPropertyList">https://www.icewarp.co.uk/api/#TDomainPropertyList</see></para>
     /// </summary>
-    public class TDomainPropertyList : BaseClass
+    public class TDomainPropertyList : RpcBaseClass
     {
         /// <summary>
         /// List Of TAPIProperty. See <see cref="TAPIProperty"/> for more information.

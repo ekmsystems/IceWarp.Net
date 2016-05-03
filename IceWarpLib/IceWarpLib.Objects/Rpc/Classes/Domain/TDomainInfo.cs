@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// Basic information about an IceWarp domain object.
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainInfo">https://www.icewarp.co.uk/api/#TDomainInfo</see></para>
     /// </summary>
-    public class TDomainInfo : BaseClass
+    public class TDomainInfo : RpcBaseClass
     {
         /// <summary>
         /// Domain name

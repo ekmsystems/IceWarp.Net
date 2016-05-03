@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Represents the list of folders in IceWarp account.
     /// <para><see href="https://www.icewarp.co.uk/api/#TFolderInfoList">https://www.icewarp.co.uk/api/#TFolderInfoList</see></para>
     /// </summary>
-    public class TFolderInfoList : BaseClass
+    public class TFolderInfoList : RpcBaseClass
     {
         /// <summary>
         /// List Of TFolderInfo. See <see cref="List{TFolderInfo}"/> for more information.

@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Basic informations about IceWarp account object, is used in account listing.
     /// <para><see href="https://www.icewarp.co.uk/api/#TAccountInfo">https://www.icewarp.co.uk/api/#TAccountInfo</see></para>
     /// </summary>
-    public class TAccountInfo : BaseClass
+    public class TAccountInfo : RpcBaseClass
     {
         /// <summary>
         /// Account full name

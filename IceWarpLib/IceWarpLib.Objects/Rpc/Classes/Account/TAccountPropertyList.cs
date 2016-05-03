@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Used to specify properties of IceWarp account ( by property name ).
     /// <para><see href="https://www.icewarp.co.uk/api/#TAccountPropertyList">https://www.icewarp.co.uk/api/#TAccountPropertyList</see></para>
     /// </summary>
-    public class TAccountPropertyList : BaseClass
+    public class TAccountPropertyList : RpcBaseClass
     {
         /// <summary>
         /// List Of TAPIProperty. See <see cref="TAPIProperty"/> for more information.

@@ -21,7 +21,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Conditions
     /// <para/><see cref="TRuleLocalTimeCondition"/>
     /// <para/><see cref="TRuleAllCondition"/>
     /// </summary>
-    public abstract class TRuleCondition : BaseClass
+    public abstract class TRuleCondition : RpcBaseClass
     {
         /// <summary>
         /// Type of the condition

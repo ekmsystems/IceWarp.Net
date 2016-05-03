@@ -11,7 +11,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Services
     /// <para/><see cref="TServiceVOIPStatistics"/>
     /// <para/><see cref="TServiceSMTPStatistics"/>
     /// </summary>
-    public abstract class TServiceStatistics : BaseClass
+    public abstract class TServiceStatistics : RpcBaseClass
     {
         /// <summary>
         /// Running time

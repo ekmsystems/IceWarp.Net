@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// This encapsulates permissions defined on domains. It can contain data related to particular domain and it can also contain data related to multiple domains (using wildcard).
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainsAdministrativePermissionsSet">https://www.icewarp.co.uk/api/#TDomainsAdministrativePermissionsSet</see></para>
     /// </summary>
-    public class TDomainsAdministrativePermissionsSet : BaseClass
+    public class TDomainsAdministrativePermissionsSet : RpcBaseClass
     {
         /// <summary>
         /// Set of domains

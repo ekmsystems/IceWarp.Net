@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Webclient
     /// List of webclient setting items.
     /// <para><see href="https://www.icewarp.co.uk/api/#TWebmailSettingItemList">https://www.icewarp.co.uk/api/#TWebmailSettingItemList</see></para>
     /// </summary>
-    public class TWebmailSettingItemList : BaseClass
+    public class TWebmailSettingItemList : RpcBaseClass
     {
         /// <summary>
         /// List Of TWebmailSettingItem. See <see cref="TWebmailSettingItem"/> for more information.

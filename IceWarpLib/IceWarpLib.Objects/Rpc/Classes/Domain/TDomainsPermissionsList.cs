@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// List of TDomainsAdministrativePermissionsSet.
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainsPermissionsList">https://www.icewarp.co.uk/api/#TDomainsPermissionsList</see></para>
     /// </summary>
-    public class TDomainsPermissionsList : BaseClass
+    public class TDomainsPermissionsList : RpcBaseClass
     {
         /// <summary>
         /// List Of TDomainsAdministrativePermissionsSet. See <see cref="TDomainsAdministrativePermissionsSet"/> for more information.

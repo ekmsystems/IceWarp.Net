@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Used to filter the list of accounts in IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TAccountListFilter">https://www.icewarp.co.uk/api/#TAccountListFilter</see></para>
     /// </summary>
-    public class TAccountListFilter : BaseClass
+    public class TAccountListFilter : RpcBaseClass
     {
         /// <summary>
         /// Mask that is used agains account name and alias

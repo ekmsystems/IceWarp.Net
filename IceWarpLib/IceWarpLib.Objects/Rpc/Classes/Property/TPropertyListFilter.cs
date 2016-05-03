@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Used to filter the list of properties in server / domain / account API console.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyListFilter">https://www.icewarp.co.uk/api/#TPropertyListFilter</see></para>
     /// </summary>
-    public class TPropertyListFilter : BaseClass
+    public class TPropertyListFilter : RpcBaseClass
     {
         /// <summary>
         /// Supports wildcards, used agains property name , value and comment

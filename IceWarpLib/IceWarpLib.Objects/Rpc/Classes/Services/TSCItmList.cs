@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Services
     /// List of services traffic data
     /// <para><see href="https://www.icewarp.co.uk/api/#TSCItmList">https://www.icewarp.co.uk/api/#TSCItmList</see></para>
     /// </summary>
-    public class TSCItmList : BaseClass
+    public class TSCItmList : RpcBaseClass
     {
         /// <summary>
         /// List Of TSCItm. See <see cref="TSCItm"/>

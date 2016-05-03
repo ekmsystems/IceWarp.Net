@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Instant messaging roster list.
     /// <para><see href="https://www.icewarp.co.uk/api/#TIMRosterList">https://www.icewarp.co.uk/api/#TIMRosterList</see></para>
     /// </summary>
-    public class TIMRosterList : BaseClass
+    public class TIMRosterList : RpcBaseClass
     {
         /// <summary>
         /// List Of TIMRosterItem. See <see cref="TIMRosterItem"/> for more information.

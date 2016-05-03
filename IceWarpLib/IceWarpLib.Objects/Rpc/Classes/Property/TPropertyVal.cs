@@ -27,7 +27,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// <para/><see cref="TPropertyMember"/>
     /// <para/><see cref="TPropertyMembers"/>
     /// </summary>
-    public abstract class TPropertyVal : BaseClass
+    public abstract class TPropertyVal : RpcBaseClass
     {
         
     }

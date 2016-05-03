@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Services
     /// Used to filter the list of services in IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TServiceListFilter">https://www.icewarp.co.uk/api/#TServiceListFilter</see></para>
     /// </summary>
-    public class TServiceListFilter : BaseClass
+    public class TServiceListFilter : RpcBaseClass
     {
         /// <summary>
         /// Not yet supported - returns all services by now

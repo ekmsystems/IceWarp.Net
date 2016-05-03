@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
     /// Used to filter the list of rules in IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TRulesListFilter">https://www.icewarp.co.uk/api/#TRulesListFilter</see></para>
     /// </summary>
-    public class TRulesListFilter : BaseClass
+    public class TRulesListFilter : RpcBaseClass
     {
         /// <summary>
         /// Used against rule name

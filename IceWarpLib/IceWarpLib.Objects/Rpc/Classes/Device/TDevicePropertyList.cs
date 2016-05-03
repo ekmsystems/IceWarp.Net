@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
     /// Used to specify properties of IceWarp mobile device ( by property name ).
     /// <para><see href="https://www.icewarp.co.uk/api/#TDevicePropertyList">https://www.icewarp.co.uk/api/#TDevicePropertyList</see></para>
     /// </summary>
-    public class TDevicePropertyList : BaseClass
+    public class TDevicePropertyList : RpcBaseClass
     {
         /// <summary>
         /// List of TAPIProperty. See <see cref="TAPIProperty"/> for more information.

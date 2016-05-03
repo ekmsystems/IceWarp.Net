@@ -11,7 +11,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
     /// Brief information about some rule in IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TRuleInfo">https://www.icewarp.co.uk/api/#TRuleInfo</see></para>
     /// </summary>
-    public class TRuleInfo : BaseClass
+    public class TRuleInfo : RpcBaseClass
     {
         /// <summary>
         /// Identification number of the rule

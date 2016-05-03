@@ -8,7 +8,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
     [TestFixture]
     public abstract class BaseTest
     {
-        protected XmlDocument BuildXmlDocument(BaseClass testClass)
+        protected XmlDocument BuildXmlDocument(RpcBaseClass testClass)
         {
             var doc = new XmlDocument();
 
@@ -18,12 +18,12 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Rpc.Classes
             return doc;
         }
 
-        protected string ToXml(BaseClass testClass)
+        protected string ToXml(RpcBaseClass testClass)
         {
             return BuildXmlDocument(testClass).InnerXmlFormatted();
         }
 
-        protected string ToFormattedXml(BaseClass testClass)
+        protected string ToFormattedXml(RpcBaseClass testClass)
         {
             return BuildXmlDocument(testClass).InnerXmlFormatted(4);
         }

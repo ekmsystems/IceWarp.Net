@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// List of API properties and its permissions.
     /// <para><see href="https://www.icewarp.co.uk/api/#TAdministrativePermissionsList">https://www.icewarp.co.uk/api/#TAdministrativePermissionsList</see></para>
     /// </summary>
-    public class TAdministrativePermissionsList : BaseClass
+    public class TAdministrativePermissionsList : RpcBaseClass
     {
         /// <summary>
         /// List Of TPropertyPermission. See <see cref="TPropertyPermission"/> for more information.

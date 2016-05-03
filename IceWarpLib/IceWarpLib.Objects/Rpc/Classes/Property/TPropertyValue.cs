@@ -10,7 +10,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Represents the value of any API property.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyValue">https://www.icewarp.co.uk/api/#TPropertyValue</see></para>
     /// </summary>
-    public class TPropertyValue : BaseClass
+    public class TPropertyValue : RpcBaseClass
     {
         /// <summary>
         /// API Property object. See <see cref="TAPIProperty"/>

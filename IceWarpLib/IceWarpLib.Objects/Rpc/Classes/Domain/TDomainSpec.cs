@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// This class represents a domain, or domain pattern using wildcards.
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainSpec">https://www.icewarp.co.uk/api/#TDomainSpec</see></para>
     /// </summary>
-    public class TDomainSpec : BaseClass
+    public class TDomainSpec : RpcBaseClass
     {
         /// <summary>
         /// Domain name or pattern

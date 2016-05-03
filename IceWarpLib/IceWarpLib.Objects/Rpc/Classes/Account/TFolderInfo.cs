@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Basic informations about IceWarp folder object, is used in folder listing.
     /// <para><see href="https://www.icewarp.co.uk/api/#TFolderInfo">https://www.icewarp.co.uk/api/#TFolderInfo</see></para>
     /// </summary>
-    public class TFolderInfo : BaseClass
+    public class TFolderInfo : RpcBaseClass
     {
         /// <summary>
         /// Folder name

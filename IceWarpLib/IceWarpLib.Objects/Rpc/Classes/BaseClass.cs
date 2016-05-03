@@ -5,7 +5,7 @@ namespace IceWarpLib.Objects.Rpc.Classes
     /// <summary>
     /// Base class for an IceWarp API RPC class
     /// </summary>
-    public abstract class BaseClass
+    public abstract class RpcBaseClass
     {
         /// <summary>
         /// Returns the name of the class.
@@ -15,13 +15,13 @@ namespace IceWarpLib.Objects.Rpc.Classes
         /// <summary>
         /// Empty Constructor
         /// </summary>
-        protected BaseClass() { }
+        protected RpcBaseClass() { }
         
         /// <summary>
         /// Creates a new instance from an XML node. See <see cref="XmlNode"/> for more information.
         /// </summary>
         /// <param name="node">The Xml node. See <see cref="XmlNode"/> for more information.</param>
-        protected BaseClass(XmlNode node) { }
+        protected RpcBaseClass(XmlNode node) { }
 
         /// <summary>
         /// Generates the XML for the class.

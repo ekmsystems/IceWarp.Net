@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Pair API property - right.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyRight">https://www.icewarp.co.uk/api/#TPropertyRight</see></para>
     /// </summary>
-    public class TPropertyRight : BaseClass
+    public class TPropertyRight : RpcBaseClass
     {
         /// <summary>
         /// API Property object. See <see cref="TAPIProperty"/>

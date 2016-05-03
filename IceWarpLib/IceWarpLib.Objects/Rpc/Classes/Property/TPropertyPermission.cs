@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Defines a permissions for API property.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyPermission">https://www.icewarp.co.uk/api/#TPropertyPermission</see></para>
     /// </summary>
-    public class TPropertyPermission : BaseClass
+    public class TPropertyPermission : RpcBaseClass
     {
         /// <summary>
         /// Property ID

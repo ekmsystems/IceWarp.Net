@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Statistics
     /// Used to specify properties of IceWarp statistics ( by property name ).
     /// <para><see href="https://www.icewarp.co.uk/api/#TStatisticsPropertyList">https://www.icewarp.co.uk/api/#TStatisticsPropertyList</see></para>
     /// </summary>
-    public class TStatisticsPropertyList : BaseClass
+    public class TStatisticsPropertyList : RpcBaseClass
     {
         /// <summary>
         /// List Of TAPIProperty. See <see cref="TAPIProperty"/> for more information.

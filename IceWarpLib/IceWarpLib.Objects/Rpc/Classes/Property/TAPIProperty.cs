@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Represents property of server, domain, account, mobile device or statistic object.
     /// <para><see href="https://www.icewarp.co.uk/api/#TAPIProperty">https://www.icewarp.co.uk/api/#TAPIProperty</see></para>
     /// </summary>
-    public class TAPIProperty : BaseClass
+    public class TAPIProperty : RpcBaseClass
     {
         /// <summary>
         /// Property name as in apiconst.dat

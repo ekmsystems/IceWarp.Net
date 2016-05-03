@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Webclient
     /// Represents the item in web client settings resource.
     /// <para><see href="https://www.icewarp.co.uk/api/#TWebmailSettingItem">https://www.icewarp.co.uk/api/#TWebmailSettingItem</see></para>
     /// </summary>
-    public class TWebmailSettingItem : BaseClass
+    public class TWebmailSettingItem : RpcBaseClass
     {
         /// <summary>
         /// Access level for domain administrator accounts

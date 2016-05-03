@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// List of permissions related to specific folder in IceWarp account.
     /// <para><see href="https://www.icewarp.co.uk/api/#TFolderPermissions">https://www.icewarp.co.uk/api/#TFolderPermissions</see></para>
     /// </summary>
-    public class TFolderPermissions : BaseClass
+    public class TFolderPermissions : RpcBaseClass
     {
         /// <summary>
         /// Inherited rights from higher level

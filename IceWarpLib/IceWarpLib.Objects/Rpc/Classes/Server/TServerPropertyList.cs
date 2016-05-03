@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Server
     /// Used to specify properties of IceWarp server ( by property name ).
     /// <para><see href="https://www.icewarp.co.uk/api/#TServerPropertyList">https://www.icewarp.co.uk/api/#TServerPropertyList</see></para>
     /// </summary>
-    public class TServerPropertyList : BaseClass
+    public class TServerPropertyList : RpcBaseClass
     {
         /// <summary>
         /// List Of TAPIProperty. See <see cref="TAPIProperty"/> for more information.

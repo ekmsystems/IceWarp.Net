@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Pair of API Property and its comment ( used to create translation XML ).
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyTranslateInfo">https://www.icewarp.co.uk/api/#TPropertyTranslateInfo</see></para>
     /// </summary>
-    public class TPropertyTranslateInfo : BaseClass
+    public class TPropertyTranslateInfo : RpcBaseClass
     {
         /// <summary>
         /// Represents class property TPropertyTranslateInfo.Name

@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// Used to filter the list of domains in IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainListFilter">https://www.icewarp.co.uk/api/#TDomainListFilter</see></para>
     /// </summary>
-    public class TDomainListFilter : BaseClass
+    public class TDomainListFilter : RpcBaseClass
     {
         /// <summary>
         /// Used against domain name & description

@@ -10,7 +10,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Brief information about API property on IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyInfo">https://www.icewarp.co.uk/api/#TPropertyInfo</see></para>
     /// </summary>
-    public class TPropertyInfo : BaseClass
+    public class TPropertyInfo : RpcBaseClass
     {
         /// <summary>
         /// API Proprety object

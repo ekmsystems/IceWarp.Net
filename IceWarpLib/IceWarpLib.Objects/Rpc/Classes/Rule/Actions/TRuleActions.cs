@@ -10,7 +10,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
     /// List of rule actions.
     /// <para><see href="https://www.icewarp.co.uk/api/#TRuleActions">https://www.icewarp.co.uk/api/#TRuleActions</see></para>
     /// </summary>
-    public class TRuleActions : BaseClass
+    public class TRuleActions : RpcBaseClass
     {
         /// <summary>
         /// List Of TRuleAction. See <see cref="TRuleAction"/> for more information.

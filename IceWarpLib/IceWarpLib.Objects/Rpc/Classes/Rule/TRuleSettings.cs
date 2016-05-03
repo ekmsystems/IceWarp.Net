@@ -9,7 +9,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
     /// Represents the settings of the rule.
     /// <para><see href="https://www.icewarp.co.uk/api/#TRuleSettings">https://www.icewarp.co.uk/api/#TRuleSettings</see></para>
     /// </summary>
-    public class TRuleSettings : BaseClass
+    public class TRuleSettings : RpcBaseClass
     {
         /// <summary>
         /// List of conditions

@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Domain
     /// Administrative permissions related to domain and its accounts.
     /// <para><see href="https://www.icewarp.co.uk/api/#TDomainsAdministrativePermissions">https://www.icewarp.co.uk/api/#TDomainsAdministrativePermissions</see></para>
     /// </summary>
-    public class TDomainsAdministrativePermissions : BaseClass
+    public class TDomainsAdministrativePermissions : RpcBaseClass
     {
         /// <summary>
         /// options related to all accounts in this domain

@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule
     /// Item that represents header modification.
     /// <para><see href="https://www.icewarp.co.uk/api/#TRuleEditHeaderItem">https://www.icewarp.co.uk/api/#TRuleEditHeaderItem</see></para>
     /// </summary>
-    public class TRuleEditHeaderItem : BaseClass
+    public class TRuleEditHeaderItem : RpcBaseClass
     {
         /// <summary>
         /// Type of action

@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
     /// Basic informations about IceWarp mobile device object, is used in mobile device listing.
     /// <para><see href="https://www.icewarp.co.uk/api/#TMobileDeviceInfo">https://www.icewarp.co.uk/api/#TMobileDeviceInfo</see></para>
     /// </summary>
-    public class TMobileDeviceInfo : BaseClass
+    public class TMobileDeviceInfo : RpcBaseClass
     {
         /// <summary>
         /// Combined device ID : Base64(AccountID+|+DeviceID)

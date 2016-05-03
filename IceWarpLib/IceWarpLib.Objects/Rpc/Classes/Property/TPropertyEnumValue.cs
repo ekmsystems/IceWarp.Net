@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Describes value of property enumeration.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyEnumValue">https://www.icewarp.co.uk/api/#TPropertyEnumValue</see></para>
     /// </summary>
-    public class TPropertyEnumValue : BaseClass
+    public class TPropertyEnumValue : RpcBaseClass
     {
         /// <summary>
         /// Enumeration name

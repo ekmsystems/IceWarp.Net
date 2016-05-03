@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// Folder permission item.
     /// <para><see href="https://www.icewarp.co.uk/api/#TFolderPermissionsItem">https://www.icewarp.co.uk/api/#TFolderPermissionsItem</see></para>
     /// </summary>
-    public class TFolderPermissionsItem : BaseClass
+    public class TFolderPermissionsItem : RpcBaseClass
     {
         /// <summary>
         /// IceWarp account email address

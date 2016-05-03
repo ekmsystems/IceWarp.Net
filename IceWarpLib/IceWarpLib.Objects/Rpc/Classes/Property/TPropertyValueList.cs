@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Property
     /// Represents class TPropertyValueList.
     /// <para><see href="https://www.icewarp.co.uk/api/#TPropertyValueList">https://www.icewarp.co.uk/api/#TPropertyValueList</see></para>
     /// </summary>
-    public class TPropertyValueList : BaseClass
+    public class TPropertyValueList : RpcBaseClass
     {
         /// <summary>
         /// List Of TPropertyValue. See <see cref="TPropertyValue"/> for more information.

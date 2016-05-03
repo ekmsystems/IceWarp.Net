@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Device
     /// Used to filter the list of mobile devices in IceWarp server.
     /// <para><see href="https://www.icewarp.co.uk/api/#TMobileDeviceListFilter">https://www.icewarp.co.uk/api/#TMobileDeviceListFilter</see></para>
     /// </summary>
-    public class TMobileDeviceListFilter : BaseClass
+    public class TMobileDeviceListFilter : RpcBaseClass
     {
         /// <summary>
         /// Used against mobile device name

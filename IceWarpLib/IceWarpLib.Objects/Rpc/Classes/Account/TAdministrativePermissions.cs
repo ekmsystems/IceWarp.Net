@@ -8,7 +8,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Account
     /// This encapsulates permisions which can be defined FOR certain entity.
     /// <para><see href="https://www.icewarp.co.uk/api/#TAdministrativePermissions">https://www.icewarp.co.uk/api/#TAdministrativePermissions</see></para>
     /// </summary>
-    public class TAdministrativePermissions : BaseClass
+    public class TAdministrativePermissions : RpcBaseClass
     {
         /// <summary>
         /// permissions defined on domain level

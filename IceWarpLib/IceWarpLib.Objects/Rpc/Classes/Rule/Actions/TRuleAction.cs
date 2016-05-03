@@ -19,7 +19,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Rule.Actions
     /// <para/><see cref="TRuleMessageActionAction"/>
     /// <para/><see cref="TRuleStopAction"/>
     /// </summary>
-    public abstract class TRuleAction : BaseClass
+    public abstract class TRuleAction : RpcBaseClass
     {
         /// <summary>
         /// Type of the action

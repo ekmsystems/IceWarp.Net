@@ -7,7 +7,7 @@ namespace IceWarpLib.Objects.Rpc.Classes.Services
     /// Traffic chart data value.
     /// <para><see href="https://www.icewarp.co.uk/api/#TSCItm">https://www.icewarp.co.uk/api/#TSCItm</see></para>
     /// </summary>
-    public class TSCItm : BaseClass
+    public class TSCItm : RpcBaseClass
     {
         /// <summary>
         /// Value
