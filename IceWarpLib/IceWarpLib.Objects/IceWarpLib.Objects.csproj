@@ -156,6 +156,7 @@
     <Compile Include="Rpc\Classes\Property\TPropertyRight.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyString.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyStringList.cs" />
+    <Compile Include="Rpc\Classes\Property\TPropertyTranslateInfo.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyVal.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyValue.cs" />
     <Compile Include="Rpc\Classes\Property\TPropertyValueList.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition.cs" />
     <Compile Include="Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition.cs" />
+    <Compile Include="Rpc\Classes\Server\TServerPropertyList.cs" />
     <Compile Include="Rpc\Classes\Services\TSCItm.cs" />
     <Compile Include="Rpc\Classes\Services\TSCItmList.cs" />
     <Compile Include="Rpc\Classes\Services\TServiceBasicStatistics.cs" />
