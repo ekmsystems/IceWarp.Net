@@ -3,6 +3,12 @@ A .net wrapper for the IceWarp API
 
 IceWarp.Net fully implements the [IceWarp API RPC](https://www.icewarp.co.uk/api/) calls.
 
+## NuGet
+
+```bash
+PM> Install-Package EppLib
+```
+
 ## Usage
 	string apiUrl = "http://localhost/icewarpapi/";
 	var api = new IceWarpRpcApi();

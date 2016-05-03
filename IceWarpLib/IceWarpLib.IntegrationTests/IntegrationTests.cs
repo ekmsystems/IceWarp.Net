@@ -105,17 +105,20 @@ namespace IceWarpLib.IntegrationTests
                     }
                 }
             };
-            var exception = Assert.Throws<IceWarpErrorException>(() => api.Execute(_url, getDomainProperties));
-            Assert.AreEqual("domain_invalid", exception.IceWarpError);
-
-            //Create domain
-            var createDomain = new CreateDomain
+            try
             {
-                SessionId = authResult.SessionId,
-                DomainStr = domainToDelete,
-                DomainProperties = new TPropertyValueList
+                var domainCheckResult = api.Execute(_url, getDomainProperties);
+            }
+            catch (IceWarpErrorException e)
+            {
+                //Create domain
+                var createDomain = new CreateDomain
                 {
-                    Items = new List<TPropertyValue>
+                    SessionId = authResult.SessionId,
+                    DomainStr = domainToDelete,
+                    DomainProperties = new TPropertyValueList
+                    {
+                        Items = new List<TPropertyValue>
                     {
                         new TPropertyValue
                         {
@@ -124,16 +127,17 @@ namespace IceWarpLib.IntegrationTests
                             PropertyRight = TPermission.ReadWrite
                         }
                     }
-                }
-            };
-            var createDomainResult = api.Execute(_url, createDomain);
-            Assert.True(createDomainResult.Success);
+                    }
+                };
+                var createDomainResult = api.Execute(_url, createDomain);
+                Assert.True(createDomainResult.Success);
 
-            //Check can get properties for new domain
-            var getDomainPropertiesResult = api.Execute(_url, getDomainProperties);
-            Assert.AreEqual(1, getDomainPropertiesResult.Items.Count);
-            Assert.AreEqual("tpropertystring", getDomainPropertiesResult.Items.First().PropertyVal.ClassName);
-            Assert.AreEqual(deleteDomainAdminEmail, ((TPropertyString)getDomainPropertiesResult.Items.First().PropertyVal).Val);
+                //Check can get properties for new domain
+                var getDomainPropertiesResult = api.Execute(_url, getDomainProperties);
+                Assert.AreEqual(1, getDomainPropertiesResult.Items.Count);
+                Assert.AreEqual("tpropertystring", getDomainPropertiesResult.Items.First().PropertyVal.ClassName);
+                Assert.AreEqual(deleteDomainAdminEmail, ((TPropertyString)getDomainPropertiesResult.Items.First().PropertyVal).Val);
+            }
 
             //Delete domain
             var deleteDomain = new DeleteDomain
@@ -145,7 +149,7 @@ namespace IceWarpLib.IntegrationTests
             Assert.True(deleteDomainResult.Success);
 
             //Check domain does not exist
-            exception = Assert.Throws<IceWarpErrorException>(() => api.Execute(_url, getDomainProperties));
+            var exception = Assert.Throws<IceWarpErrorException>(() => api.Execute(_url, getDomainProperties));
             Assert.AreEqual("domain_invalid", exception.IceWarpError);
 
             //Logout
