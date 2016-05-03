@@ -282,6 +282,9 @@
     <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\GetDevicesInfoList.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\DeleteDomain.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\CreateDomain.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -307,6 +310,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\SetDomainProperties.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\DeleteDomain.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\CreateDomain.xml">

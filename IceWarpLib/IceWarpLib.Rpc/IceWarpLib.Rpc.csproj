@@ -87,6 +87,7 @@
     <Compile Include="Requests\Device\SetDeviceStatus.cs" />
     <Compile Include="Requests\Device\SetDeviceWipe.cs" />
     <Compile Include="Requests\Domain\CreateDomain.cs" />
+    <Compile Include="Requests\Domain\DeleteDomain.cs" />
     <Compile Include="Requests\Domain\GetDomainAPIConsole.cs" />
     <Compile Include="Requests\Domain\GetDomainProperties.cs" />
     <Compile Include="Requests\Domain\GetDomainsInfoList.cs" />

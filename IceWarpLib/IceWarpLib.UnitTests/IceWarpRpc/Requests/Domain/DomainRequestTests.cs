@@ -71,6 +71,26 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Domain
         }
 
         [Test]
+        public void DeleteDomain()
+        {
+            string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "DeleteDomain.xml"));
+            var request = new DeleteDomain
+            {
+                SessionId = "sid",
+                DomainStr = "testing.com"
+            };
+            var xml = request.ToXml().InnerXmlFormatted();
+            Assert.AreEqual(expected, xml);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine(_responsesTestDataPath, "DeleteDomain.xml")));
+            var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
+
+            Assert.AreEqual("result", response.Type);
+            Assert.True(response.Success);
+        }
+
+        [Test]
         public void GetDomainAPIConsole()
         {
             string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetDomainAPIConsole.xml"));
