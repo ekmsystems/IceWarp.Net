@@ -13,10 +13,6 @@ namespace IceWarpLib.Rpc.Requests.Server
     public class SetServerProperties : IceWarpCommand<SuccessResponse>
     {
         /// <summary>
-        /// Domain name
-        /// </summary>
-        public string DomainStr { get; set; }
-        /// <summary>
         /// Specifies the list of variables you want to set with its values
         /// </summary>
         public TPropertyValueList PropertyValueList { get; set; }
@@ -26,7 +22,6 @@ namespace IceWarpLib.Rpc.Requests.Server
         {
             var commandParams = GetCommandParamsElement(doc);
 
-            XmlHelper.AppendTextElement(commandParams, ClassHelper.GetMemberName(() => DomainStr), DomainStr);
             if (PropertyValueList != null)
             {
                 commandParams.AppendChild(PropertyValueList.BuildXmlElement(doc, ClassHelper.GetMemberName(() => PropertyValueList)));

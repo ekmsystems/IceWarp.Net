@@ -1,0 +1,48 @@
+﻿<iq type="result" sid="201604130847550002">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <item>
+        <apiproperty>
+          <propname>C_System_Adv_Protocols_SessionTimeOut</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>300</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>C_System_Adv_Protocols_ResponseDelay</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+      <item>
+        <apiproperty>
+          <propname>C_System_Services_LDAP_Enable</propname>
+
+        </apiproperty>
+        <propertyval>
+          <classname>TPropertyString</classname>
+          <val>0</val>
+
+        </propertyval>
+        <propertyright>2</propertyright>
+
+      </item>
+
+    </result>
+
+  </query>
+
+</iq>

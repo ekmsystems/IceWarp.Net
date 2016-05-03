@@ -1,0 +1,18 @@
+﻿<iq type="get" sid="sid">
+  <query xmlns="admin:iq:rpc">
+    <commandname>getserverproperties</commandname>
+    <commandparams>
+      <serverpropertylist>
+        <item>
+          <propname>C_System_Adv_Protocols_SessionTimeOut</propname>
+        </item>
+        <item>
+          <propname>C_System_Adv_Protocols_ResponseDelay</propname>
+        </item>
+        <item>
+          <propname>C_System_Services_LDAP_Enable</propname>
+        </item>
+      </serverpropertylist>
+    </commandparams>
+  </query>
+</iq>

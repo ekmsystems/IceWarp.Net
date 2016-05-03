@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using IceWarpLib.Objects.Helpers;
-using IceWarpLib.Objects.Rpc.Classes;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Enums;
@@ -167,7 +166,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Domain
         }
 
         [Test]
-        public void GetDomainProperties_Command()
+        public void GetDomainProperties()
         {
             string expected = File.ReadAllText(Path.Combine(_requestsTestDataPath, "GetDomainProperties.xml"));
             var request = new GetDomainProperties
@@ -372,6 +371,5 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Domain
 
             Assert.AreEqual("result", response.Type);
         }
-
     }
 }

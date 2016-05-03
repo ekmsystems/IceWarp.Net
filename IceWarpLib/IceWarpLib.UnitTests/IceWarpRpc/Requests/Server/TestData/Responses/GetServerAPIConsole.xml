@@ -1,0 +1,11 @@
+﻿<iq type="result" sid="201605031021090021">
+  <query xmlns="admin:iq:rpc">
+    <result>
+      <offset>0</offset>
+      <overallcount>0</overallcount>
+
+    </result>
+
+  </query>
+
+</iq>
