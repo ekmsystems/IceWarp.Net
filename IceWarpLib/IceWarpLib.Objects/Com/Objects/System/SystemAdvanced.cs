@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IceWarpLib.Objects.Com.Enums;
+﻿using IceWarpLib.Objects.Com.Enums;
 
 namespace IceWarpLib.Objects.Com.Objects.System
 {
+    /// <summary>
+    /// Uses RPC GetServerProperties and SetServerProperties.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetServerProperties">https://www.icewarp.co.uk/api/#GetServerProperties</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#SetServerProperties">https://www.icewarp.co.uk/api/#SetServerProperties</seealso></para>
+    /// </summary>
     public class SystemAdvanced
     {
         /// <summary>

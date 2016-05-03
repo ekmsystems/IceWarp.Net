@@ -2,6 +2,11 @@
 
 namespace IceWarpLib.Objects.Com.Objects
 {
+    /// <summary>
+    /// Uses RPC GetDomainProperties and SetDomainProperties.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetDomainProperties">https://www.icewarp.co.uk/api/#GetDomainProperties</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#SetDomainProperties">https://www.icewarp.co.uk/api/#SetDomainProperties</seealso></para>
+    /// </summary>
     public class Domain
     {
         //Domain

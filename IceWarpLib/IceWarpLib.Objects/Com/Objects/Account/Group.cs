@@ -2,6 +2,11 @@
 
 namespace IceWarpLib.Objects.Com.Objects.Account
 {
+    /// <summary>
+    /// Uses RPC GetAccountProperties and SetAccountProperties.
+    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountProperties">https://www.icewarp.co.uk/api/#GetAccountProperties</see></para>
+    /// <para><seealso href="https://www.icewarp.co.uk/api/#SetAccountProperties">https://www.icewarp.co.uk/api/#SetAccountProperties</seealso></para>
+    /// </summary>
     public class Group : Account
     {
         /// <summary>

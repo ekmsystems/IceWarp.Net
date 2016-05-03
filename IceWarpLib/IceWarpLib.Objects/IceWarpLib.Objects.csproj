@@ -66,6 +66,7 @@
     <Compile Include="Com\Enums\Moderation.cs" />
     <Compile Include="Com\Objects\Account\Account.cs" />
     <Compile Include="Com\Objects\Account\Catalog.cs" />
+    <Compile Include="Com\Objects\ComBaseClass.cs" />
     <Compile Include="Com\Objects\Configuration.cs" />
     <Compile Include="Com\Objects\Domain.cs" />
     <Compile Include="Com\Enums\Domain.cs" />
