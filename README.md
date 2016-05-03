@@ -6,7 +6,7 @@ IceWarp.Net fully implements the [IceWarp API RPC](https://www.icewarp.co.uk/api
 ## NuGet
 
 ```bash
-PM> Install-Package EppLib
+PM> Install-Package IceWarp.Net
 ```
 
 ## Usage
