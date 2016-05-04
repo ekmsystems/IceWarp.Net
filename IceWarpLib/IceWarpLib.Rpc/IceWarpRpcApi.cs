@@ -17,7 +17,6 @@ namespace IceWarpLib.Rpc
         /// <returns>The response from IceWarp</returns>
         /// <exception cref="IceWarpApiException">An error occurred when calling the Api</exception>
         /// <exception cref="ProcessResponseException">An error occurred when processing the response from the IceWarp Api</exception>
-        /// <exception cref="NullReferenceException">A null or empty response returned from the IceWarp Api</exception>
         /// <exception cref="IceWarpErrorException">An error returned from the IceWarp Api</exception>
         T Execute<T>(string url, IceWarpCommand<T> command) where T : IceWarpResponse;
     }
