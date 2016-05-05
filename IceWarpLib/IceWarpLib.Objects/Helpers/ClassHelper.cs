@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Classes.Rule.Actions;
 using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
@@ -111,6 +112,30 @@ namespace IceWarpLib.Objects.Helpers
                     return Activator.CreateInstance(type, args);
             }
             return null;
+        }
+
+        public static List<FieldInfo> GetFields(Type type, BindingFlags bindingFlags)
+        {
+            var fields = type.GetFields(bindingFlags).ToList();
+            return fields;
+        }
+
+        public static List<string> GetFieldNames(Type type, BindingFlags bindingFlags)
+        {
+            var fields = type.GetFields(bindingFlags).ToList();
+            return fields.Select(x => x.Name).ToList();
+        }
+
+        public static List<PropertyInfo> GetProperites(Type type, BindingFlags bindingFlags)
+        {
+            var props = type.GetProperties(bindingFlags).ToList();
+            return props;
+        }
+
+        public static List<string> GetPropertyNames(Type type, BindingFlags bindingFlags)
+        {
+            var props = type.GetProperties(bindingFlags).ToList();
+            return props.Select(x => x.Name).ToList();
         }
     }
 

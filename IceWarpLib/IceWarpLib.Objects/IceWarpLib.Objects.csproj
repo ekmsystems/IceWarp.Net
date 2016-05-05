@@ -40,6 +40,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnconstrainedMelody, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnconstrainedMelody.0.2.1\lib\UnconstrainedMelody.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Com\Enums\AccountsStorageMode.cs" />
@@ -60,6 +64,7 @@
     <Compile Include="Com\Enums\User.cs" />
     <Compile Include="Com\Enums\MailingList.cs" />
     <Compile Include="Com\Enums\Moderation.cs" />
+    <Compile Include="Com\Flags\HeaderFooterFlag.cs" />
     <Compile Include="Com\Objects\Account\Account.cs" />
     <Compile Include="Com\Objects\Account\Catalog.cs" />
     <Compile Include="Com\Objects\ComBaseClass.cs" />
@@ -101,8 +106,10 @@
     <Compile Include="Com\Objects\System\SystemTools\SystemMonitorTool.cs" />
     <Compile Include="Com\Objects\System\SystemTools\TcpIpTunnelTool.cs" />
     <Compile Include="Helpers\ClassHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Helpers\ReflectiveEnumerator.cs" />
+    <Compile Include="Helpers\TPropertyValHelper.cs" />
     <Compile Include="Helpers\SerializationHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

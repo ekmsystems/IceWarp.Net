@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
+using IceWarpLib.Objects.Com.Enums;
+using IceWarpLib.Objects.Com.Objects;
+using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Enums;
@@ -8,6 +12,7 @@ using IceWarpLib.Rpc;
 using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Requests.Domain;
 using IceWarpLib.Rpc.Requests.Session;
+using IceWarpLib.Rpc.Responses;
 using NUnit.Framework;
 
 namespace IceWarpLib.IntegrationTests
@@ -35,19 +40,7 @@ namespace IceWarpLib.IntegrationTests
         public void Connect()
         {
             var api = new IceWarpRpcApi();
-            var authenticate = new Authenticate
-            {
-                AuthType = TAuthType.Plain,
-                Digest = "",
-                Email = _adminEmail,
-                Password = _adminPassword,
-                PersistentLogin = false
-            };
-            var authResult = api.Execute(_url, authenticate);
-
-            Assert.NotNull(authResult);
-            Assert.NotNull(authResult.HttpRequestResult);
-            Assert.True(authResult.HttpRequestResult.Success);
+            var authResult = Authenticate(api);
 
             var sessionInfo = new GetSessionInfo
             {
@@ -59,34 +52,14 @@ namespace IceWarpLib.IntegrationTests
             Assert.NotNull(sessionInfoResult.HttpRequestResult);
             Assert.True(sessionInfoResult.HttpRequestResult.Success);
 
-            var logout = new Logout
-            {
-                SessionId = authResult.SessionId
-            };
-            var logoutResult = api.Execute(_url, logout);
-
-            Assert.NotNull(logoutResult);
-            Assert.NotNull(logoutResult.HttpRequestResult);
-            Assert.True(logoutResult.HttpRequestResult.Success);
+            LogOut(api, authResult.SessionId);
         }
 
         [Test]
         public void DeleteDomain()
         {
             var api = new IceWarpRpcApi();
-            var authenticate = new Authenticate
-            {
-                AuthType = TAuthType.Plain,
-                Digest = "",
-                Email = _adminEmail,
-                Password = _adminPassword,
-                PersistentLogin = false
-            };
-            var authResult = api.Execute(_url, authenticate);
-
-            Assert.NotNull(authResult);
-            Assert.NotNull(authResult.HttpRequestResult);
-            Assert.True(authResult.HttpRequestResult.Success);
+            var authResult = Authenticate(api);
 
             var domainToDelete = "deletedomain.com";
             var deleteDomainAdminEmail = "test@testing.com";
@@ -152,10 +125,66 @@ namespace IceWarpLib.IntegrationTests
             var exception = Assert.Throws<IceWarpErrorException>(() => api.Execute(_url, getDomainProperties));
             Assert.AreEqual("domain_invalid", exception.IceWarpError);
 
-            //Logout
+            LogOut(api, authResult.SessionId);
+        }
+
+        [Test]
+        public void GetDomainProperties()
+        {
+            var api = new IceWarpRpcApi();
+            var authResult = Authenticate(api);
+
+            var domainPropertyNames = ClassHelper.GetPropertyNames(typeof(Domain), BindingFlags.Instance | BindingFlags.Public);
+            Assert.AreEqual(88, domainPropertyNames.Count);
+
+            var request = new GetDomainProperties
+            {
+                SessionId = authResult.SessionId,
+                DomainStr = "testing.co.uk",
+                DomainPropertyList = new TDomainPropertyList
+                {
+                    Items = domainPropertyNames.Select(x => new TAPIProperty { PropName = x }).ToList()
+                }
+            };
+            var getDomainPropertiesResult = api.Execute(_url, request);
+
+            Assert.NotNull(getDomainPropertiesResult);
+            Assert.NotNull(getDomainPropertiesResult.HttpRequestResult);
+            Assert.True(getDomainPropertiesResult.HttpRequestResult.Success);
+            Assert.NotNull(getDomainPropertiesResult.Items);
+            Assert.AreEqual(88, getDomainPropertiesResult.Items.Count);
+
+            var domain = new Domain(getDomainPropertiesResult.Items);
+            Assert.True(domain.D_Type.HasValue);
+            Assert.AreEqual(DomainType.Standard, domain.D_Type.Value);
+
+            LogOut(api, authResult.SessionId);
+        }
+
+        private SuccessResponse Authenticate(IceWarpRpcApi api)
+        {
+            var authenticate = new Authenticate
+            {
+                AuthType = TAuthType.Plain,
+                Digest = "",
+                Email = _adminEmail,
+                Password = _adminPassword,
+                PersistentLogin = false
+            };
+            var authResult = api.Execute(_url, authenticate);
+
+            Assert.NotNull(authResult);
+            Assert.NotNull(authResult.HttpRequestResult);
+            Assert.True(authResult.HttpRequestResult.Success);
+
+            return authResult;
+        }
+
+        private void LogOut(IceWarpRpcApi api, string sessionId)
+        {
             var logout = new Logout
             {
-                SessionId = authResult.SessionId
+                SessionId = sessionId
             };
             var logoutResult = api.Execute(_url, logout);
 
