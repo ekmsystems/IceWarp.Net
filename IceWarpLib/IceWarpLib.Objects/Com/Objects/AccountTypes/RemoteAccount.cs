@@ -1,6 +1,6 @@
 ﻿using IceWarpLib.Objects.Com.Enums;
 
-namespace IceWarpLib.Objects.Com.Objects.Account
+namespace IceWarpLib.Objects.Com.Objects.AccountTypes
 {
     /// <summary>
     /// Uses RPC GetAccountProperties and SetAccountProperties.

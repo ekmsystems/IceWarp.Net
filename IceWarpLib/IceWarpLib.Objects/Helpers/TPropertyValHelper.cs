@@ -34,6 +34,17 @@ namespace IceWarpLib.Objects.Helpers
             return null;
         }
 
+        public static List<string> GetPropertyValAsStringList(List<TPropertyValue> valueList, string propName)
+        {
+            var propertyValue = valueList.FirstOrDefault(x => x.APIProperty.PropName == propName);
+            var propertyVal = GetFromTPropertyValue<TPropertyStringList>(propertyValue);
+            if (propertyVal != null)
+            {
+                return propertyVal.Val;
+            }
+            return new List<string>();
+        } 
+
         public static bool GetPropertyValAsBool(List<TPropertyValue> valueList, string propName)
         {
             var propertyValue = valueList.FirstOrDefault(x => x.APIProperty.PropName == propName);
