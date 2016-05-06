@@ -102,6 +102,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\AccountsGlobalSettings_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Resource_TPropertyValueListResponse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

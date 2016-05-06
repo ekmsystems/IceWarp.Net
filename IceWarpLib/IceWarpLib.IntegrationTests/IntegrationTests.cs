@@ -5,15 +5,18 @@ using System.Reflection;
 using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects;
 using IceWarpLib.Objects.Com.Objects.AccountTypes;
+using IceWarpLib.Objects.Com.Objects.Configuration;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
 using IceWarpLib.Objects.Rpc.Classes.Property;
+using IceWarpLib.Objects.Rpc.Classes.Server;
 using IceWarpLib.Objects.Rpc.Enums;
 using IceWarpLib.Rpc;
 using IceWarpLib.Rpc.Exceptions;
 using IceWarpLib.Rpc.Requests.Account;
 using IceWarpLib.Rpc.Requests.Domain;
+using IceWarpLib.Rpc.Requests.Server;
 using IceWarpLib.Rpc.Requests.Session;
 using IceWarpLib.Rpc.Responses;
 using NUnit.Framework;
@@ -129,6 +132,34 @@ namespace IceWarpLib.IntegrationTests
             Assert.AreEqual("domain_invalid", exception.IceWarpError);
 
             LogOut(api, authResult.SessionId);
+        }
+
+        [Test]
+        public void GetServerProperties()
+        {
+            var api = new IceWarpRpcApi();
+            var authResult = Authenticate(api);
+
+            var propertyNames = ClassHelper.GetPropertyNames(typeof(AccountsGlobalSettings), BindingFlags.Instance | BindingFlags.Public);
+            Assert.AreEqual(92, propertyNames.Count);
+
+            var request = new GetServerProperties
+            {
+                SessionId = authResult.SessionId,
+                ServerPropertyList = new TServerPropertyList
+                {
+                    Items = propertyNames.Select(x => new TAPIProperty {PropName = x}).ToList()
+                }
+            };
+            var getPropertiesResult = api.Execute(_url, request);
+
+            Assert.NotNull(getPropertiesResult);
+            Assert.NotNull(getPropertiesResult.HttpRequestResult);
+            Assert.True(getPropertiesResult.HttpRequestResult.Success);
+            Assert.NotNull(getPropertiesResult.Items);
+
+            var settings = new AccountsGlobalSettings(getPropertiesResult.Items);
+            Assert.AreEqual(92, propertyNames.Count);
         }
 
         [Test]

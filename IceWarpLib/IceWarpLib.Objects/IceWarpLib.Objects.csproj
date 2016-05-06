@@ -51,6 +51,7 @@
     <Compile Include="Com\Enums\DomainListDisplay.cs" />
     <Compile Include="Com\Enums\ExecutableType.cs" />
     <Compile Include="Com\Enums\InternetConnectionMode.cs" />
+    <Compile Include="Com\Enums\LicenseType.cs" />
     <Compile Include="Com\Enums\ListServer.cs" />
     <Compile Include="Com\Enums\Logging.cs" />
     <Compile Include="Com\Enums\NotificationFilter.cs" />
@@ -72,7 +73,9 @@
     <Compile Include="Com\Objects\AccountTypes\Catalog.cs" />
     <Compile Include="Com\Objects\AccountTypes\Resource.cs" />
     <Compile Include="Com\Objects\ComBaseClass.cs" />
-    <Compile Include="Com\Objects\Configuration.cs" />
+    <Compile Include="Com\Objects\Configuration\AccountsGlobalSettings.cs" />
+    <Compile Include="Com\Objects\Configuration\SystemSettings.cs" />
+    <Compile Include="Com\Objects\Configuration\VersionAndLicense.cs" />
     <Compile Include="Com\Objects\Domain.cs" />
     <Compile Include="Com\Enums\Domain.cs" />
     <Compile Include="Com\Enums\ServerOsVersion.cs" />
@@ -83,16 +86,13 @@
     <Compile Include="Com\Objects\System\SystemLogging\General.cs" />
     <Compile Include="Com\Objects\System\SystemLogging\Services.cs" />
     <Compile Include="Com\Objects\System\SystemServices\FTPService.cs" />
-    <Compile Include="Com\Objects\GlobalSettings.cs" />
     <Compile Include="Com\Objects\AccountTypes\Group.cs" />
     <Compile Include="Com\Objects\System\SystemServices\GroupWareService.cs" />
     <Compile Include="Com\Objects\System\SystemServices\InstantMessagingService.cs" />
     <Compile Include="Com\Objects\System\SystemServices\LDAPService.cs" />
     <Compile Include="Com\Objects\AccountTypes\ListServer.cs" />
-    <Compile Include="Com\Objects\Policies\LoginPolicy.cs" />
     <Compile Include="Com\Objects\AccountTypes\MailingList.cs" />
     <Compile Include="Com\Objects\AccountTypes\Notification.cs" />
-    <Compile Include="Com\Objects\Policies\PasswordPolicy.cs" />
     <Compile Include="Com\Objects\System\SystemServices\POP3Service.cs" />
     <Compile Include="Com\Objects\System\SystemServices\SMTPService.cs" />
     <Compile Include="Com\Objects\AccountTypes\StaticRoute.cs" />
