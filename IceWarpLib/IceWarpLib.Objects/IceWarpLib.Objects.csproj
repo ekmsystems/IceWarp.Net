@@ -67,6 +67,7 @@
     <Compile Include="Com\Flags\HeaderFooterFlag.cs" />
     <Compile Include="Com\Objects\Account.cs" />
     <Compile Include="Com\Objects\AccountTypes\Catalog.cs" />
+    <Compile Include="Com\Objects\AccountTypes\Resource.cs" />
     <Compile Include="Com\Objects\ComBaseClass.cs" />
     <Compile Include="Com\Objects\Configuration.cs" />
     <Compile Include="Com\Objects\Domain.cs" />
@@ -208,7 +209,6 @@
     <Compile Include="Rpc\Classes\Statistics\TStatisticsPropertyList.cs" />
     <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItem.cs" />
     <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItemList.cs" />
-    <Compile Include="Rpc\Enums\AccountType.cs" />
     <Compile Include="Rpc\Enums\TAccountPropertySet.cs" />
     <Compile Include="Rpc\Enums\TActivationKeyType.cs" />
     <Compile Include="Rpc\Enums\TAdminType.cs" />

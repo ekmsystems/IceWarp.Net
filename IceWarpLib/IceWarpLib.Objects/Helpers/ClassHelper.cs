@@ -81,11 +81,6 @@ namespace IceWarpLib.Objects.Helpers
             return ((MemberExpression)memberAccess.Body).Member.Name;
         }
 
-        public static string GetMemberName<T, TValue>(Expression<Func<T, TValue>> memberAccess)
-        {
-            return ((MemberExpression)memberAccess.Body).Member.Name;
-        }
-
         public static object GetInstance(string assemblyQualifiedName)
         {
             Type type = Type.GetType(assemblyQualifiedName);
@@ -122,7 +117,7 @@ namespace IceWarpLib.Objects.Helpers
 
         public static List<string> GetFieldNames(Type type, BindingFlags bindingFlags)
         {
-            var fields = type.GetFields(bindingFlags).ToList();
+            var fields = GetFields(type, bindingFlags);
             return fields.Select(x => x.Name).ToList();
         }
 
@@ -134,7 +129,7 @@ namespace IceWarpLib.Objects.Helpers
 
         public static List<string> GetPropertyNames(Type type, BindingFlags bindingFlags)
         {
-            var props = type.GetProperties(bindingFlags).ToList();
+            var props = GetProperites(type, bindingFlags);
             return props.Select(x => x.Name).ToList();
         }
     }

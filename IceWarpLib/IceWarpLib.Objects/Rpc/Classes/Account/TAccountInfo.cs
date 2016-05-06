@@ -1,4 +1,5 @@
 ﻿using System.Xml;
+using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Enums;
 

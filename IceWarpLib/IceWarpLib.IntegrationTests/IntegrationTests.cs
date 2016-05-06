@@ -4,12 +4,15 @@ using System.Linq;
 using System.Reflection;
 using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects;
+using IceWarpLib.Objects.Com.Objects.AccountTypes;
 using IceWarpLib.Objects.Helpers;
+using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Enums;
 using IceWarpLib.Rpc;
 using IceWarpLib.Rpc.Exceptions;
+using IceWarpLib.Rpc.Requests.Account;
 using IceWarpLib.Rpc.Requests.Domain;
 using IceWarpLib.Rpc.Requests.Session;
 using IceWarpLib.Rpc.Responses;
@@ -134,8 +137,8 @@ namespace IceWarpLib.IntegrationTests
             var api = new IceWarpRpcApi();
             var authResult = Authenticate(api);
 
-            var domainPropertyNames = ClassHelper.GetPropertyNames(typeof(Domain), BindingFlags.Instance | BindingFlags.Public);
-            Assert.AreEqual(88, domainPropertyNames.Count);
+            var propertyNames = ClassHelper.GetPropertyNames(typeof(Domain), BindingFlags.Instance | BindingFlags.Public);
+            Assert.AreEqual(88, propertyNames.Count);
 
             var request = new GetDomainProperties
             {
@@ -143,20 +146,71 @@ namespace IceWarpLib.IntegrationTests
                 DomainStr = "testing.co.uk",
                 DomainPropertyList = new TDomainPropertyList
                 {
-                    Items = domainPropertyNames.Select(x => new TAPIProperty { PropName = x }).ToList()
+                    Items = propertyNames.Select(x => new TAPIProperty { PropName = x }).ToList()
                 }
             };
-            var getDomainPropertiesResult = api.Execute(_url, request);
+            var getPropertiesResult = api.Execute(_url, request);
 
-            Assert.NotNull(getDomainPropertiesResult);
-            Assert.NotNull(getDomainPropertiesResult.HttpRequestResult);
-            Assert.True(getDomainPropertiesResult.HttpRequestResult.Success);
-            Assert.NotNull(getDomainPropertiesResult.Items);
-            Assert.AreEqual(88, getDomainPropertiesResult.Items.Count);
+            Assert.NotNull(getPropertiesResult);
+            Assert.NotNull(getPropertiesResult.HttpRequestResult);
+            Assert.True(getPropertiesResult.HttpRequestResult.Success);
+            Assert.NotNull(getPropertiesResult.Items);
+            Assert.AreEqual(88, getPropertiesResult.Items.Count);
 
-            var domain = new Domain(getDomainPropertiesResult.Items);
+            var domain = new Domain(getPropertiesResult.Items);
             Assert.True(domain.D_Type.HasValue);
             Assert.AreEqual(DomainType.Standard, domain.D_Type.Value);
+            Assert.AreEqual("postmaster;admin;administrator;supervisor;hostmaster;webmaster;abuse", domain.D_PostMaster);
+            Assert.True(domain.D_DisableLogin.HasValue);
+            Assert.False(domain.D_DisableLogin.Value);
+            Assert.True(domain.D_DiskQuota.HasValue);
+            Assert.AreEqual(0, domain.D_DiskQuota);
+            Assert.True(domain.D_ExpiresOn_Date.HasValue);
+            Assert.AreEqual(1899, domain.D_ExpiresOn_Date.Value.Year);
+            Assert.AreEqual(12, domain.D_ExpiresOn_Date.Value.Month);
+            Assert.AreEqual(30, domain.D_ExpiresOn_Date.Value.Day);
+
+            LogOut(api, authResult.SessionId);
+        }
+
+        [Test]
+        public void GetUserAccountProperties()
+        {
+            var api = new IceWarpRpcApi();
+            var authResult = Authenticate(api);
+
+            var propertyNames = ClassHelper.GetPropertyNames(typeof(User), BindingFlags.Instance | BindingFlags.Public);
+            Assert.AreEqual(153, propertyNames.Count);
+
+            var request = new GetAccountProperties
+            {
+                SessionId = authResult.SessionId, 
+                AccountEmail = "test@testing.co.uk",
+                AccountPropertyList = new TAccountPropertyList
+                {
+                    Items = propertyNames.Select(x => new TAPIProperty { PropName = x }).ToList()
+                }
+            };
+            var getPropertiesResult = api.Execute(_url, request);
+
+            Assert.NotNull(getPropertiesResult);
+            Assert.NotNull(getPropertiesResult.HttpRequestResult);
+            Assert.True(getPropertiesResult.HttpRequestResult.Success);
+            Assert.NotNull(getPropertiesResult.Items);
+            Assert.AreEqual(153, getPropertiesResult.Items.Count);
+
+            var user = new User(getPropertiesResult.Items);
+            Assert.True(user.U_Type.HasValue);
+            Assert.AreEqual(AccountType.User, user.U_Type.Value);
+            Assert.AreEqual("test", user.U_EmailAlias);
+            Assert.True(user.U_Admin.HasValue);
+            Assert.True(user.U_Admin.Value);
+            Assert.True(user.U_MaxBoxSize.HasValue);
+            Assert.AreEqual(0, user.U_MaxBoxSize);
+            Assert.True(user.U_AccountValidTill_Date.HasValue);
+            Assert.AreEqual(1899, user.U_AccountValidTill_Date.Value.Year);
+            Assert.AreEqual(12, user.U_AccountValidTill_Date.Value.Month);
+            Assert.AreEqual(30, user.U_AccountValidTill_Date.Value.Day);
 
             LogOut(api, authResult.SessionId);
         }

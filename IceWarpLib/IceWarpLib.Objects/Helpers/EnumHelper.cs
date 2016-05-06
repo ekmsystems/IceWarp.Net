@@ -81,5 +81,16 @@ namespace IceWarpLib.Objects.Helpers
             }
             return null;
         }
+
+        /// <summary>
+        /// Checks if a Type is a Nullable Enum
+        /// </summary>
+        /// <param name="t">The type. See <see cref="Type"/></param>
+        /// <returns>True if the type is Nullable Enum</returns>
+        public static bool IsNullableEnum(this Type t)
+        {
+            Type u = Nullable.GetUnderlyingType(t);
+            return (u != null) && u.IsEnum;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Flags;
 using IceWarpLib.Objects.Helpers;
@@ -103,7 +104,7 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <summary>
         /// Domain Expires On (Date in yyyy/mm/dd format)
         /// </summary>
-        public string D_ExpiresOn_Date { get; set; }//TODO - sort out date
+        public DateTime? D_ExpiresOn_Date { get; set; }//TODO - sort out date
         /// <summary>
         /// Enable Notify before expiration
         /// </summary>
@@ -219,7 +220,7 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <para>HF_R2L = $04;</para>
         /// <para>HF_R2R = $08;</para>
         /// </summary>
-        public HeaderFooterFlag D_HeaderFooterFlag { get; set; }
+        public HeaderFooterFlag? D_HeaderFooterFlag { get; set; }
 
         //Miscellaneous
         /// <summary>
@@ -382,96 +383,8 @@ namespace IceWarpLib.Objects.Com.Objects
         }
 
         /// <inheritdoc />
-        public Domain(List<TPropertyValue> valueList)
+        public Domain(List<TPropertyValue> valueList) : base(valueList)
         {
-            D_Description = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_Description));
-            D_Type = TPropertyValHelper.GetPropertyValAsNullableEnum<DomainType>(valueList, ClassHelper.GetMemberName(() => D_Type));
-            D_DomainValue = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_DomainValue));
-            D_VerifyType = TPropertyValHelper.GetPropertyValAsNullableEnum<DomainVerifyType>(valueList, ClassHelper.GetMemberName(() => D_VerifyType));
-            D_Aliases = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_Aliases));
-            D_MingerPassword = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_MingerPassword));
-            D_PostMaster = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_PostMaster));
-            D_AdminEmail = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_AdminEmail));
-            D_UnknownUsersType = TPropertyValHelper.GetPropertyValAsNullableEnum<UnknownUsers>(valueList, ClassHelper.GetMemberName(() => D_UnknownUsersType));
-            D_UnknownForwardTo = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_UnknownForwardTo));
-            D_InfoToAdmin = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_InfoToAdmin));
-            D_AccountNumber = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_AccountNumber));
-            D_DiskQuota = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_DiskQuota));
-            D_DisableLogin = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_DisableLogin));
-            D_UserMailbox = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_UserMailbox));
-            D_UserMB = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_UserMB));
-            D_UserNumber = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_UserNumber));
-            D_UserLimitNotify = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_UserLimitNotify));
-            D_UserMsg = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_UserMsg));
-            D_Expires = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_Expires));
-            D_ExpiresOn = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_ExpiresOn));
-            D_ExpiresOn_Date = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_ExpiresOn_Date));
-            D_NotifyExpire = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_NotifyExpire));
-            D_NotifyBeforeExpires = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_NotifyBeforeExpires));
-            D_DeleteExpired = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_DeleteExpired));
-            D_NumberLimit = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_NumberLimit));
-            D_VolumeLimit = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_VolumeLimit));
-            D_LimitNotify = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_LimitNotify));
-            D_ASSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_ASSupport));
-            D_QuarantineSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_QuarantineSupport));
-            D_AVSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AVSupport));
-            D_IMSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_IMSupport));
-            D_SIPSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SIPSupport));
-            D_FTPSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_FTPSupport));
-            D_SMSSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SMSSupport));
-            D_GWSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_GWSupport));
-            D_WebDAVSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_WebDAVSupport));
-            D_EASSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_EASSupport));
-            D_SyncMLSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SyncMLSupport));
-            D_ConnectorSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_ConnectorSupport));
-            D_DesktopSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_DesktopSupport));
-            D_ArchiveSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_ArchiveSupport));
-            D_MeetingSupport = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_MeetingSupport));
-            D_HeaderFile = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_HeaderFile));
-            D_HeaderHTMLFile = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_HeaderHTMLFile));
-            D_FooterFile = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_FooterFile));
-            D_FooterHTMLFile = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_FooterHTMLFile));
-            D_TopTextFile = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_TopTextFile));
-            D_TopTextHTMLFile = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_TopTextHTMLFile));
-            D_HeaderFooterFlag = TPropertyValHelper.GetPropertyValAsEnum<HeaderFooterFlag>(valueList, ClassHelper.GetMemberName(() => D_HeaderFooterFlag));
-            D_Hostname = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_Hostname));
-            D_IPAddress = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_IPAddress));
-            D_Folderpath = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_Folderpath));
-            D_BaseMailboxPath = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_BaseMailboxPath));
-            D_AVScan = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AVScan));
-            D_AntiSpam = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AntiSpam));
-            D_ChallengeResponse = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_ChallengeResponse));
-            D_IM = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_IM));
-            D_Calendar = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_Calendar));
-            D_SIP = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SIP));
-            D_SyncML = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SyncML));
-            D_FTP = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_FTP));
-            D_SMS = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SMS));
-            D_ActiveSync = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_ActiveSync));
-            D_WebDAV = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_WebDAV));
-            D_Archive = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_Archive));
-            D_Client_Connector = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_Client_Connector));
-            D_Client_Desktop = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_Client_Desktop));
-            D_Backup = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_Backup));
-            D_SMSContent = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_SMSContent));
-            D_RulesContentXML = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_RulesContentXML));
-            D_SharedRoster = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_SharedRoster));
-            D_SMS_SentLastMonth = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_SMS_SentLastMonth));
-            D_SMS_SentThisMonth = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_SMS_SentThisMonth));
-            D_Meeting = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_Meeting));
-            D_DumpSMTPAccountCache = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_DumpSMTPAccountCache));
-            D_MailboxSize = TPropertyValHelper.GetPropertyValAsNullableInt(valueList, ClassHelper.GetMemberName(() => D_MailboxSize));
-            D_DirectoryCache_RefreshNow = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_DirectoryCache_RefreshNow));
-            D_ABQStatus = TPropertyValHelper.GetPropertyValAsNullableChar(valueList, ClassHelper.GetMemberName(() => D_ABQStatus));
-            D_SMS_DomainSettings = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_SMS_DomainSettings));
-            D_FTP_DomainSettings = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_FTP_DomainSettings));
-            D_AS_OverrideThresholds = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AS_OverrideThresholds));
-            D_AS_SpamAssassinDelete = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AS_SpamAssassinDelete));
-            D_AS_DeleteScore = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_AS_DeleteScore));
-            D_AS_SpamAssassinScore = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AS_SpamAssassinScore));
-            D_AS_SpamAssassinScoreValue = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_AS_SpamAssassinScoreValue));
-            D_AS_QuarantineScore = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => D_AS_QuarantineScore));
-            D_AS_SpamAssassinQuarantine = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => D_AS_SpamAssassinQuarantine));
         }
     }
 }
