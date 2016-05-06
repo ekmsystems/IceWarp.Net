@@ -1,11 +1,11 @@
-﻿using IceWarpLib.Objects.Com.Enums;
+﻿using System.Collections.Generic;
+using IceWarpLib.Objects.Com.Enums;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 
 namespace IceWarpLib.Objects.Com.Objects.AccountTypes
 {
     /// <summary>
-    /// Uses RPC GetAccountProperties and SetAccountProperties.
-    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountProperties">https://www.icewarp.co.uk/api/#GetAccountProperties</see></para>
-    /// <para><seealso href="https://www.icewarp.co.uk/api/#SetAccountProperties">https://www.icewarp.co.uk/api/#SetAccountProperties</seealso></para>
+    /// Account -> Catalog API variables - listed in C:\Program Files\IceWarp\api\delphi\apiconst.pas
     /// </summary>
     public class Catalog : Account
     {
@@ -24,30 +24,37 @@ namespace IceWarpLib.Objects.Com.Objects.AccountTypes
         /// <summary>
         /// Commands in subject
         /// </summary>
-        public bool T_CatalogSubject { get; set; }
+        public bool? T_CatalogSubject { get; set; }
         /// <summary>
         /// Catalog file
         /// </summary>
         public string T_CatalogFile { get; set; }
 
-        //Options
-
+        // Other
         /// <summary>
         /// Get right
         /// </summary>
-        public bool T_CatalogGet { get; set; }
+        public bool? T_CatalogGet { get; set; }
         /// <summary>
-        ///Dir right
+        /// Dir right
         /// </summary>
-        public bool T_CatalogDir { get; set; }
+        public bool? T_CatalogDir { get; set; }
         /// <summary>
         /// SendTo right
         /// </summary>
-        public bool T_CatalogSendTo { get; set; }
+        public bool? T_CatalogSendTo { get; set; }
         /// <summary>
-        ///Originator
+        /// Originator
+        /// <para>values=(0 - Empty, 1 - Sender, 2 - Owner)</para>
         /// </summary>
-        public Originator T_CatalogSender { get; set; }
+        public Originator? T_CatalogSender { get; set; }
+
+        // Rules
+        /// <summary>
+        /// Use Rules
+        /// </summary>
+        public bool? T_BlackWhiteFilter { get; set; }
+
         /// <summary>
         /// Access mode - Antivirus 1
         /// </summary>
@@ -61,12 +68,15 @@ namespace IceWarpLib.Objects.Com.Objects.AccountTypes
         /// </summary>
         public bool T_QA { get; set; }
 
-        //Rules
+        /// <inheritdoc />
+        public Catalog()
+        {
+        }
 
-        /// <summary>
-        /// Use B&W list
-        /// </summary>
-        public bool T_BlackWhiteFilter { get; set; }
+        /// <inheritdoc />
+        public Catalog(List<TPropertyValue> valueList) : base(valueList)
+        {
+        }
 
     }
 }

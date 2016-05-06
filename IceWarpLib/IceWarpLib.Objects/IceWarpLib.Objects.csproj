@@ -56,7 +56,9 @@
     <Compile Include="Com\Enums\NotificationFilter.cs" />
     <Compile Include="Com\Enums\Originator.cs" />
     <Compile Include="Com\Enums\Policies.cs" />
+    <Compile Include="Com\Enums\ResourceType.cs" />
     <Compile Include="Com\Enums\ServerType.cs" />
+    <Compile Include="Com\Enums\SpamFolderMode.cs" />
     <Compile Include="Com\Enums\StaticRoute.cs" />
     <Compile Include="Com\Enums\SupportedSslProtocol.cs" />
     <Compile Include="Com\Enums\SystemTools.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Com\Enums\MailingList.cs" />
     <Compile Include="Com\Enums\Moderation.cs" />
     <Compile Include="Com\Flags\HeaderFooterFlag.cs" />
+    <Compile Include="Com\Flags\MailingListDefaultRightsFlag.cs" />
     <Compile Include="Com\Objects\Account.cs" />
     <Compile Include="Com\Objects\AccountTypes\Catalog.cs" />
     <Compile Include="Com\Objects\AccountTypes\Resource.cs" />
@@ -91,7 +94,6 @@
     <Compile Include="Com\Objects\AccountTypes\Notification.cs" />
     <Compile Include="Com\Objects\Policies\PasswordPolicy.cs" />
     <Compile Include="Com\Objects\System\SystemServices\POP3Service.cs" />
-    <Compile Include="Com\Objects\AccountTypes\RemoteAccount.cs" />
     <Compile Include="Com\Objects\System\SystemServices\SMTPService.cs" />
     <Compile Include="Com\Objects\AccountTypes\StaticRoute.cs" />
     <Compile Include="Com\Objects\AccountTypes\User.cs" />

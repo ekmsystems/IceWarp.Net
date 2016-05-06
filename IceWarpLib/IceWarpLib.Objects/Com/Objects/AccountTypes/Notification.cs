@@ -1,11 +1,11 @@
-﻿using IceWarpLib.Objects.Com.Enums;
+﻿using System.Collections.Generic;
+using IceWarpLib.Objects.Com.Enums;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 
 namespace IceWarpLib.Objects.Com.Objects.AccountTypes
 {
     /// <summary>
-    /// Uses RPC GetAccountProperties and SetAccountProperties.
-    /// <para><see href="https://www.icewarp.co.uk/api/#GetAccountProperties">https://www.icewarp.co.uk/api/#GetAccountProperties</see></para>
-    /// <para><seealso href="https://www.icewarp.co.uk/api/#SetAccountProperties">https://www.icewarp.co.uk/api/#SetAccountProperties</seealso></para>
+    /// Account -> Notification API variables - listed in C:\Program Files\IceWarp\api\delphi\apiconst.pas
     /// </summary>
     public class Notification : Account
     {
@@ -24,54 +24,54 @@ namespace IceWarpLib.Objects.Com.Objects.AccountTypes
         /// <summary>
         /// IM notification
         /// </summary>
-        public bool N_IMNotification { get; set; }
+        public bool? N_IMNotification { get; set; }
         /// <summary>
-        /// Max message size (Bytes) (default 128)
+        /// Max message size (Bytes)
         /// </summary>
-        public int N_Size { get; set; }
+        public int? N_Size { get; set; }
         /// <summary>
         /// Split to multiple messages (Messages)
         /// </summary>
-        public int N_Count { get; set; }
+        public int? N_Count { get; set; }
         /// <summary>
         /// Filter
+        /// <para>values=(0 - All, 1 - None, 2 - Filter)</para>
         /// </summary>
-        public NotificationFilter N_FilterType { get; set; }
+        public NotificationFilter? N_FilterType { get; set; }
         /// <summary>
         /// Send
         /// </summary>
-        public bool N_Send { get; set; }
+        public bool? N_Send { get; set; }
         /// <summary>
         /// Filter file path
         /// </summary>
         public string N_FilterFile { get; set; }
 
-        //Options
-
+        // Other
         /// <summary>
         /// Insert information into subject
         /// </summary>
-        public bool N_IntoSubject { get; set; }
+        public bool? N_IntoSubject { get; set; }
         /// <summary>
         /// Insert To: header
         /// </summary>
-        public bool N_SendTo { get; set; }
+        public bool? N_SendTo { get; set; }
         /// <summary>
         /// Insert From: header
         /// </summary>
-        public bool N_SendFrom { get; set; }
+        public bool? N_SendFrom { get; set; }
         /// <summary>
         /// Insert Subject
         /// </summary>
-        public bool N_SendSubject { get; set; }
+        public bool? N_SendSubject { get; set; }
         /// <summary>
         /// Insert Date/Time
         /// </summary>
-        public bool N_SendDateTime { get; set; }
+        public bool? N_SendDateTime { get; set; }
         /// <summary>
         /// Insert Body
         /// </summary>
-        public bool N_SendBody { get; set; }
+        public bool? N_SendBody { get; set; }
         /// <summary>
         /// From:
         /// </summary>
@@ -94,8 +94,16 @@ namespace IceWarpLib.Objects.Com.Objects.AccountTypes
         public string N_ForwardCopy { get; set; }
         /// <summary>
         /// Originator
+        /// <para>values=(0 - Empty, 1 - Sender, 2 - Owner)</para>
         /// </summary>
-        public Originator N_Sender { get; set; }
+        public Originator? N_Sender { get; set; }
+
+        // Rules
+        /// <summary>
+        /// Use Rules
+        /// </summary>
+        public bool? N_BlackWhiteFilter { get; set; }
+
         /// <summary>
         /// Access mode - Antivirus
         /// </summary>
@@ -109,11 +117,14 @@ namespace IceWarpLib.Objects.Com.Objects.AccountTypes
         /// </summary>
         public bool N_QA { get; set; }
 
-        //Rules
+        /// <inheritdoc />
+        public Notification()
+        {
+        }
 
-        /// <summary>
-        /// Use B&W list
-        /// </summary>
-        public bool N_BlackWhiteFilter { get; set; }
+        /// <inheritdoc />
+        public Notification(List<TPropertyValue> valueList) : base(valueList)
+        {
+        }
     }
 }

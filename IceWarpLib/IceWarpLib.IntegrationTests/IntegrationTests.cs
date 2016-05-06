@@ -132,48 +132,6 @@ namespace IceWarpLib.IntegrationTests
         }
 
         [Test]
-        public void GetDomainProperties()
-        {
-            var api = new IceWarpRpcApi();
-            var authResult = Authenticate(api);
-
-            var propertyNames = ClassHelper.GetPropertyNames(typeof(Domain), BindingFlags.Instance | BindingFlags.Public);
-            Assert.AreEqual(88, propertyNames.Count);
-
-            var request = new GetDomainProperties
-            {
-                SessionId = authResult.SessionId,
-                DomainStr = "testing.co.uk",
-                DomainPropertyList = new TDomainPropertyList
-                {
-                    Items = propertyNames.Select(x => new TAPIProperty { PropName = x }).ToList()
-                }
-            };
-            var getPropertiesResult = api.Execute(_url, request);
-
-            Assert.NotNull(getPropertiesResult);
-            Assert.NotNull(getPropertiesResult.HttpRequestResult);
-            Assert.True(getPropertiesResult.HttpRequestResult.Success);
-            Assert.NotNull(getPropertiesResult.Items);
-            Assert.AreEqual(88, getPropertiesResult.Items.Count);
-
-            var domain = new Domain(getPropertiesResult.Items);
-            Assert.True(domain.D_Type.HasValue);
-            Assert.AreEqual(DomainType.Standard, domain.D_Type.Value);
-            Assert.AreEqual("postmaster;admin;administrator;supervisor;hostmaster;webmaster;abuse", domain.D_PostMaster);
-            Assert.True(domain.D_DisableLogin.HasValue);
-            Assert.False(domain.D_DisableLogin.Value);
-            Assert.True(domain.D_DiskQuota.HasValue);
-            Assert.AreEqual(0, domain.D_DiskQuota);
-            Assert.True(domain.D_ExpiresOn_Date.HasValue);
-            Assert.AreEqual(1899, domain.D_ExpiresOn_Date.Value.Year);
-            Assert.AreEqual(12, domain.D_ExpiresOn_Date.Value.Month);
-            Assert.AreEqual(30, domain.D_ExpiresOn_Date.Value.Day);
-
-            LogOut(api, authResult.SessionId);
-        }
-
-        [Test]
         public void GetUserAccountProperties()
         {
             var api = new IceWarpRpcApi();
@@ -184,7 +142,7 @@ namespace IceWarpLib.IntegrationTests
 
             var request = new GetAccountProperties
             {
-                SessionId = authResult.SessionId, 
+                SessionId = authResult.SessionId,
                 AccountEmail = "test@testing.co.uk",
                 AccountPropertyList = new TAccountPropertyList
                 {
@@ -197,7 +155,6 @@ namespace IceWarpLib.IntegrationTests
             Assert.NotNull(getPropertiesResult.HttpRequestResult);
             Assert.True(getPropertiesResult.HttpRequestResult.Success);
             Assert.NotNull(getPropertiesResult.Items);
-            Assert.AreEqual(153, getPropertiesResult.Items.Count);
 
             var user = new User(getPropertiesResult.Items);
             Assert.True(user.U_Type.HasValue);

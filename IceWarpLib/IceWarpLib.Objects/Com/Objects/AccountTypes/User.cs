@@ -6,7 +6,7 @@ using IceWarpLib.Objects.Rpc.Classes.Property;
 namespace IceWarpLib.Objects.Com.Objects.AccountTypes
 {
     /// <summary>
-    /// Account - User API variables - listed in C:\Program Files\IceWarp\api\delphi\apiconst.pas
+    /// Account -> User API variables - listed in C:\Program Files\IceWarp\api\delphi\apiconst.pas
     /// </summary>
     public class User : Account
     {

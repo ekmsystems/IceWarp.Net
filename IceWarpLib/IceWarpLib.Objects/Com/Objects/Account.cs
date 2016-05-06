@@ -22,13 +22,13 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <summary>
         /// Read only list of all account e-mails (i.e. uses also knowledge about domain aliases)
         /// </summary>
-        public List<string> U_AliasList { get; set; }
+        public string U_AliasList { get; protected set; }
         /// <summary>
         /// Account's full name/description
         /// </summary>
         public string U_Name { get; set; }
         /// <summary>
-        /// Structure backup [Display only value][A]
+        /// Structure backup [Display only value]
         /// </summary>
         public string U_Backup { get; protected set; }
         /// <summary>
@@ -52,14 +52,6 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <inheritdoc />
         protected Account(List<TPropertyValue> valueList) : base(valueList)
         {
-            //U_Type = TPropertyValHelper.GetPropertyValAsNullableEnum<AccountType>(valueList, ClassHelper.GetMemberName(() => U_Type));
-            //U_Alias = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => U_Alias));
-            //U_AliasList = TPropertyValHelper.GetPropertyValAsStringList(valueList, ClassHelper.GetMemberName(() => U_AliasList));
-            //U_Name = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => U_Name));
-            //U_Backup = TPropertyValHelper.GetPropertyValAsString(valueList, ClassHelper.GetMemberName(() => U_Backup));
-            //U_GW_DailyAgenda = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => U_GW_DailyAgenda));
-            //U_GW_Reminders = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => U_GW_Reminders));
-            //U_GW_AutoRevisionMode = TPropertyValHelper.GetPropertyValAsNullableBool(valueList, ClassHelper.GetMemberName(() => U_GW_AutoRevisionMode));
         }
 
         public T GetConcreteClass<T>(List<TPropertyValue> valueList) where T : Account, new()
