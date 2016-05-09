@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using IceWarpLib.Objects.Rpc.Classes.Property;
 
 namespace IceWarpLib.Objects.Helpers
 {
@@ -81,6 +82,5 @@ namespace IceWarpLib.Objects.Helpers
             }
             return 0;
         }
-
     }
 }

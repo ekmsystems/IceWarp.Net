@@ -66,7 +66,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Session
             var response = request.FromHttpRequestResult(new HttpRequestResult { Response = doc.InnerXml });
 
             Assert.AreEqual("result", response.Type);
-            Assert.AreEqual("auth challenge hash id", response.HashId);
+            Assert.AreEqual("d8ffb89b5118a9af489a5c8b921c782546187022f56451987c11faea71a6df3656235a8e6f39eafba250fe45787ddbdd6c801fc8df98565721634d3f15f9f45e718580b42813e0c1f08d08bc675636e5865c770bbd35ab0147fe0f4562a1f71e45d4ba816766d1216562049c3a813c0b98c565f55e93ed2e335d5090bf0dbd01979950f4f06a3464ad1c3661f43df1ef5181fc522d2d4a36c5a8a596113ea26c4a2fba8acf15e08d46dce3f6550e4d57833ed35de4accf66478c65768212699a687e7ed430efa08c744d0ffe5c38550fb1fe8f54f3bcc0758313f9c0278a3ced7de49df579fe9ddc08b7b3b82694100083ae40b5afd1d34f702a07c642eab7dd", response.HashId);
             Assert.AreEqual("2016-04-12 12:08", response.Timestamp.ToString("yyyy-MM-dd HH:mm"));
         }
 

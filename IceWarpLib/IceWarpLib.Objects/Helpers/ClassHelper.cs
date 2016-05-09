@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Classes.Rule.Actions;
 using IceWarpLib.Objects.Rpc.Classes.Rule.Conditions;
@@ -80,11 +81,6 @@ namespace IceWarpLib.Objects.Helpers
             return ((MemberExpression)memberAccess.Body).Member.Name;
         }
 
-        public static string GetMemberName<T, TValue>(Expression<Func<T, TValue>> memberAccess)
-        {
-            return ((MemberExpression)memberAccess.Body).Member.Name;
-        }
-
         public static object GetInstance(string assemblyQualifiedName)
         {
             Type type = Type.GetType(assemblyQualifiedName);
@@ -111,6 +107,79 @@ namespace IceWarpLib.Objects.Helpers
                     return Activator.CreateInstance(type, args);
             }
             return null;
+        }
+
+        /// <summary>
+        /// Gets a list of public properties.
+        /// <para>Using the following BindingFlags: Instance, Public</para>
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>The list of public properties. See <see cref="List{PropertyInfo}"/></returns>
+        public static List<PropertyInfo> PublicProperites(Type type)
+        {
+            return Properites(type, BindingFlags.Instance | BindingFlags.Public);
+        }
+
+        /// <summary>
+        /// Gets a list of properties.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="bindingFlags">The binding flags.</param>
+        /// <returns>The list of properties. See <see cref="List{PropertyInfo}"/></returns>
+        public static List<PropertyInfo> Properites(Type type, BindingFlags bindingFlags)
+        {
+            var props = type.GetProperties(bindingFlags).ToList();
+            return props;
+        }
+
+        /// <summary>
+        /// Gets a list of properties which have a public get method.
+        /// <para>Using the following BindingFlags: GetProperty, Instance, Public</para>
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>The list of properties which have a public get method. See <see cref="List{PropertyInfo}"/></returns>
+        public static List<PropertyInfo> PublicGetProperites(Type type)
+        {
+            return GetProperites(type, BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.Public);
+        }
+
+        /// <summary>
+        /// Gets a list of properties which have a get method.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="bindingFlags">The binding flags.</param>
+        /// <returns>The list of properties which have get method. See <see cref="List{PropertyInfo}"/></returns>
+        public static List<PropertyInfo> GetProperites(Type type, BindingFlags bindingFlags)
+        {
+            var props = type.GetProperties(bindingFlags)
+                            .Where(x => x.GetMethod != null && !x.GetMethod.IsPrivate)
+                            .ToList();
+            return props;
+        }
+
+        /// <summary>
+        /// Gets a list of properties which have a public set method.
+        /// <para>Using the following BindingFlags: SetProperty, Instance, Public.</para>
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>The list of properties which have a public set method. See <see cref="List{PropertyInfo}"/></returns>
+        public static List<PropertyInfo> PublicSetProperties(Type type)
+        {
+            return SetProperties(type, BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.Public);
+        }
+
+        /// <summary>
+        /// Gets a list of properties which have a public set method.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="bindingFlags">The binding flags.</param>
+        /// <returns>The list of properties which have a set method. See <see cref="List{PropertyInfo}"/></returns>
+        public static List<PropertyInfo> SetProperties(Type type, BindingFlags bindingFlags)
+        {
+            var props = type.GetProperties(bindingFlags)
+                            .Where(x => x.GetSetMethod() != null && !x.SetMethod.IsPrivate)
+                            .ToList();
+            return props;
         }
     }
 

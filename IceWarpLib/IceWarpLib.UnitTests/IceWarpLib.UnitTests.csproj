@@ -45,6 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Catalog_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Executable_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\ListServer_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\MailingList_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Notification_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Resource_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\StaticRoute_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Group_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\User_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\BaseTest.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\Configuration\Tools\MigrationToolSettings_Tests.cs" />
+    <Compile Include="IceWarpObjects\Com\Objects\Domain_Tests.cs" />
+    <Compile Include="IceWarpObjects\Helpers\ClassHelperTests.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceInfo_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceListFilter_Test.cs" />
@@ -91,6 +104,39 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\AccountsGlobalSettings_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Resource_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\ListServer_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Catalog_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\StaticRoute_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Notification_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Executable_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Group_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\MailingList_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\User_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Domain_TPropertyValueListResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\AddAccountMembers.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
