@@ -33,3 +33,12 @@ PM> Install-Package IceWarp.Net
 		SessionId = authResult.SessionId
 	};
 	SuccessResponse logoutResult = api.Execute(apiUrl, logout);
+
+## Com objects
+
+Get Properties requests can be converted into objects similar to the Com Objects [IceWarp ServerAPI Reference](http://dl.icewarp.com/documentation/server/API/V%2011%20IceWarp%20Server%20API%20Reference.pdf).
+```bash
+GetAccountProperties
+GetDomainProperties 
+GetServerProperties
+```
