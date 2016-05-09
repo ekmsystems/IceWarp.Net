@@ -37,9 +37,23 @@ PM> Install-Package IceWarp.Net
 ## Com objects
 
 Get Properties requests can be converted into objects similar to the Com Objects installed on the server.
+
 [IceWarp ServerAPI Reference](http://dl.icewarp.com/documentation/server/API/V%2011%20IceWarp%20Server%20API%20Reference.pdf).
-```bash
-GetAccountProperties
-GetDomainProperties 
-GetServerProperties
-```
+
+### Domain Properties
+	GetDomainProperties getPropertiesRequest = new GetDomainProperties
+	{
+		SessionId = "session id",
+                DomainStr = "testing.co.uk",
+                DomainPropertyList = new TDomainPropertyList
+                {
+                    Items = ClassHelper.PublicProperites(typeof(Domain)).Select(x => x.Name).ToList()
+                }
+	};
+	TPropertyValueListResponse getPropertiesResult = api.Execute(apiUrl, getPropertiesRequest);
+	Domain domain = new Domain(getPropertiesResult.Items);
+
+### Account Properties
+
+### Server Properties
+
