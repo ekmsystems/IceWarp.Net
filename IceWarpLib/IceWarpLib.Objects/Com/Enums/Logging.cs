@@ -15,4 +15,12 @@
         DebugAndSummary = 3,
         Extended = 4
     }
+
+    public enum SqlLogging
+    {
+        None = 0,
+        All = 1,
+        FailedOnly = 2,
+        SqlConnectionMainenance = 3
+    }
 }

@@ -5,7 +5,7 @@ using IceWarpLib.Objects.Rpc.Classes.Property;
 namespace IceWarpLib.Objects.Com.Objects.Configuration
 {
     /// <summary>
-    /// Account shared API variables - listed in C:\Program Files\IceWarp\api\delphi\apiconst.pas
+    /// Version & License API variables - listed in C:\Program Files\IceWarp\api\delphi\apiconst.pas
     /// </summary>
     public class VersionAndLicense : ComBaseClass
     {

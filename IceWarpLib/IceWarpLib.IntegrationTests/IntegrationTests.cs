@@ -6,6 +6,7 @@ using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects;
 using IceWarpLib.Objects.Com.Objects.AccountTypes;
 using IceWarpLib.Objects.Com.Objects.Configuration;
+using IceWarpLib.Objects.Com.Objects.Configuration.Global;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
