@@ -36,7 +36,8 @@ PM> Install-Package IceWarp.Net
 
 ## Com objects
 
-Get Properties requests can be converted into objects similar to the Com Objects installed on the server - [IceWarp ServerAPI Reference](http://dl.icewarp.com/documentation/server/API/V%2011%20IceWarp%20Server%20API%20Reference.pdf).
+Get Properties requests can be converted into objects similar to the Com Objects installed on the server.
+[IceWarp ServerAPI Reference](http://dl.icewarp.com/documentation/server/API/V%2011%20IceWarp%20Server%20API%20Reference.pdf).
 ```bash
 GetAccountProperties
 GetDomainProperties 
