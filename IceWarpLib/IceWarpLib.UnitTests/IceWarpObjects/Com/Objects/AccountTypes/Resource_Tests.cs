@@ -27,7 +27,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects.AccountTypes
             Assert.False(account.U_GW_DailyAgenda.HasValue);
 
             //account type specific properties
-            Assert.AreEqual("[testing.co.uk]&#13;&#10;info@testing.co.uk&#13;&#10;test@testing.co.uk&#13;&#10;", account.S_OrganizersFile_Contents);
+            Assert.AreEqual("[testing.co.uk]\r\ninfo@testing.co.uk\r\ntest@testing.co.uk\r\n", account.S_OrganizersFile_Contents);
             Assert.True(account.S_Unavailable.HasValue);
             Assert.False(account.S_Unavailable.Value);
             Assert.True(account.S_Type.HasValue);
@@ -37,7 +37,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects.AccountTypes
         [Test]
         public void PropertyNames()
         {
-            var propertyNames = new Resource().PropertyNames();
+            var propertyNames = new Resource().PropertyNamesList();
 
             Assert.AreEqual(15, propertyNames.Count);
         }

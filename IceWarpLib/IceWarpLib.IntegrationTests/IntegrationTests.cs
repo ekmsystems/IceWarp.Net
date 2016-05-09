@@ -6,7 +6,9 @@ using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects;
 using IceWarpLib.Objects.Com.Objects.AccountTypes;
 using IceWarpLib.Objects.Com.Objects.Configuration;
+using IceWarpLib.Objects.Com.Objects.Configuration.Advanced;
 using IceWarpLib.Objects.Com.Objects.Configuration.Global;
+using IceWarpLib.Objects.Com.Objects.Configuration.Tools;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Account;
 using IceWarpLib.Objects.Rpc.Classes.Domain;
@@ -141,8 +143,8 @@ namespace IceWarpLib.IntegrationTests
             var api = new IceWarpRpcApi();
             var authResult = Authenticate(api);
 
-            var propertyNames = ClassHelper.GetPropertyNames(typeof(AccountsGlobalSettings), BindingFlags.Instance | BindingFlags.Public);
-            Assert.AreEqual(92, propertyNames.Count);
+            var propertyNames = ClassHelper.Properites(typeof(AccountsGlobalSettings), BindingFlags.Instance | BindingFlags.Public).Select(x => x.Name).ToList();
+            Assert.AreEqual(21, propertyNames.Count);
 
             var request = new GetServerProperties
             {
@@ -160,7 +162,7 @@ namespace IceWarpLib.IntegrationTests
             Assert.NotNull(getPropertiesResult.Items);
 
             var settings = new AccountsGlobalSettings(getPropertiesResult.Items);
-            Assert.AreEqual(92, propertyNames.Count);
+            Assert.AreEqual(21, propertyNames.Count);
         }
 
         [Test]
@@ -169,7 +171,7 @@ namespace IceWarpLib.IntegrationTests
             var api = new IceWarpRpcApi();
             var authResult = Authenticate(api);
 
-            var propertyNames = ClassHelper.GetPropertyNames(typeof(User), BindingFlags.Instance | BindingFlags.Public);
+            var propertyNames = ClassHelper.Properites(typeof(User), BindingFlags.Instance | BindingFlags.Public).Select(x => x.Name).ToList();
             Assert.AreEqual(153, propertyNames.Count);
 
             var request = new GetAccountProperties
@@ -202,6 +204,35 @@ namespace IceWarpLib.IntegrationTests
             Assert.AreEqual(30, user.U_AccountValidTill_Date.Value.Day);
 
             LogOut(api, authResult.SessionId);
+        }
+
+        [Test]
+        public void GetServerProperties_MigrationToolSettings()
+        {
+            var api = new IceWarpRpcApi();
+            var authResult = Authenticate(api);
+
+            var propertyNames = ClassHelper.PublicGetProperites(typeof(MigrationToolSettings));
+            Assert.AreEqual(21, propertyNames.Count);
+
+            var request = new GetServerProperties
+            {
+                SessionId = authResult.SessionId,
+                ServerPropertyList = new TServerPropertyList
+                {
+                    Items = propertyNames.Select(x => new TAPIProperty { PropName = x.Name }).ToList()
+                }
+            };
+            var getPropertiesResult = api.Execute(_url, request);
+
+            Assert.NotNull(getPropertiesResult);
+            Assert.NotNull(getPropertiesResult.HttpRequestResult);
+            Assert.True(getPropertiesResult.HttpRequestResult.Success);
+            Assert.NotNull(getPropertiesResult.Items);
+
+            var settings = new MigrationToolSettings(getPropertiesResult.Items);
+            
+            Assert.AreEqual(21, propertyNames.Count);
         }
 
         private SuccessResponse Authenticate(IceWarpRpcApi api)

@@ -6,6 +6,7 @@ using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects;
 using IceWarpLib.Objects.Com.Objects.AccountTypes;
 using IceWarpLib.Objects.Rpc.Classes.Property;
+using IceWarpLib.Objects.Rpc.Enums;
 
 namespace IceWarpLib.Objects.Helpers
 {
@@ -250,6 +251,102 @@ namespace IceWarpLib.Objects.Helpers
                 return propertyVal.Val;
             }
             return new List<string>();
-        } 
+        }
+        
+        public static TPropertyValue SetPropertyValue(bool value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            tPropertyValue.PropertyVal = new TPropertyString { Val = value.ToBitString() };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(bool? value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            if(value.HasValue)
+                tPropertyValue.PropertyVal = new TPropertyString { Val = value.Value.ToBitString() };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(char value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            tPropertyValue.PropertyVal = new TPropertyString { Val = new String(new char[] { value }) };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(char? value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            if (value.HasValue)
+                tPropertyValue.PropertyVal = new TPropertyString { Val = new String(new char[] { value.Value }) };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(int value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            tPropertyValue.PropertyVal = new TPropertyString { Val = value.ToString() };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(int? value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            if (value.HasValue)
+                tPropertyValue.PropertyVal = new TPropertyString { Val = value.Value.ToString() };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(DateTime value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            tPropertyValue.PropertyVal = new TPropertyString { Val = value.ToString("yyyy/MM/dd") };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(DateTime? value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            if (value.HasValue)
+                tPropertyValue.PropertyVal = new TPropertyString { Val = value.Value.ToString("yyyy/MM/dd") };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(string value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            tPropertyValue.PropertyVal = new TPropertyString { Val = value };
+            return tPropertyValue;
+        }
+
+        public static TPropertyValue SetPropertyValue(List<string> value, string propName)
+        {
+            var tPropertyValue = buildTPropertyValue(propName);
+            var list = new TPropertyStringList();
+            if (value != null)
+            {
+                foreach (var val in value)
+                {
+                    list.Val.Add(val);
+                }
+            }
+            tPropertyValue.PropertyVal = list;
+            return tPropertyValue;
+        }
+
+        private static TPropertyValue buildTPropertyValue(string propName)
+        {
+            return buildTPropertyValue(propName, TPermission.ReadWrite);
+        }
+
+        private static TPropertyValue buildTPropertyValue(string propName, TPermission permission)
+        {
+            return new TPropertyValue
+            {
+                APIProperty = new TAPIProperty { PropName = propName },
+                PropertyRight = permission
+            };
+        }
     }
 }

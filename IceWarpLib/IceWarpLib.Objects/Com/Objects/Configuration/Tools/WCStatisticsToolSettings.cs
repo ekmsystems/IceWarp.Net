@@ -32,7 +32,7 @@ namespace IceWarpLib.Objects.Com.Objects.Configuration.Tools
         /// <summary>
         /// Write only variable - causes export of the collected statistic to the file given as parameter
         /// </summary>
-        public string C_System_Tools_WCStatistics_ExportToXML { get; protected set; }
+        public string C_System_Tools_WCStatistics_ExportToXML { private get; set; }
 
         /// <inheritdoc />
         public WCStatisticsToolSettings()

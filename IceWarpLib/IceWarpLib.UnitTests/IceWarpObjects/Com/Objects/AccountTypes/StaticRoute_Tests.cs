@@ -38,7 +38,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects.AccountTypes
         [Test]
         public void PropertyNames()
         {
-            var propertyNames = new StaticRoute().PropertyNames();
+            var propertyNames = new StaticRoute().PropertyNamesList();
 
             Assert.AreEqual(18, propertyNames.Count);
         }

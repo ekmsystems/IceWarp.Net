@@ -34,7 +34,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects
         [Test]
         public void PropertyNames()
         {
-            var propertyNames = new Domain().PropertyNames();
+            var propertyNames = new Domain().PropertyNamesList();
 
             Assert.AreEqual(88, propertyNames.Count);
         }

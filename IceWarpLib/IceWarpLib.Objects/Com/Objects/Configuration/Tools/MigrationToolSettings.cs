@@ -70,31 +70,31 @@ namespace IceWarpLib.Objects.Com.Objects.Configuration.Tools
         /// <summary>
         /// Unix time of start
         /// </summary>
-        public int C_System_Tools_Migration_Stat_Start { get; protected set; }
+        public int C_System_Tools_Migration_Stat_Start { get; private set; }
         /// <summary>
         /// Total number of migrated mailboxes
         /// </summary>
-        public int C_System_Tools_Migration_Stat_TotalUsers { get; protected set; }
+        public int C_System_Tools_Migration_Stat_TotalUsers { get; private set; }
         /// <summary>
         /// Number of migrated mailboxes
         /// </summary>
-        public int C_System_Tools_Migration_Stat_Users { get; protected set; }
+        public int C_System_Tools_Migration_Stat_Users { get; private set; }
         /// <summary>
         /// Number of migrated aliases
         /// </summary>
-        public int C_System_Tools_Migration_Stat_Aliases { get; protected set; }
+        public int C_System_Tools_Migration_Stat_Aliases { get; private set; }
         /// <summary>
         /// Number of messages migrated
         /// </summary>
-        public int C_System_Tools_Migration_Stat_Messages { get; protected set; }
+        public int C_System_Tools_Migration_Stat_Messages { get; private set; }
         /// <summary>
         /// Unix time of last migrated mailbox
         /// </summary>
-        public int C_System_Tools_Migration_Stat_Last { get; protected set; }
+        public int C_System_Tools_Migration_Stat_Last { get; private set; }
         /// <summary>
         /// Number of migration errors
         /// </summary>
-        public int C_System_Tools_Migration_Stat_Errors { get; protected set; }
+        public int C_System_Tools_Migration_Stat_Errors { get; private set; }
 
         /// <inheritdoc />
         public MigrationToolSettings()

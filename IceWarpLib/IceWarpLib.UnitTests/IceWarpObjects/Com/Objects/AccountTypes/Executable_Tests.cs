@@ -38,7 +38,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects.AccountTypes
         [Test]
         public void PropertyNames()
         {
-            var propertyNames = new Executable().PropertyNames();
+            var propertyNames = new Executable().PropertyNamesList();
 
             Assert.AreEqual(19, propertyNames.Count);
         }
