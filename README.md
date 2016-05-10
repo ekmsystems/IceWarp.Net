@@ -41,6 +41,9 @@ Get Properties requests can be converted into objects similar to the Com Objects
 [IceWarp ServerAPI Reference](http://dl.icewarp.com/documentation/server/API/V%2011%20IceWarp%20Server%20API%20Reference.pdf).
 
 ### Domain Properties
+
+Create a Domain object from a GetDomainProperties request.
+
 	GetDomainProperties getPropertiesRequest = new GetDomainProperties
 	{
 		SessionId = "session id",
@@ -52,6 +55,42 @@ Get Properties requests can be converted into objects similar to the Com Objects
 	};
 	TPropertyValueListResponse getPropertiesResult = api.Execute(apiUrl, getPropertiesRequest);
 	Domain domain = new Domain(getPropertiesResult.Items);
+	
+Create a SetDomainProperties request from a Domain object.
+
+	Domain domain = new Domain
+	{
+		D_Description = "description",
+		D_AdminEmail = "admin@email.com
+	};
+	List<TPropertyValue> propertyValues = domain.BuildTPropertyValues();
+	SetDomainProperties setPropertiesRequest = new SetDomainProperties
+	{
+		SessionId = "session id",
+                DomainStr = "testing.co.uk",
+                PropertyValueList = new TPropertyValueList
+                {
+                    Items = propertyValues	
+                }
+	};
+	
+Create a SetDomainProperties request from specific properties of a Domain object.
+
+	Domain domain = new Domain
+	{
+		D_Description = "description",
+		D_AdminEmail = "admin@email.com
+	};
+	List<TPropertyValue> propertyValues = domain.BuildTPropertyValues(new List<string> { "D_Description" });
+	SetDomainProperties setPropertiesRequest = new SetDomainProperties
+	{
+		SessionId = "session id",
+                DomainStr = "testing.co.uk",
+                PropertyValueList = new TPropertyValueList
+                {
+                    Items = propertyValues	
+                }
+	};
 
 ### Account Properties
 
