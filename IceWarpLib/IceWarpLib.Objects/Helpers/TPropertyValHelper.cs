@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Versioning;
 using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects;
 using IceWarpLib.Objects.Com.Objects.AccountTypes;
@@ -23,22 +22,22 @@ namespace IceWarpLib.Objects.Helpers
                     {
                         case AccountType.User:
                             return new User(valueList);
-                        //case AccountType.MailingList:
-                        //    return new MailingList(valueList);
-                        //case AccountType.Executable:
-                        //    return new Executable(valueList);
-                        //case AccountType.Notification:
-                        //    return new Notification(valueList);
-                        //case AccountType.StaticRoute:
-                        //    return new StaticRoute(valueList);
-                        //case AccountType.Catalog:
-                        //    return new Catalog(valueList);
-                        //case AccountType.ListServer:
-                        //    return new ListServer();
-                        //case AccountType.Group:
-                        //    return new Group(valueList);
-                        //case AccountType.Resource:
-                        //    return new Resource(valueList);
+                        case AccountType.MailingList:
+                            return new MailingList(valueList);
+                        case AccountType.Executable:
+                            return new Executable(valueList);
+                        case AccountType.Notification:
+                            return new Notification(valueList);
+                        case AccountType.StaticRoute:
+                            return new StaticRoute(valueList);
+                        case AccountType.Catalog:
+                            return new Catalog(valueList);
+                        case AccountType.ListServer:
+                            return new ListServer();
+                        case AccountType.Group:
+                            return new Group(valueList);
+                        case AccountType.Resource:
+                            return new Resource(valueList);
                         default:
                             break;
                     }

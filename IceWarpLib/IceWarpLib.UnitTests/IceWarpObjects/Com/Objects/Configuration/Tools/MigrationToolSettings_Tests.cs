@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using IceWarpLib.Objects.Com.Enums;
 using IceWarpLib.Objects.Com.Objects.Configuration.Tools;
+using IceWarpLib.Objects.Exceptions;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 using IceWarpLib.Objects.Rpc.Enums;
 using NUnit.Framework;
@@ -10,7 +12,8 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects.Configuration.Tools
 {
     public class MigrationToolSettings_Tests : BaseTest
     {
-        public void BuildTPropertyValues()
+        [Test]
+        public void BuildTPropertyValues_AllProperties()
         {
             var testClass = new MigrationToolSettings
             {
@@ -53,6 +56,45 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects.Configuration.Tools
             Assert.AreEqual(typeof(TPropertyString), infoAccount.PropertyVal.GetType());
             Assert.AreEqual("Info Account", ((TPropertyString)infoAccount.PropertyVal).Val);
             Assert.AreEqual(TPermission.ReadWrite, infoAccount.PropertyRight);
+        }
+
+        [Test]
+        public void BuildTPropertyValues_SelectProperties()
+        {
+            var testClass = new MigrationToolSettings
+            {
+                C_System_Tools_DBMigration_FixUTF8 = true,
+                C_System_Tools_Migration_Server = "",
+                C_System_Tools_Migration_MigrateService = ServerMigrationService.Both,
+                C_System_Tools_Migration_SSLMode = TlsSslMode.Detect,
+                C_System_Tools_Migration_InfoAccount = "Info Account"
+            };
+
+            var tPropertyValueItems = testClass.BuildTPropertyValues(new List<string> { "C_System_Tools_DBMigration_FixUTF8" });
+
+            Assert.AreEqual(1, tPropertyValueItems.Count);
+            var fixUTF8 = tPropertyValueItems.FirstOrDefault(x => x.APIProperty.PropName == "C_System_Tools_DBMigration_FixUTF8");
+            Assert.NotNull(fixUTF8);
+            Assert.AreEqual(typeof(TPropertyString), fixUTF8.PropertyVal.GetType());
+            Assert.AreEqual("1", ((TPropertyString)fixUTF8.PropertyVal).Val);
+            Assert.AreEqual(TPermission.ReadWrite, fixUTF8.PropertyRight);
+        }
+
+        [Test]
+        public void BuildTPropertyValues_InvalidProperty()
+        {
+            var testClass = new MigrationToolSettings
+            {
+                C_System_Tools_DBMigration_FixUTF8 = true,
+                C_System_Tools_Migration_Server = "",
+                C_System_Tools_Migration_MigrateService = ServerMigrationService.Both,
+                C_System_Tools_Migration_SSLMode = TlsSslMode.Detect,
+                C_System_Tools_Migration_InfoAccount = "Info Account"
+            };
+
+            var invalidPropertyName = "INVALID_PROPERTY";
+            var exception = Assert.Throws<SettablePropertyException>(() => testClass.BuildTPropertyValues(new List<string> { invalidPropertyName }));
+            Assert.AreEqual(invalidPropertyName, exception.PropertyName);
         }
     }
 }

@@ -143,7 +143,7 @@ namespace IceWarpLib.IntegrationTests
             var api = new IceWarpRpcApi();
             var authResult = Authenticate(api);
 
-            var propertyNames = ClassHelper.Properites(typeof(AccountsGlobalSettings), BindingFlags.Instance | BindingFlags.Public).Select(x => x.Name).ToList();
+            var propertyNames = ClassHelper.PublicProperites(typeof(AccountsGlobalSettings)).Select(x => x.Name).ToList();
             Assert.AreEqual(21, propertyNames.Count);
 
             var request = new GetServerProperties

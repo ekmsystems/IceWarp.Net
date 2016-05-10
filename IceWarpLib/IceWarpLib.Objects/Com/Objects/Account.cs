@@ -53,10 +53,5 @@ namespace IceWarpLib.Objects.Com.Objects
         protected Account(List<TPropertyValue> valueList) : base(valueList)
         {
         }
-
-        public T GetConcreteClass<T>(List<TPropertyValue> valueList) where T : Account, new()
-        {
-            return (T)ClassHelper.GetInstance(typeof(T).AssemblyQualifiedName, new[] { valueList });
-        }
     }
 }

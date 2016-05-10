@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using IceWarpLib.Objects.Exceptions;
 using IceWarpLib.Objects.Helpers;
 using IceWarpLib.Objects.Rpc.Classes.Property;
 
@@ -104,17 +105,8 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <returns>The list of settable properties. See <see cref="List{TPropertyValue}"/></returns>
         public List<TPropertyValue> BuildTPropertyValues()
         {
-            var properties = SetablePropertiesList();
-            var items = new List<TPropertyValue>();
-            foreach (var property in properties)
-            {
-                var value = buildTPropertyValue(property);
-                if (value != null)
-                {
-                    items.Add(value);
-                }
-            }
-            return items;
+            var allSettableProperties = SetablePropertiesList().Select(x => x.Name).ToList();
+            return BuildTPropertyValues(allSettableProperties);
         }
 
         /// <summary>
@@ -123,20 +115,21 @@ namespace IceWarpLib.Objects.Com.Objects
         /// </summary>
         /// <param name="propertyNames">List of property names</param>
         /// <returns>The list of settable properties. See <see cref="List{TPropertyValue}"/></returns>
+        /// <exception cref="SettablePropertyException">Thrown if the property name does not exist, is not public or doesn't have a set method.</exception>
         public List<TPropertyValue> BuildTPropertyValues(List<string> propertyNames)
         {
-            var properties = SetablePropertiesList();
             var items = new List<TPropertyValue>();
             foreach (var propertyName in propertyNames)
             {
-                var property = properties.FirstOrDefault(x => x.Name == propertyName);
-                if (property != null)
+                var property = ClassHelper.Property(this.GetType(), propertyName, BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.Public);
+                if (property == null || property.SetMethod == null || !property.SetMethod.IsPublic)
                 {
-                    var value = buildTPropertyValue(property);
-                    if (value != null)
-                    {
-                        items.Add(value);
-                    }
+                    throw new SettablePropertyException(propertyName);
+                }
+                var value = buildTPropertyValue(property);
+                if (value != null)
+                {
+                    items.Add(value);
                 }
             }
             return items;

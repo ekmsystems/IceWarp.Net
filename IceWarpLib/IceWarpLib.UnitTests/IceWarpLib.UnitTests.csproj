@@ -58,6 +58,7 @@
     <Compile Include="IceWarpObjects\Com\Objects\Configuration\Tools\MigrationToolSettings_Tests.cs" />
     <Compile Include="IceWarpObjects\Com\Objects\Domain_Tests.cs" />
     <Compile Include="IceWarpObjects\Helpers\ClassHelperTests.cs" />
+    <Compile Include="IceWarpObjects\Helpers\TPropertyValHelperTests.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceInfo_Test.cs" />
     <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceListFilter_Test.cs" />

@@ -108,6 +108,11 @@ namespace IceWarpLib.Objects.Helpers
             }
             return null;
         }
+        
+        public static PropertyInfo Property(Type type, string propertyName, BindingFlags bindingFlags)
+        {
+            return type.GetProperty(propertyName, bindingFlags);
+        }
 
         /// <summary>
         /// Gets a list of public properties.
