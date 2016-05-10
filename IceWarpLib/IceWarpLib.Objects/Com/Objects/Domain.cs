@@ -326,7 +326,7 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <summary>
         /// Write only property. Seting a value causes SMTP service to write info about actual account cache into file in temp dirctory
         /// </summary>
-        public string D_DumpSMTPAccountCache { get; set; }
+        public string D_DumpSMTPAccountCache { private get; set; }
         /// <summary>
         /// Domain mailbox size [Read only value]
         /// </summary>
@@ -334,7 +334,7 @@ namespace IceWarpLib.Objects.Com.Objects
         /// <summary>
         /// Write only variable , if anything is written there, refresh of the directorycache of this domain is scheduled
         /// </summary>
-        public bool? D_DirectoryCache_RefreshNow { get; set; }
+        public bool? D_DirectoryCache_RefreshNow { private get; set; }
         /// <summary>
         /// Status of ABQ
         /// </summary>
