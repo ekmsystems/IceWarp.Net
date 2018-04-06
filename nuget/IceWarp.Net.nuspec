@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>IceWarp.Net</id>
+        <version>1.0.4</version>
+        <title>IceWarp.Net</title>
+        <authors>Elizabeth Young</authors>
+        <owners>Elizabeth Young</owners>
+        <projectUrl>https://github.com/elizabeth-young/IceWarp.Net</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>IceWarp.Net fully implements the IceWarp API RPC calls.</description>
+        <summary>A .net wrapper for the IceWarp API.</summary>
+        <releaseNotes>Added passing specific property names when building TPropertyValue lists.</releaseNotes>
+        <language>en-GB</language>
+        <tags>IceWarp</tags>
+        <dependencies>
+            <group targetFramework="net452">
+                <dependency id="Newtonsoft.Json" version="8.0.3" />
+                <dependency id="structuremap" version="4.2.0.402" />
+            </group>
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\IceWarpLib\IceWarpLib.Rpc\bin\Release\IceWarpLib.Objects.dll" target="lib\net452\IceWarpLib.Objects.dll" />
+        <file src="..\IceWarpLib\IceWarpLib.Rpc\bin\Release\IceWarpLib.Rpc.dll" target="lib\net452\IceWarpLib.Rpc.dll" />
+    </files>
+</package>
