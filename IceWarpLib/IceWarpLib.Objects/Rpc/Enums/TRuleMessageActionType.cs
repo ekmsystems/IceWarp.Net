@@ -7,7 +7,7 @@
     public enum TRuleMessageActionType
     {
         Accept = 0,
-        Delete = 0,
+        Delete = 1,
         Reject = 2,
         Spam = 3,
         Quarantine = 4
