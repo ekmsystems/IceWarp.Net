@@ -16,10 +16,10 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Domain
     [TestFixture]
     public class DomainRequestTests
     {
-        private readonly string _requestsTestDataPath = @"IceWarpRpc\Requests\Domain\TestData\Requests";
-        private readonly string _responsesTestDataPath = @"IceWarpRpc\Requests\Domain\TestData\Responses";
+        private readonly string _requestsTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Domain\TestData\Requests";
+        private readonly string _responsesTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Domain\TestData\Responses";
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void FixtureSetup() { }
 
         [SetUp]
@@ -28,7 +28,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Domain
         [TearDown]
         public void TestTearDown() { }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void FixtureTearDown() { }
 
         [Test]

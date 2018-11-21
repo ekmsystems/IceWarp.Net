@@ -18,10 +18,10 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Account
     [TestFixture]
     public class AccountRequestTests
     {
-        private readonly string _requestsTestDataPath = @"IceWarpRpc\Requests\Account\TestData\Requests";
-        private readonly string _responsesTestDataPath = @"IceWarpRpc\Requests\Account\TestData\Responses";
+        private readonly string _requestsTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Account\TestData\Requests";
+        private readonly string _responsesTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Account\TestData\Responses";
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void FixtureSetup() { }
 
         [SetUp]
@@ -30,7 +30,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Account
         [TearDown]
         public void TestTearDown() { }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void FixtureTearDown() { }
 
         [Test]

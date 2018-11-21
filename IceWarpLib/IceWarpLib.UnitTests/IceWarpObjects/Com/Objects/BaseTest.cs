@@ -9,7 +9,7 @@ namespace IceWarpLib.UnitTests.IceWarpObjects.Com.Objects
     [TestFixture]
     public abstract class BaseTest
     {
-        private readonly string _requestsTestDataPath = @"IceWarpObjects\Com\Objects\XmlFiles";
+        private readonly string _requestsTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpObjects\Com\Objects\XmlFiles";
 
         protected XmlDocument BuildXmlDocument(string xml)
         {

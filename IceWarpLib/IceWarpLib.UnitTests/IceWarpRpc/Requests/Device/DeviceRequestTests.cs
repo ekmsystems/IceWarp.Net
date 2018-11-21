@@ -15,10 +15,10 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
     [TestFixture]
     public class DeviceRequestTests
     {
-        private readonly string _requestsTestDataPath = @"IceWarpRpc\Requests\Device\TestData\Requests";
-        private readonly string _responsesTestDataPath = @"IceWarpRpc\Requests\Device\TestData\Responses";
+        private readonly string _requestsTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Device\TestData\Requests";
+        private readonly string _responsesTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Device\TestData\Responses";
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void FixtureSetup() { }
 
         [SetUp]
@@ -27,7 +27,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Device
         [TearDown]
         public void TestTearDown() { }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void FixtureTearDown() { }
         
         [Test]

@@ -33,7 +33,7 @@ namespace IceWarpLib.IntegrationTests
         private string _adminEmail = ConfigurationManager.AppSettings["AdminEmail"];
         private string _adminPassword = ConfigurationManager.AppSettings["AdminPassword"];
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void FixtureSetup() { }
 
         [SetUp]
@@ -42,7 +42,7 @@ namespace IceWarpLib.IntegrationTests
         [TearDown]
         public void TestTearDown() { }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void FixtureTearDown() { }
 
         [Test]
