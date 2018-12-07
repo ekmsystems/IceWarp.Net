@@ -8,7 +8,7 @@
 	<PropertyGroup>
 		<Description>IceWarp Library Objects</Description>
 		<VersionPrefix>1.0.0.0</VersionPrefix>
-		<TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
 		<AssemblyName>IceWarpLib.Objects</AssemblyName>
 		<PackageId>IceWarpLib.Objects</PackageId>
 		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -36,9 +36,5 @@
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
 	  <PackageReference Include="StructureMap" Version="4.7.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Properties\" />
 	</ItemGroup>
 </Project>

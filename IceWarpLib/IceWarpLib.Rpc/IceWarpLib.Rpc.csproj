@@ -8,7 +8,7 @@
 	<PropertyGroup>
 		<Description>IceWarp Library Rpc</Description>
 		<VersionPrefix>1.0.0.0</VersionPrefix>
-		<TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
 		<AssemblyName>IceWarpLib.Rpc</AssemblyName>
 		<PackageId>IceWarpLib.Rpc</PackageId>
 		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -35,9 +35,5 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\IceWarpLib.Objects\IceWarpLib.Objects.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Properties\" />
 	</ItemGroup>
 </Project>
