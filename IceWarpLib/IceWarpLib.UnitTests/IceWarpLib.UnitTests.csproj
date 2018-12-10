@@ -8,7 +8,7 @@
 	<PropertyGroup>
 		<Description>IceWarpLib UnitTests</Description>
 		<VersionPrefix>1.0.0.0</VersionPrefix>
-		<TargetFrameworks>net452;netcoreapp2.1</TargetFrameworks>
+		<TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
 		<AssemblyName>IceWarpLib.UnitTests</AssemblyName>
 		<PackageId>IceWarpLib.UnitTests</PackageId>
 		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -34,17 +34,25 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
-	  <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
-	  <PackageReference Include="NUnit" Version="3.11.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\IceWarpLib.Objects\IceWarpLib.Objects.csproj" />
 	  <ProjectReference Include="..\IceWarpLib.Rpc\IceWarpLib.Rpc.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="NUnit" Version="2.6.4" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+    <PackageReference Include="NUnit" Version="3.7.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.11.2" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\AccountsGlobalSettings_TPropertyValueListResponse.xml">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

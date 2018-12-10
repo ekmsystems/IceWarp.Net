@@ -13,7 +13,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests
     [TestFixture]
     public class ErrorResponseTests
     {
-        [OneTimeSetUp]
+        [TestFixtureSetUp]
         public void FixtureSetup() { }
 
         [SetUp]
@@ -22,7 +22,7 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests
         [TearDown]
         public void TestTearDown() { }
 
-        [OneTimeTearDown]
+        [TestFixtureTearDown]
         public void FixtureTearDown() { }
 
         #region Received Error
