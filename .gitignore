@@ -55,3 +55,6 @@ build/
 *.scc
 *.lock
 
+IceWarpLib/.vs/IceWarpLib/v15/Server/sqlite3/storage.ide
+IceWarpLib/.vs/IceWarpLib/v15/Server/sqlite3/storage.ide-shm
+IceWarpLib/.vs/IceWarpLib/v15/Server/sqlite3/storage.ide-wal
