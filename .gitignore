@@ -53,4 +53,5 @@ build/
 *.pidb
 *.log
 *.scc
+*.lock
 

@@ -3,10 +3,7 @@ using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using IceWarpLib.Objects.Com.Enums;
-using IceWarpLib.Objects.Com.Objects;
 using IceWarpLib.Objects.Com.Objects.AccountTypes;
-using IceWarpLib.Objects.Com.Objects.Configuration;
-using IceWarpLib.Objects.Com.Objects.Configuration.Advanced;
 using IceWarpLib.Objects.Com.Objects.Configuration.Global;
 using IceWarpLib.Objects.Com.Objects.Configuration.Tools;
 using IceWarpLib.Objects.Helpers;
@@ -267,4 +264,5 @@ namespace IceWarpLib.IntegrationTests
             Assert.True(logoutResult.HttpRequestResult.Success);
         }
     }
+			
 }

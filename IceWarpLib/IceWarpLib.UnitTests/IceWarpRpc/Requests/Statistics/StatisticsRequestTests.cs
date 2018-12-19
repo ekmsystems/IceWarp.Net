@@ -18,8 +18,8 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Statistics
     [TestFixture]
     public class StatisticsRequestTests
     {
-        private readonly string _requestsTestDataPath = @"IceWarpRpc\Requests\Statistics\TestData\Requests";
-        private readonly string _responsesTestDataPath = @"IceWarpRpc\Requests\Statistics\TestData\Responses";
+        private readonly string _requestsTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Statistics\TestData\Requests";
+        private readonly string _responsesTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Statistics\TestData\Responses";
 
         [TestFixtureSetUp]
         public void FixtureSetup() { }

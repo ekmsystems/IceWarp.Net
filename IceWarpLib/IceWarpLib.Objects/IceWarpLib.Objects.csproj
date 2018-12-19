@@ -1,281 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2EC8BC82-E41C-490E-9887-77529DC9E6BD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IceWarpLib.Objects</RootNamespace>
-    <AssemblyName>IceWarpLib.Objects</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\IceWarpLib.Objects.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Com\Enums\StorageMode.cs" />
-    <Compile Include="Com\Enums\AccountType.cs" />
-    <Compile Include="Com\Enums\ArchiveOption.cs" />
-    <Compile Include="Com\Enums\Startup.cs" />
-    <Compile Include="Com\Enums\DomainListDisplay.cs" />
-    <Compile Include="Com\Enums\ExecutableType.cs" />
-    <Compile Include="Com\Enums\IMAPIndexedSearch.cs" />
-    <Compile Include="Com\Enums\InternetConnectionMode.cs" />
-    <Compile Include="Com\Enums\LicenseType.cs" />
-    <Compile Include="Com\Enums\ListServer.cs" />
-    <Compile Include="Com\Enums\Logging.cs" />
-    <Compile Include="Com\Enums\NotificationFilter.cs" />
-    <Compile Include="Com\Enums\Originator.cs" />
-    <Compile Include="Com\Enums\Policies.cs" />
-    <Compile Include="Com\Enums\ResourceType.cs" />
-    <Compile Include="Com\Enums\ServerType.cs" />
-    <Compile Include="Com\Enums\SmartDiscoverType.cs" />
-    <Compile Include="Com\Enums\SMTPType.cs" />
-    <Compile Include="Com\Enums\SpamFolderMode.cs" />
-    <Compile Include="Com\Enums\StaticRoute.cs" />
-    <Compile Include="Com\Enums\SupportedSslProtocol.cs" />
-    <Compile Include="Com\Enums\SystemTools.cs" />
-    <Compile Include="Com\Enums\TlsSslMode.cs" />
-    <Compile Include="Com\Enums\User.cs" />
-    <Compile Include="Com\Enums\MailingList.cs" />
-    <Compile Include="Com\Enums\Moderation.cs" />
-    <Compile Include="Com\Flags\HeaderFooterFlag.cs" />
-    <Compile Include="Com\Flags\MailingListDefaultRightsFlag.cs" />
-    <Compile Include="Com\Flags\SystemConsolePolicyFlag.cs" />
-    <Compile Include="Com\Objects\Account.cs" />
-    <Compile Include="Com\Objects\AccountTypes\Catalog.cs" />
-    <Compile Include="Com\Objects\AccountTypes\Resource.cs" />
-    <Compile Include="Com\Objects\ComBaseClass.cs" />
-    <Compile Include="Com\Objects\Configuration\Advanced\AdvancedSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Advanced\ExtensionAdvancedSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Advanced\NotificationAdvancedSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Advanced\ProtocolAdvancedSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Global\AccountsGlobalSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Global\ConsoleGlobalSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Global\DomainsGlobalSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Global\LDAPGlobalSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Policies\LoginPolicy.cs" />
-    <Compile Include="Com\Objects\Configuration\Policies\PasswordPolicy.cs" />
-    <Compile Include="Com\Objects\Configuration\SystemSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\ArchiveToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\AtomicClockToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\TunnelToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\WCStatisticsToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\VersionAndLicense.cs" />
-    <Compile Include="Com\Objects\Domain.cs" />
-    <Compile Include="Com\Enums\Domain.cs" />
-    <Compile Include="Com\Enums\ServerOsVersion.cs" />
-    <Compile Include="Com\Objects\AccountTypes\Executable.cs" />
-    <Compile Include="Com\Objects\System\SystemActiveDirectory.cs" />
-    <Compile Include="Com\Objects\Configuration\InternetConnectionSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Logging\GeneralLoggingSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Logging\ServicesLoggingsettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\FTPServiceSettings.cs" />
-    <Compile Include="Com\Objects\AccountTypes\Group.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\GroupWareServiceSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\IMAPServiceSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\IMServiceSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\LDAPServiceSettings.cs" />
-    <Compile Include="Com\Objects\AccountTypes\ListServer.cs" />
-    <Compile Include="Com\Objects\AccountTypes\MailingList.cs" />
-    <Compile Include="Com\Objects\AccountTypes\Notification.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\MingerServiceSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\POP3ServiceSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\ProxySettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\SmartDiscoverSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\SMTPServiceSettings.cs" />
-    <Compile Include="Com\Objects\AccountTypes\StaticRoute.cs" />
-    <Compile Include="Com\Objects\AccountTypes\User.cs" />
-    <Compile Include="Com\Objects\Configuration\Services\WebControlServiceSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Storage\AccountsStorageSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Storage\DirectoriesStorageSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Storage\LoadBalancingStorageSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\RemoteServerToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\MigrationToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\WatchdogToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\BackupToolSettings.cs" />
-    <Compile Include="Com\Objects\Configuration\Tools\MonitorToolSettings.cs" />
-    <Compile Include="Exceptions\SettablePropertyException.cs" />
-    <Compile Include="Helpers\ClassHelper.cs" />
-    <Compile Include="Helpers\EnumHelper.cs" />
-    <Compile Include="Helpers\Extensions.cs" />
-    <Compile Include="Helpers\ReflectiveEnumerator.cs" />
-    <Compile Include="Helpers\TPropertyValHelper.cs" />
-    <Compile Include="Helpers\SerializationHelper.cs" />
-    <Compile Include="Helpers\XmlHelper.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rpc\Classes\BaseClass.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountCard.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountImage.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountInfo.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountListFilter.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountName.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountOutlookPolicies.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountPropertyList.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountQuota.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountResponder.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountResponderMessage.cs" />
-    <Compile Include="Rpc\Classes\Account\TAccountState.cs" />
-    <Compile Include="Rpc\Classes\Account\TActivationKey.cs" />
-    <Compile Include="Rpc\Classes\Account\TAdministrativePermissions.cs" />
-    <Compile Include="Rpc\Classes\Account\TAdministrativePermissionsList.cs" />
-    <Compile Include="Rpc\Classes\Device\TDevicePropertyList.cs" />
-    <Compile Include="Rpc\Classes\Device\TMobileDeviceInfo.cs" />
-    <Compile Include="Rpc\Classes\Device\TMobileDeviceListFilter.cs" />
-    <Compile Include="Rpc\Classes\Property\TAPIProperty.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainInfo.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainListFilter.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainOutlookPolicies.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainPropertyList.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainsAdministrativePermissions.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainsAdministrativePermissionsSet.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainSpec.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainsPermissionsList.cs" />
-    <Compile Include="Rpc\Classes\Domain\TDomainsSet.cs" />
-    <Compile Include="Rpc\Classes\Account\TFolderInfo.cs" />
-    <Compile Include="Rpc\Classes\Account\TFolderInfoList.cs" />
-    <Compile Include="Rpc\Classes\Account\TFolderPermissions.cs" />
-    <Compile Include="Rpc\Classes\Account\TFolderPermissionsItem.cs" />
-    <Compile Include="Rpc\Classes\Account\TIMRoster.cs" />
-    <Compile Include="Rpc\Classes\Account\TIMRosterItem.cs" />
-    <Compile Include="Rpc\Classes\Account\TIMRosterList.cs" />
-    <Compile Include="Rpc\Classes\Account\TOutlookPolicies.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyEnumValue.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyEnumValues.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyInfo.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyListFilter.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyMember.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyMembers.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyNoValue.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyPermission.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyRight.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyString.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyStringList.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyTranslateInfo.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyVal.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyValue.cs" />
-    <Compile Include="Rpc\Classes\Property\TPropertyValueList.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleActions.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleCopyToFolderAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleEditHeaderAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleEncryptAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleForwardToEmailAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleMessageActionAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleMoveToFolderAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRulePriorityAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleSendMessageAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleSetFlagsAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Actions\TRuleStopAction.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleAllCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleConditions.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleDNSBLCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleHasAttachmentCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\TRuleEditHeaderItem.cs" />
-    <Compile Include="Rpc\Classes\Rule\TRuleEditHeaderList.cs" />
-    <Compile Include="Rpc\Classes\Rule\TRuleInfo.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleIsSizeCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleIsSpamCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleLocalTimeCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRulePriorityCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSenderRecipientCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\TRuleSettings.cs" />
-    <Compile Include="Rpc\Classes\Rule\TRulesListFilter.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSMTPAuthCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition.cs" />
-    <Compile Include="Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition.cs" />
-    <Compile Include="Rpc\Classes\Server\TServerPropertyList.cs" />
-    <Compile Include="Rpc\Classes\Services\TSCItm.cs" />
-    <Compile Include="Rpc\Classes\Services\TSCItmList.cs" />
-    <Compile Include="Rpc\Classes\Services\TServiceBasicStatistics.cs" />
-    <Compile Include="Rpc\Classes\Services\TServiceInfo.cs" />
-    <Compile Include="Rpc\Classes\Services\TServiceListFilter.cs" />
-    <Compile Include="Rpc\Classes\Services\TServiceSMTPStatistics.cs" />
-    <Compile Include="Rpc\Classes\Services\TServiceStatistics.cs" />
-    <Compile Include="Rpc\Classes\Services\TServiceVOIPStatistics.cs" />
-    <Compile Include="Rpc\Classes\Session\TAuthChallenge.cs" />
-    <Compile Include="Rpc\Classes\Statistics\TStatisticsPropertyList.cs" />
-    <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItem.cs" />
-    <Compile Include="Rpc\Classes\Webclient\TWebmailSettingItemList.cs" />
-    <Compile Include="Rpc\Enums\TAccountPropertySet.cs" />
-    <Compile Include="Rpc\Enums\TActivationKeyType.cs" />
-    <Compile Include="Rpc\Enums\TAdminType.cs" />
-    <Compile Include="Rpc\Enums\TAuthType.cs" />
-    <Compile Include="Rpc\Enums\TDomainType.cs" />
-    <Compile Include="Rpc\Enums\TMobileDeviceRemoteWipe.cs" />
-    <Compile Include="Rpc\Enums\TMobileDeviceRemoteWipeSet.cs" />
-    <Compile Include="Rpc\Enums\TMobileDeviceStatus.cs" />
-    <Compile Include="Rpc\Enums\TMobileDeviceStatusSet.cs" />
-    <Compile Include="Rpc\Enums\TPermission.cs" />
-    <Compile Include="Rpc\Enums\TPropertyValueType.cs" />
-    <Compile Include="Rpc\Enums\TResponder.cs" />
-    <Compile Include="Rpc\Enums\TRuleActionType.cs" />
-    <Compile Include="Rpc\Enums\TRuleCompareType.cs" />
-    <Compile Include="Rpc\Enums\TRuleConditionType.cs" />
-    <Compile Include="Rpc\Enums\TRuleEditHeaderType.cs" />
-    <Compile Include="Rpc\Enums\TRuleMessageActionType.cs" />
-    <Compile Include="Rpc\Enums\TRuleMoveType.cs" />
-    <Compile Include="Rpc\Enums\TRuleMultipleItemsMatchType.cs" />
-    <Compile Include="Rpc\Enums\TRulePriorityType.cs" />
-    <Compile Include="Rpc\Enums\TRuleRecipientConditionType.cs" />
-    <Compile Include="Rpc\Enums\TRuleRecipientSenderType.cs" />
-    <Compile Include="Rpc\Enums\TRuleRemoteLocalType.cs" />
-    <Compile Include="Rpc\Enums\TRuleSomeWordsFunctionType.cs" />
-    <Compile Include="Rpc\Enums\TServiceChartPeriod.cs" />
-    <Compile Include="Rpc\Enums\TServiceChartType.cs" />
-    <Compile Include="Rpc\Enums\TServiceType.cs" />
-    <Compile Include="Rpc\Enums\TUserState.cs" />
-    <Compile Include="Rpc\Enums\TWebmailSettingAccessLevel.cs" />
-    <Compile Include="Rpc\Enums\TWebmailSettingLevel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Label="Globals">
+		<SccProjectName>SAK</SccProjectName>
+		<SccProvider>SAK</SccProvider>
+		<SccAuxPath>SAK</SccAuxPath>
+		<SccLocalPath>SAK</SccLocalPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Description>IceWarp Library Objects</Description>
+		<VersionPrefix>1.0.0.0</VersionPrefix>
+		<TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
+		<AssemblyName>IceWarpLib.Objects</AssemblyName>
+		<PackageId>IceWarpLib.Objects</PackageId>
+		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+		<GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+		<RootNamespace>IceWarpLib.Objects</RootNamespace>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>pdbonly</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+	  <PackageReference Include="StructureMap" Version="4.7.0" />
+	</ItemGroup>
 </Project>

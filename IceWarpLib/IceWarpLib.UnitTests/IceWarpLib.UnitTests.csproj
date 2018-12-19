@@ -1,580 +1,498 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB0CA46C-C660-404A-8804-8C19FEFD8563}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IceWarpLib.UnitTests</RootNamespace>
-    <AssemblyName>IceWarpLib.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Label="Globals">
+		<SccProjectName>SAK</SccProjectName>
+		<SccProvider>SAK</SccProvider>
+		<SccAuxPath>SAK</SccAuxPath>
+		<SccLocalPath>SAK</SccLocalPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Description>IceWarpLib UnitTests</Description>
+		<VersionPrefix>1.0.0.0</VersionPrefix>
+		<TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+		<AssemblyName>IceWarpLib.UnitTests</AssemblyName>
+		<PackageId>IceWarpLib.UnitTests</PackageId>
+		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+		<GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+		<RootNamespace>IceWarpLib.UnitTests</RootNamespace>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>pdbonly</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\IceWarpLib.Objects\IceWarpLib.Objects.csproj" />
+	  <ProjectReference Include="..\IceWarpLib.Rpc\IceWarpLib.Rpc.csproj" />
+	</ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="NUnit" Version="2.6.4" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.1" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Catalog_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Executable_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\ListServer_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\MailingList_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Notification_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Resource_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\StaticRoute_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\Group_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\AccountTypes\User_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\BaseTest.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\Configuration\Tools\MigrationToolSettings_Tests.cs" />
-    <Compile Include="IceWarpObjects\Com\Objects\Domain_Tests.cs" />
-    <Compile Include="IceWarpObjects\Helpers\ClassHelperTests.cs" />
-    <Compile Include="IceWarpObjects\Helpers\TPropertyValHelperTests.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\BaseTest.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceInfo_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Device\TMobileDeviceListFilter_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleActions_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleCopyToFolderAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleEditHeaderAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleEncryptAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleForwardToEmailAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleMessageActionAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleMoveToFolderAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRulePriorityAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleSendMessageAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleSetFlagsAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Actions\TRuleStopAction_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleAllCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleConditions_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleDNSBLCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleHasAttachmentCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleIsSizeCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleIsSpamCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleLocalTimeCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRulePriorityCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSenderRecipientCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSMTPAuthCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSomeWordsCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleSpamScoreCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\Conditions\TRuleTrustedSessionCondition_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleEditHeaderItem_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleEditHeaderList_Test.cs" />
-    <Compile Include="IceWarpObjects\Rpc\Classes\Rule\TRuleSettings_Test.cs" />
-    <Compile Include="IceWarpRpc\Requests\Account\AccountRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Device\DeviceRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Domain\DomainRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\ErrorResponseTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Rules\RulesRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Server\ServerRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Services\ServicesRequestsTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Session\SessionRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Statistics\StatisticsRequestTests.cs" />
-    <Compile Include="IceWarpRpc\Requests\Webclient\WebclientRequestTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+    <PackageReference Include="NUnit" Version="3.7.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.11.2" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\AccountsGlobalSettings_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Resource_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\ListServer_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Catalog_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\StaticRoute_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Notification_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Executable_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Group_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\MailingList_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\User_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpObjects\Com\Objects\XmlFiles\Domain_TPropertyValueListResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\AddAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\AddAllAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\CreateAccount.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAccounts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAllAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAllAccounts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAllAccounts_NoFilter.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\ExpireAccountPassword.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GenerateAccountActivationKey.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GenerateAccountPassword.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountAdministrativePermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountAPIConsole.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountAPIConsole_NoFilter.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountFolderList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountFolderPermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountProperties_PropertySet.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountsInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountsInfoList_NoFilter.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\InheritAccountFolderPermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\SendAccountActivationKey.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\SetAccountFolderPermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\SetAccountPassword.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Requests\SetAccountProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\AddAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\AddAllAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\CreateAccount.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAccounts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAllAccountMembers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAllAccounts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\ExpireAccountPassword.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GenerateAccountActivationKey.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GenerateAccountPassword.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountAdministrativePermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountAdministrativePermissions_EmptyResult.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountAPIConsole.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountFolderList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountFolderPermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountProperties_PropertySet.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountsInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\InheritAccountFolderPermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\SendAccountActivationKey.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountFolderPermissions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountPassword.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\SetAllDevicesStatus.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\DeleteAllDevices.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\SetDeviceStatus.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\SetDeviceWipe.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\DeleteDevices.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\SetDeviceProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\GetDeviceProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Requests\GetDevicesInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\SetAllDevicesStatus.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\DeleteAllDevices.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\SetDeviceStatus.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\SetDeviceWipe.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\DeleteDevices.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\SetDeviceProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\GetDeviceProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Device\TestData\Responses\GetDevicesInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\DeleteDomain.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\CreateDomain.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainAPIConsole.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainAPIConsole_NoFilter.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainsInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainsInfoList_NoFilter.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\GetMyDomainRights.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\RenameDomain.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Requests\SetDomainProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\DeleteDomain.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\CreateDomain.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainAPIConsole.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainAPIConsole_TPropertyVals.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainsInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\GetMyDomainRights.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\RenameDomain.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Domain\TestData\Responses\SetDomainProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\ErrorResponse.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\MoveRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\DeleteRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\EditRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\AddRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\GetRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Requests\GetRulesInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\DeleteRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\MoveRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\EditRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\AddRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\GetRule.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Rules\TestData\Responses\GetRulesInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetAllAPIVariables.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetServerAPIConsole.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetServerAPIConsole_NoFilter.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\GetServerProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Requests\SetServerProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\GetServerAPIConsole.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\GetAllAPIVariables.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\GetServerProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Server\TestData\Responses\SetServerProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetTrafficCharts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\RestartService.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\StopService.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\StartService.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\IsServiceRunning.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetServiceStatistics_POP3.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetServiceStatistics_SMTP.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetServiceStatistics_VOIP.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Requests\GetServicesInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\GetTrafficCharts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\StartService.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\StopService.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\RestartService.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\IsServiceRunning.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\GetServiceStatistics_POP3.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\GetServiceStatistics_SMTP.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\GetServiceStatistics_VOIP.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Services\TestData\Responses\GetServicesInfoList.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Requests\Authenticate.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Requests\GetAuthChallenge.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Requests\GetSessionInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Requests\Logout.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Responses\Authenticate.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Responses\GetAuthChallenge.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Responses\GetSessionInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Session\TestData\Responses\Logout.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Statistics\TestData\Requests\GetStatisticsProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Statistics\TestData\Responses\GetStatisticsProperties.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Webclient\TestData\Requests\GetWebmailResource.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Webclient\TestData\Responses\GetWebmailResource_Empty.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IceWarpRpc\Requests\Webclient\TestData\Responses\GetWebmailResource.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IceWarpLib.Objects\IceWarpLib.Objects.csproj">
-      <Project>{2ec8bc82-e41c-490e-9887-77529dc9e6bd}</Project>
-      <Name>IceWarpLib.Objects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IceWarpLib.Rpc\IceWarpLib.Rpc.csproj">
-      <Project>{87007c89-ecde-4130-aa26-5af14b251379}</Project>
-      <Name>IceWarpLib.Rpc</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IceWarpObjects\Rpc\Classes\Account\" />
-    <Folder Include="IceWarpObjects\Rpc\Classes\Domain\" />
-    <Folder Include="IceWarpObjects\Rpc\Classes\Property\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\AccountsGlobalSettings_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\Catalog_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\Domain_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\Executable_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\Group_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\ListServer_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\MailingList_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\Notification_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\Resource_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\StaticRoute_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpObjects\Com\Objects\XmlFiles\User_TPropertyValueListResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\AddAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\AddAllAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\CreateAccount.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAccounts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAllAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAllAccounts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\DeleteAllAccounts_NoFilter.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\ExpireAccountPassword.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GenerateAccountActivationKey.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GenerateAccountPassword.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountAdministrativePermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountAPIConsole.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountAPIConsole_NoFilter.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountFolderList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountFolderPermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountProperties_PropertySet.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountsInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\GetAccountsInfoList_NoFilter.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\InheritAccountFolderPermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\SendAccountActivationKey.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\SetAccountFolderPermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\SetAccountPassword.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Requests\SetAccountProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\AddAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\AddAllAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\CreateAccount.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAccounts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAllAccountMembers.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\DeleteAllAccounts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\ExpireAccountPassword.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GenerateAccountActivationKey.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GenerateAccountPassword.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountAdministrativePermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountAdministrativePermissions_EmptyResult.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountAPIConsole.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountFolderList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountFolderPermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountProperties_PropertySet.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\GetAccountsInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\InheritAccountFolderPermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\SendAccountActivationKey.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountFolderPermissions.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountPassword.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Account\TestData\Responses\SetAccountProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\DeleteAllDevices.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\DeleteDevices.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\GetDeviceProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\GetDevicesInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\SetAllDevicesStatus.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\SetDeviceProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\SetDeviceStatus.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Requests\SetDeviceWipe.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\DeleteAllDevices.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\DeleteDevices.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\GetDeviceProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\GetDevicesInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\SetAllDevicesStatus.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\SetDeviceProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\SetDeviceStatus.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Device\TestData\Responses\SetDeviceWipe.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\CreateDomain.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\DeleteDomain.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainAPIConsole.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainAPIConsole_NoFilter.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainsInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\GetDomainsInfoList_NoFilter.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\GetMyDomainRights.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\RenameDomain.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Requests\SetDomainProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\CreateDomain.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\DeleteDomain.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainAPIConsole.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainAPIConsole_TPropertyVals.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\GetDomainsInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\GetMyDomainRights.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\RenameDomain.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Domain\TestData\Responses\SetDomainProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\ErrorResponse.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Requests\AddRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Requests\DeleteRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Requests\EditRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Requests\GetRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Requests\GetRulesInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Requests\MoveRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Responses\AddRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Responses\DeleteRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Responses\EditRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Responses\GetRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Responses\GetRulesInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Rules\TestData\Responses\MoveRule.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Requests\GetAllAPIVariables.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Requests\GetServerAPIConsole.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Requests\GetServerAPIConsole_NoFilter.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Requests\GetServerProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Requests\SetServerProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Responses\GetAllAPIVariables.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Responses\GetServerAPIConsole.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Responses\GetServerProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Server\TestData\Responses\SetServerProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\GetServicesInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\GetServiceStatistics_POP3.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\GetServiceStatistics_SMTP.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\GetServiceStatistics_VOIP.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\GetTrafficCharts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\IsServiceRunning.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\RestartService.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\StartService.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Requests\StopService.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\GetServicesInfoList.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\GetServiceStatistics_POP3.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\GetServiceStatistics_SMTP.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\GetServiceStatistics_VOIP.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\GetTrafficCharts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\IsServiceRunning.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\RestartService.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\StartService.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Services\TestData\Responses\StopService.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Requests\Authenticate.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Requests\GetAuthChallenge.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Requests\GetSessionInfo.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Requests\Logout.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Responses\Authenticate.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Responses\GetAuthChallenge.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Responses\GetSessionInfo.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Session\TestData\Responses\Logout.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Statistics\TestData\Requests\GetStatisticsProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Statistics\TestData\Responses\GetStatisticsProperties.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Webclient\TestData\Requests\GetWebmailResource.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Webclient\TestData\Responses\GetWebmailResource.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="IceWarpRpc\Requests\Webclient\TestData\Responses\GetWebmailResource_Empty.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceWarpLib.UnitTests", "IceWarpLib.UnitTests\IceWarpLib.UnitTests.csproj", "{CB0CA46C-C660-404A-8804-8C19FEFD8563}"
 EndProject
@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{15CF0A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceWarpLib.IntegrationTests", "IceWarpLib.IntegrationTests\IceWarpLib.IntegrationTests.csproj", "{5F01F419-C23B-4CB2-B914-583299A1E143}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceWarpLib.Objects", "IceWarpLib.Objects\IceWarpLib.Objects.csproj", "{2EC8BC82-E41C-490E-9887-77529DC9E6BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceWarpLib.Objects", "IceWarpLib.Objects\IceWarpLib.Objects.csproj", "{2EC8BC82-E41C-490E-9887-77529DC9E6BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceWarpLib.Rpc", "IceWarpLib.Rpc\IceWarpLib.Rpc.csproj", "{87007C89-ECDE-4130-AA26-5AF14B251379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceWarpLib.Rpc", "IceWarpLib.Rpc\IceWarpLib.Rpc.csproj", "{87007C89-ECDE-4130-AA26-5AF14B251379}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,5 +43,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB8E5B86-B1F9-4D20-B1ED-DBCEB0A69531}
 	EndGlobalSection
 EndGlobal

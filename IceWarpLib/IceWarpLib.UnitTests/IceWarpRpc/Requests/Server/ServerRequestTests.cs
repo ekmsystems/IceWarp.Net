@@ -20,8 +20,8 @@ namespace IceWarpLib.UnitTests.IceWarpRpc.Requests.Server
     [TestFixture]
     public class ServerRequestTests
     {
-        private readonly string _requestsTestDataPath = @"IceWarpRpc\Requests\Server\TestData\Requests";
-        private readonly string _responsesTestDataPath = @"IceWarpRpc\Requests\Server\TestData\Responses";
+        private readonly string _requestsTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Server\TestData\Requests";
+        private readonly string _responsesTestDataPath = $@"{TestHelper.GetTestsPath()}\IceWarpRpc\Requests\Server\TestData\Responses";
 
         [TestFixtureSetUp]
         public void FixtureSetup() { }
