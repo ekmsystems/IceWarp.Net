@@ -30,7 +30,7 @@ namespace IceWarpLib.IntegrationTests
         private string _adminEmail = ConfigurationManager.AppSettings["AdminEmail"];
         private string _adminPassword = ConfigurationManager.AppSettings["AdminPassword"];
 
-        [OneTimeSetUp]
+        [TestFixtureSetUp]
         public void FixtureSetup() { }
 
         [SetUp]
@@ -39,7 +39,7 @@ namespace IceWarpLib.IntegrationTests
         [TearDown]
         public void TestTearDown() { }
 
-        [OneTimeTearDown]
+        [TestFixtureTearDown]
         public void FixtureTearDown() { }
 
         [Test]
@@ -264,11 +264,5 @@ namespace IceWarpLib.IntegrationTests
             Assert.True(logoutResult.HttpRequestResult.Success);
         }
     }
-			var logoutResult = api.Execute(_url, logout);
-
-			Assert.NotNull(logoutResult);
-			Assert.NotNull(logoutResult.HttpRequestResult);
-			Assert.True(logoutResult.HttpRequestResult.Success);
-		}
-	}
+			
 }
